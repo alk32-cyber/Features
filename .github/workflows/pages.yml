@@ -33,11 +33,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Staged outside the checkout first: _site lives inside the working tree,
+      # so copying "." into it directly would copy the directory into itself.
       - name: Stage the site
         run: |
-          mkdir -p _site
-          cp -a ./. _site/
-          rm -rf _site/.git _site/.github _site/node_modules _site/scripts _site/DESIGN.md _site/_site
+          STAGE="$RUNNER_TEMP/_stage"
+          rm -rf "$STAGE" && mkdir -p "$STAGE"
+          tar -cf - \
+            --exclude=./.git --exclude=./.github --exclude=./node_modules \
+            --exclude=./scripts --exclude=./DESIGN.md --exclude=./_site . \
+            | tar -xf - -C "$STAGE"
+          rm -rf _site && mv "$STAGE" _site
+          ls -la _site
 
       - name: Rewrite root-relative URLs for sub-path hosting
         run: |
