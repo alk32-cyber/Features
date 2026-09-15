@@ -1,0 +1,93 @@
+# Preview deployment to GitHub Pages.
+#
+# This is a staging target, not the production plan — production is a static host
+# serving the repo as-is at the real domain (see vercel.json and README.md).
+#
+# GitHub Pages serves a project site from a sub-path (/<repo>/), but the source
+# uses root-relative URLs because that is correct for the real domain. So this
+# workflow rewrites them to relative URLs in the build artifact only. The
+# repository itself is never modified.
+#
+# Requires one setting, once: Settings → Pages → Build and deployment →
+# Source: "GitHub Actions". It cannot be enabled from CI.
+
+name: Deploy preview to GitHub Pages
+
+on:
+  push:
+    branches: [claude/upbeat-hawking-ujnurg]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stage the site
+        run: |
+          mkdir -p _site
+          cp -a ./. _site/
+          rm -rf _site/.git _site/.github _site/node_modules _site/scripts _site/DESIGN.md _site/_site
+
+      - name: Rewrite root-relative URLs for sub-path hosting
+        run: |
+          python3 - <<'PY'
+          import pathlib, re
+
+          site = pathlib.Path('_site')
+
+          for f in site.rglob('*.html'):
+              s = f.read_text()
+              s = s.replace('href="/assets/', 'href="assets/')
+              s = s.replace('src="/assets/', 'src="assets/')
+              s = s.replace('href="/site.webmanifest"', 'href="site.webmanifest"')
+              s = s.replace('href="/work.html"', 'href="work.html"')
+              s = s.replace('href="/about.html"', 'href="about.html"')
+              s = s.replace('href="/#', 'href="index.html#')
+              s = re.sub(r'href="/"', 'href="index.html"', s)
+              # a preview copy must never compete with the real site in search
+              s = s.replace('<meta name="viewport"',
+                            '<meta name="robots" content="noindex, nofollow">\n<meta name="viewport"', 1)
+              f.write_text(s)
+
+          # fonts.css lives in assets/css/, the font files in assets/fonts/
+          css = site / 'assets' / 'css' / 'fonts.css'
+          css.write_text(css.read_text().replace('url("/assets/fonts/', 'url("../fonts/'))
+
+          # the preview is not the canonical site; drop the sitemap
+          (site / 'sitemap.xml').unlink(missing_ok=True)
+          (site / 'robots.txt').write_text('User-agent: *\nDisallow: /\n')
+          print('rewritten')
+          PY
+
+      - name: Verify no root-relative asset URLs survived
+        run: |
+          if grep -rEn '(href|src)="/(assets|work|about|site\.)' _site --include='*.html'; then
+            echo "::error::root-relative URLs remain; they would 404 on a project page"
+            exit 1
+          fi
+          echo "clean"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
