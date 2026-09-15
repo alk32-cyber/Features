@@ -1,6 +1,6 @@
-# RocketLift
+# OrbitLift
 
-The RocketLift website: a static, dependency-free site covering the five capabilities —
+The OrbitLift website: a static, dependency-free site covering the five capabilities —
 custom websites, AI receptionists, AI chatbots, SEO and business automation.
 
 `DESIGN.md` holds the information architecture, visual direction, motion system and copy
@@ -8,31 +8,44 @@ strategy the build follows. Read it before changing anything structural.
 
 ## Running it
 
-There is no build step and no dependencies. Serve the folder over HTTP (the pages use
-root-relative paths and ES modules, so `file://` will not work):
-
 ```bash
+npm run build      # assemble the pages from src/
 npm run serve      # http://localhost:5173
 ```
+
+There are no dependencies. The build step only assembles static HTML, which is committed —
+the served site is plain files and deploys to any static host with no toolchain.
 
 ## Structure
 
 ```
-index.html            The full system experience (12 sections)
-work.html             Selected work
-about.html            How RocketLift works
-404.html
-sitemap.xml  robots.txt  site.webmanifest
+src/partials/         shared fragments: head, nav, footer, sprite, and the five demo
+                      widgets that appear on both the homepage and a feature page
+src/pages/            one file per page — a metadata header, then the body
+src/schema/           JSON-LD fed into pages by name
+scripts/build.mjs     assembles src/ into the HTML at the repo root, regenerates sitemap.xml
+scripts/build-work.mjs renders projects.json into the Work sections
 
+index.html            The full system experience
+features.html         Feature index
+features/*.html       One page per capability
+work.html  about.html  404.html
 assets/css/           fonts → tokens → base → layout → components → sections (in that order)
 assets/fonts/         self-hosted variable fonts, latin subset (~107 KB total)
 assets/js/            main.js boots one module per interactive system
 assets/data/          projects.json — the only content expected to change often
-scripts/              build-work.mjs — renders projects.json into the Work sections
 ```
 
-Navigation and footer markup is duplicated across the four pages. That is deliberate — it
-keeps the site buildless — but it does mean a nav change has to be made in all four files.
+**Edit `src/`, never the HTML at the root** — the root files are build output and will be
+overwritten. Run `npm run build` after any change to `src/`.
+
+## Theming
+
+Dark is the brand default. `[data-theme="light"]` in `tokens.css` defines a designed light
+counterpart rather than an inversion, and every translucent surface overlay resolves through
+`--ol-tint-rgb` so one value flips the whole set. A tiny inline script in the head applies
+the stored or system theme before first paint, so there is no flash. With no stored choice
+the page follows the operating system and keeps following it live.
 
 ## Editing the Work sections
 
@@ -77,12 +90,12 @@ vercel deploy --prod     # production
 
 ## Things to set before launch
 
-- `hello@rocketlift.com` appears in the footer and both CTA buttons — swap for the real
+- `hello@orbitlift.com` appears in the footer and both CTA buttons — swap for the real
   address or point the CTA at a form.
-- Canonical URLs, `og:url` and `sitemap.xml` assume `https://rocketlift.com`. Update if the
+- Canonical URLs, `og:url` and `sitemap.xml` assume `https://orbitlift.com`. Update if the
   domain differs.
 - `Organization` JSON-LD in `index.html` has no address or `areaServed`. Add real values if
-  RocketLift serves a defined area — it is the main local-SEO hook on the page.
+  OrbitLift serves a defined area — it is the main local-SEO hook on the page.
 
 ## Browser support and accessibility
 

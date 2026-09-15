@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long until it works?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Honestly: it varies enough that a number would be a guess. Technical fixes can register quickly; content and authority take longer. We would rather tell you what changed than invent a date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you guarantee page one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and neither can anyone else. Search engines rank on signals no agency controls. What we can do is make sure nothing about your site is holding it back."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need new content every month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not automatically. A content retainer that produces pages nobody searches for is a subscription, not a strategy. We would rather fix structure first and write only where there is real intent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my site is on a platform you did not build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is normal. We audit what is there and either fix it in place or tell you honestly when the platform itself is the constraint."
+      }
+    }
+  ]
+}

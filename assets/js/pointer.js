@@ -33,9 +33,9 @@ export function initPointer() {
   };
 
   list.addEventListener('pointerover', (e) => {
-    const item = e.target.closest('.rl-work__item');
+    const item = e.target.closest('.ol-work__item');
     if (!item) return;
-    card = item.querySelector('.rl-work__card');
+    card = item.querySelector('.ol-work__card');
     box = card?.getBoundingClientRect() ?? null;
   }, { passive: true });
 

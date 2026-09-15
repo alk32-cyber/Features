@@ -1,34 +1,34 @@
 /* ==========================================================================
-   RocketLift — Layout, atmosphere, the Flow, reveal system
+   OrbitLift — Layout, atmosphere, the Flow, reveal system
    ========================================================================== */
 
-.rl-container {
+.ol-container {
   width: 100%;
-  max-width: var(--rl-maxw);
+  max-width: var(--ol-maxw);
   margin-inline: auto;
-  padding-inline: var(--rl-gutter);
+  padding-inline: var(--ol-gutter);
 }
 
-.rl-container--narrow { max-width: 62rem; }
+.ol-container--narrow { max-width: 62rem; }
 
-.rl-section {
+.ol-section {
   position: relative;
-  padding-block: var(--rl-section-y);
+  padding-block: var(--ol-section-y);
 }
 
-.rl-section--tight { padding-block: clamp(3.5rem, 2rem + 6vw, 7rem); }
+.ol-section--tight { padding-block: clamp(3.5rem, 2rem + 6vw, 7rem); }
 
 /* Section headers: eyebrow / headline / lead, consistent rhythm everywhere */
-.rl-section-head { max-width: 46rem; }
-.rl-section-head > * + * { margin-top: var(--rl-s-5); }
-.rl-section-head .rl-lead { max-width: 40rem; }
+.ol-section-head { max-width: 46rem; }
+.ol-section-head > * + * { margin-top: var(--ol-s-5); }
+.ol-section-head .ol-lead { max-width: 40rem; }
 
-.rl-section-head--center {
+.ol-section-head--center {
   margin-inline: auto;
   text-align: center;
 }
-.rl-section-head--center .rl-lead { margin-inline: auto; }
-.rl-section-head--center .rl-eyebrow::before { display: none; }
+.ol-section-head--center .ol-lead { margin-inline: auto; }
+.ol-section-head--center .ol-eyebrow::before { display: none; }
 
 /* --------------------------------------------------------------------------
    Atmosphere — environmental lighting, not floating orbs.
@@ -47,10 +47,10 @@
    frames exceeding 20ms during scroll. Both are gone.
    -------------------------------------------------------------------------- */
 
-.rl-atmos {
+.ol-atmos {
   position: fixed;
   inset: 0;
-  z-index: var(--rl-z-atmos);
+  z-index: var(--ol-z-atmos);
   pointer-events: none;
   contain: strict;
   background:
@@ -67,9 +67,23 @@
       transparent 62%);
 }
 
+/* On a light ground the washes stop being light sources and become a faint
+   violet cast in the paper. Same geometry, far less of it. */
+:root[data-theme="light"] .ol-atmos {
+  background:
+    radial-gradient(ellipse 120% 75% at 4% -8%,
+      rgba(124, 58, 237, 0.10) 0%, rgba(109, 59, 234, 0.04) 38%, transparent 68%),
+    radial-gradient(ellipse 95% 70% at 104% 58%,
+      rgba(82, 36, 196, 0.09) 0%, rgba(82, 36, 196, 0.03) 40%, transparent 72%),
+    radial-gradient(ellipse 80% 45% at 62% 112%,
+      rgba(255, 107, 44, 0.07) 0%, transparent 62%);
+}
+
+:root[data-theme="light"] .ol-atmos::after { opacity: 0.025; }
+
 /* Grain: viewport-sized, no blend mode. It stops the wide gradients banding on
    8-bit displays, which is the only reason it exists. */
-.rl-atmos::after {
+.ol-atmos::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -81,15 +95,15 @@
    progress itself, so it runs on the compositor and costs nothing at rest. */
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
-    .rl-atmos {
-      animation: rl-atmos-drift linear both;
+    .ol-atmos {
+      animation: ol-atmos-drift linear both;
       animation-timeline: scroll(root block);
       will-change: transform;
     }
   }
 }
 
-@keyframes rl-atmos-drift {
+@keyframes ol-atmos-drift {
   from { transform: translate3d(0, 0, 0) scale(1.06); }
   to   { transform: translate3d(-3vw, 4vh, 0) scale(1.14); }
 }
@@ -117,14 +131,14 @@
    -------------------------------------------------------------------------- */
 
 [data-reveal] {
-  --_dur: var(--rl-d-reveal);
+  --_dur: var(--ol-d-reveal);
   opacity: 0;
   transform: translate3d(0, 14px, 0);
   transition:
-    opacity var(--_dur) var(--rl-ease-out),
-    transform var(--_dur) var(--rl-ease-out),
-    clip-path var(--_dur) var(--rl-ease-out);
-  transition-delay: var(--rl-reveal-delay, 0ms);
+    opacity var(--_dur) var(--ol-ease-out),
+    transform var(--_dur) var(--ol-ease-out),
+    clip-path var(--_dur) var(--ol-ease-out);
+  transition-delay: var(--ol-reveal-delay, 0ms);
 }
 
 [data-reveal="fade"] { transform: none; }
@@ -146,8 +160,8 @@
   opacity: 0;
   transform: translate3d(0, 105%, 0);
   transition:
-    opacity 620ms var(--rl-ease-out),
-    transform 820ms var(--rl-ease-out);
+    opacity 620ms var(--ol-ease-out),
+    transform 820ms var(--ol-ease-out);
 }
 
 [data-reveal="mask"].is-in > span {
@@ -164,10 +178,10 @@
   opacity: 0;
   transform: translate3d(0, 16px, 0);
   transition:
-    opacity 640ms var(--rl-ease-out),
-    transform 640ms var(--rl-ease-out);
+    opacity 640ms var(--ol-ease-out),
+    transform 640ms var(--ol-ease-out);
   /* stagger tightens as the list grows so long lists never crawl */
-  transition-delay: calc(var(--i, 0) * var(--rl-stagger, 70ms));
+  transition-delay: calc(var(--i, 0) * var(--ol-stagger, 70ms));
 }
 
 [data-reveal].is-in,
@@ -181,9 +195,9 @@
 
 /* Grids -------------------------------------------------------------------- */
 
-.rl-grid { display: grid; gap: var(--rl-s-6); }
-.rl-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.rl-split {
+.ol-grid { display: grid; gap: var(--ol-s-6); }
+.ol-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ol-split {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: clamp(2rem, 1rem + 4vw, 5rem);
@@ -191,14 +205,14 @@
 }
 
 @media (max-width: 960px) {
-  .rl-split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .rl-split { gap: var(--rl-s-7); }
-  .rl-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ol-split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ol-split { gap: var(--ol-s-7); }
+  .ol-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 720px) {
-  .rl-split,
-  .rl-grid--3 { grid-template-columns: minmax(0, 1fr); }
+  .ol-split,
+  .ol-grid--3 { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* --------------------------------------------------------------------------
@@ -206,13 +220,13 @@
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .rl-atmos { animation: none !important; }
+  .ol-atmos { animation: none !important; }
 
   /* The hero entrance must be neutralised explicitly, not left to a shortened
      duration: it is driven by animation-delay, and zeroing the duration alone
      still leaves each element invisible (fill: both) until its delay elapses. */
-  .rl-enter,
-  .rl-line__in {
+  .ol-enter,
+  .ol-line__in {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;

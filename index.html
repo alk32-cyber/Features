@@ -4,25 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>RocketLift — Websites, AI Receptionists, Chatbots, SEO &amp; Automation</title>
-<meta name="description" content="RocketLift builds the connected digital system businesses use to get found, win customers and handle the work that follows: custom websites, SEO, AI receptionists, AI chatbots and business automation, designed as one.">
-<link rel="canonical" href="https://rocketlift.com/">
+<title>OrbitLift — Websites, AI Receptionists, Chatbots, SEO &amp; Automation</title>
+<meta name="description" content="OrbitLift builds the connected digital system businesses use to get found, win customers and handle the work that follows: custom websites, SEO, AI receptionists, AI chatbots and business automation, designed as one.">
+<link rel="canonical" href="https://orbitlift.com/">
 
 <meta name="theme-color" content="#07060C">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="dark light">
+
+<script>
+  /* Sets the theme before first paint so the page never flashes the wrong one.
+     Kept inline and tiny on purpose: an external file would be a round trip. */
+  try {
+    var t = localStorage.getItem('ol-theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+</script>
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RocketLift">
-<meta property="og:url" content="https://rocketlift.com/">
-<meta property="og:title" content="RocketLift — the digital system your business runs on">
+<meta property="og:site_name" content="OrbitLift">
+<meta property="og:url" content="https://orbitlift.com/">
+<meta property="og:title" content="OrbitLift — the digital system your business runs on">
 <meta property="og:description" content="Custom websites, SEO, AI receptionists, AI chatbots and automation, designed and built as one connected system.">
-<meta property="og:image" content="https://rocketlift.com/assets/img/og.jpg">
+<meta property="og:image" content="https://orbitlift.com/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RocketLift — the digital system your business runs on">
+<meta name="twitter:title" content="OrbitLift — the digital system your business runs on">
 <meta name="twitter:description" content="Custom websites, SEO, AI receptionists, AI chatbots and automation, designed and built as one connected system.">
-<meta name="twitter:image" content="https://rocketlift.com/assets/img/og.jpg">
+<meta name="twitter:image" content="https://orbitlift.com/assets/img/og.jpg">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -40,18 +50,17 @@
 <link rel="stylesheet" href="/assets/css/sections.css">
 
 <script type="module" src="/assets/js/main.js"></script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://rocketlift.com/#organization",
-      "name": "RocketLift",
-      "url": "https://rocketlift.com/",
-      "logo": "https://rocketlift.com/assets/img/favicon.svg",
-      "description": "RocketLift designs and builds connected digital systems for businesses: custom websites, SEO, AI receptionists, AI chatbots and business automation.",
+      "@id": "https://orbitlift.com/#organization",
+      "name": "OrbitLift",
+      "url": "https://orbitlift.com/",
+      "logo": "https://orbitlift.com/assets/img/favicon.svg",
+      "description": "OrbitLift designs and builds connected digital systems for businesses: custom websites, SEO, AI receptionists, AI chatbots and business automation.",
       "knowsAbout": [
         "Custom website design and development",
         "Search engine optimisation",
@@ -62,53 +71,69 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://rocketlift.com/#website",
-      "url": "https://rocketlift.com/",
-      "name": "RocketLift",
-      "publisher": { "@id": "https://rocketlift.com/#organization" }
+      "@id": "https://orbitlift.com/#website",
+      "url": "https://orbitlift.com/",
+      "name": "OrbitLift",
+      "publisher": {
+        "@id": "https://orbitlift.com/#organization"
+      }
     },
     {
       "@type": "WebPage",
-      "@id": "https://rocketlift.com/#webpage",
-      "url": "https://rocketlift.com/",
-      "name": "RocketLift — Websites, AI Receptionists, Chatbots, SEO & Automation",
-      "isPartOf": { "@id": "https://rocketlift.com/#website" },
-      "about": { "@id": "https://rocketlift.com/#organization" }
+      "@id": "https://orbitlift.com/#webpage",
+      "url": "https://orbitlift.com/",
+      "name": "OrbitLift — Websites, AI Receptionists, Chatbots, SEO & Automation",
+      "isPartOf": {
+        "@id": "https://orbitlift.com/#website"
+      },
+      "about": {
+        "@id": "https://orbitlift.com/#organization"
+      }
     },
     {
       "@type": "Service",
       "name": "Custom website design and development",
       "serviceType": "Web design and development",
-      "provider": { "@id": "https://rocketlift.com/#organization" },
-      "url": "https://rocketlift.com/#websites"
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#websites"
     },
     {
       "@type": "Service",
       "name": "AI receptionist",
       "serviceType": "AI customer communication",
-      "provider": { "@id": "https://rocketlift.com/#organization" },
-      "url": "https://rocketlift.com/#receptionists"
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#receptionists"
     },
     {
       "@type": "Service",
       "name": "AI chatbot",
       "serviceType": "Website conversational assistant",
-      "provider": { "@id": "https://rocketlift.com/#organization" },
-      "url": "https://rocketlift.com/#chatbots"
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#chatbots"
     },
     {
       "@type": "Service",
       "name": "Search engine optimisation",
       "serviceType": "SEO",
-      "provider": { "@id": "https://rocketlift.com/#organization" },
-      "url": "https://rocketlift.com/#seo"
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#seo"
     },
     {
       "@type": "Service",
       "name": "Business automation",
       "serviceType": "Workflow automation",
-      "provider": { "@id": "https://rocketlift.com/#organization" },
-      "url": "https://rocketlift.com/#automation"
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#automation"
     }
   ]
 }
@@ -116,10 +141,10 @@
 </head>
 <body>
 
-<a class="rl-skip-link" href="#main">Skip to content</a>
+<a class="ol-skip-link" href="#main">Skip to content</a>
 
 <!-- Icon sprite ---------------------------------------------------------- -->
-<svg class="rl-sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<svg class="ol-sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <g id="i-web" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <rect x="2.75" y="3.75" width="14.5" height="12.5" rx="2.25"/>
@@ -152,219 +177,225 @@
     <g id="i-caret" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m3 6.5 5 5 5-5"/>
     </g>
-    <g id="i-logo" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M11 2.5c3.5 1.2 6.5 4.6 6.5 8.4L14 14.5l-4.5.5L5 15.5 2.5 12A11 11 0 0 1 11 2.5Z"/>
-      <circle cx="11.5" cy="8.5" r="1.9"/>
-      <path d="M6.5 15.5c-1.4 1.3-1.9 3-2 4 1 0 2.8-.5 4.1-2"/>
+    <g id="i-logo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <ellipse cx="10" cy="10" rx="7.2" ry="3.4" transform="rotate(-32 10 10)"/>
+      <circle cx="10" cy="10" r="2.1"/>
+      <circle cx="14.9" cy="6.2" r="1.5" fill="currentColor" stroke="none"/>
     </g>
   </defs>
 </svg>
 
 <!-- Environmental lighting ------------------------------------------------ -->
-<div class="rl-atmos" aria-hidden="true"></div>
+<div class="ol-atmos" aria-hidden="true"></div>
 
-<!-- Navigation ----------------------------------------------------------- -->
-<header class="rl-nav" data-nav>
-  <div class="rl-nav__inner">
-    <a class="rl-logo" href="/" aria-label="RocketLift home">
-      <svg class="rl-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
-      RocketLift
+<header class="ol-nav" data-nav>
+  <div class="ol-nav__inner">
+    <a class="ol-logo" href="/" aria-label="OrbitLift home">
+      <svg class="ol-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
+      OrbitLift
     </a>
 
-    <nav class="rl-nav__menu" aria-label="Primary">
-      <div class="rl-nav__item" data-mega-root>
-        <button class="rl-nav__link" type="button" aria-expanded="false" aria-controls="mega-features" data-mega-trigger>
+    <nav class="ol-nav__menu" aria-label="Primary">
+      <div class="ol-nav__item" data-mega-root>
+        <button class="ol-nav__link" type="button" aria-expanded="false" aria-controls="mega-features" data-mega-trigger>
           Features
-          <svg class="rl-nav__caret" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-caret"/></svg>
+          <svg class="ol-nav__caret" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-caret"/></svg>
         </button>
 
-        <div class="rl-mega" id="mega-features" data-mega-panel>
-          <div class="rl-mega__grid">
-            <a class="rl-mega__item" href="#websites">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
+        <div class="ol-mega" id="mega-features" data-mega-panel>
+          <div class="ol-mega__grid">
+            <a class="ol-mega__item" href="/features/websites.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
               <span>
-                <span class="rl-mega__title">Custom websites</span>
-                <span class="rl-mega__desc">Designed and built around how the business actually sells.</span>
+                <span class="ol-mega__title">Custom websites</span>
+                <span class="ol-mega__desc">Designed and built around how the business actually sells.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="#receptionists">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <a class="ol-mega__item" href="/features/ai-receptionists.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
               <span>
-                <span class="rl-mega__title">AI receptionists</span>
-                <span class="rl-mega__desc">Answers, qualifies and captures the calls you'd otherwise miss.</span>
+                <span class="ol-mega__title">AI receptionists</span>
+                <span class="ol-mega__desc">Answers, qualifies and captures the calls you'd otherwise miss.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="#chatbots">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
+            <a class="ol-mega__item" href="/features/ai-chatbots.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
               <span>
-                <span class="rl-mega__title">AI chatbots</span>
-                <span class="rl-mega__desc">Answers questions on your site and points people to the next step.</span>
+                <span class="ol-mega__title">AI chatbots</span>
+                <span class="ol-mega__desc">Answers questions on your site and points people to the next step.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="#seo">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
+            <a class="ol-mega__item" href="/features/seo.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
               <span>
-                <span class="rl-mega__title">SEO</span>
-                <span class="rl-mega__desc">Technical foundations, structure and content built to be found.</span>
+                <span class="ol-mega__title">SEO</span>
+                <span class="ol-mega__desc">Technical foundations, structure and content built to be found.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="#automation">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
+            <a class="ol-mega__item" href="/features/automation.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
               <span>
-                <span class="rl-mega__title">Automation</span>
-                <span class="rl-mega__desc">The repetitive steps between an enquiry and a paying customer.</span>
+                <span class="ol-mega__title">Automation</span>
+                <span class="ol-mega__desc">The repetitive steps between an enquiry and a paying customer.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="#finder">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            <a class="ol-mega__item" href="/features.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-arrow"/></svg></span>
               <span>
-                <span class="rl-mega__title">Not sure what you need?</span>
-                <span class="rl-mega__desc">Answer three questions and see what fits.</span>
+                <span class="ol-mega__title">All features</span>
+                <span class="ol-mega__desc">How the five parts fit together, and where to start.</span>
               </span>
             </a>
           </div>
-          <p class="rl-mega__foot">
+          <p class="ol-mega__foot">
             <span>Every capability is built to work with the others — or on its own.</span>
-            <a class="rl-link" href="#ecosystem">See how they connect <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+            <a class="ol-link" href="/features.html">Compare all five <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
           </p>
         </div>
       </div>
 
-      <a class="rl-nav__link" href="/work.html">Work</a>
-      <a class="rl-nav__link" href="/about.html">About</a>
+      <a class="ol-nav__link" href="/work.html">Work</a>
+      <a class="ol-nav__link" href="/about.html">About</a>
     </nav>
 
-    <div class="rl-nav__actions">
-      <a class="rl-btn rl-btn--ghost" href="#finder">Find what you need</a>
-      <a class="rl-btn rl-btn--primary" href="#start">Start a project</a>
-      <button class="rl-nav__toggle" type="button" aria-expanded="false" aria-controls="rl-drawer" aria-label="Open menu" data-drawer-toggle>
+    <div class="ol-nav__actions">
+      <button class="ol-themetoggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <span class="ol-themetoggle__track" aria-hidden="true">
+          <svg class="ol-themetoggle__ico ol-themetoggle__ico--moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 11.8A6.9 6.9 0 0 1 8.2 3.5a6.9 6.9 0 1 0 8.3 8.3Z"/></svg>
+          <svg class="ol-themetoggle__ico ol-themetoggle__ico--sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="3.4"/><path d="M10 2.6v1.6M10 15.8v1.6M17.4 10h-1.6M4.2 10H2.6M15.2 4.8l-1.1 1.1M5.9 14.1l-1.1 1.1M15.2 15.2l-1.1-1.1M5.9 5.9 4.8 4.8"/></svg>
+        </span>
+        <span class="ol-sr-only" data-theme-label>Dark</span>
+      </button>
+      <a class="ol-btn ol-btn--ghost" href="/#finder">Find what you need</a>
+      <a class="ol-btn ol-btn--primary" href="/#start">Start a project</a>
+      <button class="ol-nav__toggle" type="button" aria-expanded="false" aria-controls="ol-drawer" aria-label="Open menu" data-drawer-toggle>
         <span></span>
       </button>
     </div>
   </div>
 
-  <div class="rl-drawer" id="rl-drawer" data-drawer hidden>
+  <div class="ol-drawer" id="ol-drawer" data-drawer hidden>
     <section>
-      <p class="rl-drawer__label">Features</p>
-      <a class="rl-drawer__sub" href="#websites"><span>Custom websites</span><span>01</span></a>
-      <a class="rl-drawer__sub" href="#receptionists"><span>AI receptionists</span><span>02</span></a>
-      <a class="rl-drawer__sub" href="#chatbots"><span>AI chatbots</span><span>03</span></a>
-      <a class="rl-drawer__sub" href="#seo"><span>SEO</span><span>04</span></a>
-      <a class="rl-drawer__sub" href="#automation"><span>Automation</span><span>05</span></a>
+      <p class="ol-drawer__label">Features</p>
+      <a class="ol-drawer__sub" href="/features/websites.html"><span>Custom websites</span><span>01</span></a>
+      <a class="ol-drawer__sub" href="/features/ai-receptionists.html"><span>AI receptionists</span><span>02</span></a>
+      <a class="ol-drawer__sub" href="/features/ai-chatbots.html"><span>AI chatbots</span><span>03</span></a>
+      <a class="ol-drawer__sub" href="/features/seo.html"><span>SEO</span><span>04</span></a>
+      <a class="ol-drawer__sub" href="/features/automation.html"><span>Automation</span><span>05</span></a>
     </section>
     <section>
-      <p class="rl-drawer__label">RocketLift</p>
-      <a class="rl-drawer__link" href="#ecosystem"><span>The system</span><span aria-hidden="true">→</span></a>
-      <a class="rl-drawer__link" href="/work.html"><span>Work</span><span aria-hidden="true">→</span></a>
-      <a class="rl-drawer__link" href="/about.html"><span>About</span><span aria-hidden="true">→</span></a>
-      <a class="rl-drawer__link" href="#finder"><span>Find what you need</span><span aria-hidden="true">→</span></a>
+      <p class="ol-drawer__label">OrbitLift</p>
+      <a class="ol-drawer__link" href="/features.html"><span>All features</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/work.html"><span>Work</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/about.html"><span>About</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/#finder"><span>Find what you need</span><span aria-hidden="true">→</span></a>
     </section>
-    <a class="rl-btn rl-btn--primary" href="#start">Start a project</a>
+    <a class="ol-btn ol-btn--primary" href="/#start">Start a project</a>
   </div>
 </header>
 
 <main id="main">
 
 <!-- 01 · HERO ------------------------------------------------------------ -->
-<section class="rl-hero" aria-labelledby="hero-title">
-  <div class="rl-container rl-hero__inner">
+<section class="ol-hero" aria-labelledby="hero-title">
+  <div class="ol-container ol-hero__inner">
 
-    <div class="rl-hero__copy">
-      <p class="rl-eyebrow rl-eyebrow--bare rl-enter" style="--e:1">Digital systems · Built end to end</p>
+    <div class="ol-hero__copy">
+      <p class="ol-eyebrow ol-eyebrow--bare ol-enter" style="--e:1">Digital systems · Built end to end</p>
 
-      <h1 class="rl-display rl-hero__title" id="hero-title">
-        <span class="rl-line"><span class="rl-line__in rl-enter" style="--e:2">Your website is the front door.</span></span>
-        <span class="rl-line"><span class="rl-line__in rl-enter" style="--e:3">We build <span class="rl-hl">the system</span> behind it.</span></span>
+      <h1 class="ol-display ol-hero__title" id="hero-title">
+        <span class="ol-line"><span class="ol-line__in ol-enter" style="--e:2">Your website is the front door.</span></span>
+        <span class="ol-line"><span class="ol-line__in ol-enter" style="--e:3">We build <span class="ol-hl">the system</span> behind it.</span></span>
       </h1>
 
-      <p class="rl-lead rl-hero__lead rl-enter" style="--e:5">
-        RocketLift builds the connected system a business uses to get found, win customers,
+      <p class="ol-lead ol-hero__lead ol-enter" style="--e:5">
+        OrbitLift builds the connected system a business uses to get found, win customers,
         and handle the work that comes next — websites, SEO, AI receptionists, chatbots and
         automation, designed as one thing instead of five.
       </p>
 
-      <div class="rl-btn-row rl-hero__cta rl-enter" style="--e:6">
-        <a class="rl-btn rl-btn--primary" href="#start">
-          Start a project <span class="rl-btn__arrow" aria-hidden="true">→</span>
+      <div class="ol-btn-row ol-hero__cta ol-enter" style="--e:6">
+        <a class="ol-btn ol-btn--primary" href="#start">
+          Start a project <span class="ol-btn__arrow" aria-hidden="true">→</span>
         </a>
-        <a class="rl-btn rl-btn--ghost" href="#finder">Find what you need</a>
+        <a class="ol-btn ol-btn--ghost" href="#finder">Find what you need</a>
       </div>
 
-      <p class="rl-hero__note rl-small rl-muted rl-enter" style="--e:7">
+      <p class="ol-hero__note ol-small ol-muted ol-enter" style="--e:7">
         Start with one part. Add the rest when it earns its place.
       </p>
     </div>
 
-    <div class="rl-hero__stage rl-enter rl-enter--stage" style="--e:4" data-ambient>
-      <div class="rl-window rl-chain-window">
-        <div class="rl-window__bar">
-          <span class="rl-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="rl-window__title">rocketlift / system</span>
-          <span class="rl-live rl-chain-window__live">Live</span>
+    <div class="ol-hero__stage ol-enter ol-enter--stage" style="--e:4" data-ambient>
+      <div class="ol-window ol-chain-window">
+        <div class="ol-window__bar">
+          <span class="ol-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="ol-window__title">orbitlift / system</span>
+          <span class="ol-live ol-chain-window__live">Live</span>
         </div>
 
-        <div class="rl-window__body">
-          <p class="rl-chain__caption rl-mono rl-muted">One customer. Five moving parts.</p>
+        <div class="ol-window__body">
+          <p class="ol-chain__caption ol-mono ol-muted">One customer. Five moving parts.</p>
 
-          <ol class="rl-chain" data-chain>
-            <li class="rl-chain__step">
-              <a class="rl-node" href="#seo" data-chain-node data-index="0">
-                <span class="rl-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
-                <span class="rl-node__text">
-                  <span class="rl-node__label">SEO</span>
-                  <span class="rl-node__caption">Someone searches for what you do</span>
+          <ol class="ol-chain" data-chain>
+            <li class="ol-chain__step">
+              <a class="ol-node" href="#seo" data-chain-node data-index="0">
+                <span class="ol-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
+                <span class="ol-node__text">
+                  <span class="ol-node__label">SEO</span>
+                  <span class="ol-node__caption">Someone searches for what you do</span>
                 </span>
-                <span class="rl-node__idx rl-mono" aria-hidden="true">01</span>
+                <span class="ol-node__idx ol-mono" aria-hidden="true">01</span>
               </a>
-              <span class="rl-chain__link" aria-hidden="true"><i style="--d:0s"></i></span>
+              <span class="ol-chain__link" aria-hidden="true"><i style="--d:0s"></i></span>
             </li>
-            <li class="rl-chain__step">
-              <a class="rl-node" href="#websites" data-chain-node data-index="1">
-                <span class="rl-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
-                <span class="rl-node__text">
-                  <span class="rl-node__label">Website</span>
-                  <span class="rl-node__caption">They land somewhere that earns the click</span>
+            <li class="ol-chain__step">
+              <a class="ol-node" href="#websites" data-chain-node data-index="1">
+                <span class="ol-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
+                <span class="ol-node__text">
+                  <span class="ol-node__label">Website</span>
+                  <span class="ol-node__caption">They land somewhere that earns the click</span>
                 </span>
-                <span class="rl-node__idx rl-mono" aria-hidden="true">02</span>
+                <span class="ol-node__idx ol-mono" aria-hidden="true">02</span>
               </a>
-              <span class="rl-chain__link" aria-hidden="true"><i style="--d:1.1s"></i></span>
+              <span class="ol-chain__link" aria-hidden="true"><i style="--d:1.1s"></i></span>
             </li>
-            <li class="rl-chain__step">
-              <a class="rl-node" href="#chatbots" data-chain-node data-index="2">
-                <span class="rl-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
-                <span class="rl-node__text">
-                  <span class="rl-node__label">Chatbot</span>
-                  <span class="rl-node__caption">Their question gets answered right there</span>
+            <li class="ol-chain__step">
+              <a class="ol-node" href="#chatbots" data-chain-node data-index="2">
+                <span class="ol-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
+                <span class="ol-node__text">
+                  <span class="ol-node__label">Chatbot</span>
+                  <span class="ol-node__caption">Their question gets answered right there</span>
                 </span>
-                <span class="rl-node__idx rl-mono" aria-hidden="true">03</span>
+                <span class="ol-node__idx ol-mono" aria-hidden="true">03</span>
               </a>
-              <span class="rl-chain__link" aria-hidden="true"><i style="--d:2.2s"></i></span>
+              <span class="ol-chain__link" aria-hidden="true"><i style="--d:2.2s"></i></span>
             </li>
-            <li class="rl-chain__step">
-              <a class="rl-node" href="#receptionists" data-chain-node data-index="3">
-                <span class="rl-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
-                <span class="rl-node__text">
-                  <span class="rl-node__label">AI receptionist</span>
-                  <span class="rl-node__caption">They call at 8pm — and someone picks up</span>
+            <li class="ol-chain__step">
+              <a class="ol-node" href="#receptionists" data-chain-node data-index="3">
+                <span class="ol-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
+                <span class="ol-node__text">
+                  <span class="ol-node__label">AI receptionist</span>
+                  <span class="ol-node__caption">They call at 8pm — and someone picks up</span>
                 </span>
-                <span class="rl-node__idx rl-mono" aria-hidden="true">04</span>
+                <span class="ol-node__idx ol-mono" aria-hidden="true">04</span>
               </a>
-              <span class="rl-chain__link" aria-hidden="true"><i style="--d:3.3s"></i></span>
+              <span class="ol-chain__link" aria-hidden="true"><i style="--d:3.3s"></i></span>
             </li>
-            <li class="rl-chain__step">
-              <a class="rl-node" href="#automation" data-chain-node data-index="4">
-                <span class="rl-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
-                <span class="rl-node__text">
-                  <span class="rl-node__label">Automation</span>
-                  <span class="rl-node__caption">The follow-up happens without you chasing it</span>
+            <li class="ol-chain__step">
+              <a class="ol-node" href="#automation" data-chain-node data-index="4">
+                <span class="ol-node__icon"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
+                <span class="ol-node__text">
+                  <span class="ol-node__label">Automation</span>
+                  <span class="ol-node__caption">The follow-up happens without you chasing it</span>
                 </span>
-                <span class="rl-node__idx rl-mono" aria-hidden="true">05</span>
+                <span class="ol-node__idx ol-mono" aria-hidden="true">05</span>
               </a>
             </li>
           </ol>
 
-          <p class="rl-chain__out">
-            <span class="rl-chain__out-dot" aria-hidden="true"></span>
+          <p class="ol-chain__out">
+            <span class="ol-chain__out-dot" aria-hidden="true"></span>
             <span><strong>A customer</strong>, handled — without anything falling through.</span>
           </p>
         </div>
@@ -374,37 +405,37 @@
   </div>
 </section>
 
-<hr class="rl-rule rl-container" aria-hidden="true">
+<hr class="ol-rule ol-container" aria-hidden="true">
 
 <!-- 02 · ECOSYSTEM ------------------------------------------------------- -->
-<section class="rl-section" id="ecosystem" aria-labelledby="eco-title">
-  <div class="rl-container">
+<section class="ol-section" id="ecosystem" aria-labelledby="eco-title">
+  <div class="ol-container">
 
-    <header class="rl-section-head">
-      <p class="rl-eyebrow" data-reveal="fade">The RocketLift system</p>
-      <h2 class="rl-h2" id="eco-title" data-reveal="mask"><span>Everything your business needs to grow online — in one place.</span></h2>
-      <p class="rl-lead" data-reveal>
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">The OrbitLift system</p>
+      <h2 class="ol-h2" id="eco-title" data-reveal="mask"><span>Everything your business needs to grow online — in one place.</span></h2>
+      <p class="ol-lead" data-reveal>
         Most businesses buy these five things from five different people, and then spend
         their time being the glue. We build them to fit together from the start.
       </p>
     </header>
 
-    <div class="rl-eco" data-eco>
+    <div class="ol-eco" data-eco>
 
-      <div class="rl-eco__stage-wrap" data-reveal="edge">
-        <div class="rl-eco__stage">
-          <svg class="rl-eco__wires" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+      <div class="ol-eco__stage-wrap" data-reveal="edge">
+        <div class="ol-eco__stage">
+          <svg class="ol-eco__wires" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
             <defs>
-              <radialGradient id="rl-eco-core" cx="50%" cy="50%" r="50%">
+              <radialGradient id="ol-eco-core" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.5"/>
                 <stop offset="70%" stop-color="#6D3BEA" stop-opacity="0.05"/>
                 <stop offset="100%" stop-color="#6D3BEA" stop-opacity="0"/>
               </radialGradient>
             </defs>
-            <circle cx="50" cy="50" r="30" fill="url(#rl-eco-core)"/>
-            <polygon class="rl-eco__ring"
+            <circle cx="50" cy="50" r="30" fill="url(#ol-eco-core)"/>
+            <polygon class="ol-eco__ring"
               points="50,14 84.24,38.88 71.16,79.12 28.84,79.12 15.76,38.88"/>
-            <g class="rl-eco__spokes">
+            <g class="ol-eco__spokes">
               <line data-spoke="websites"     x1="50" y1="50" x2="50"    y2="14"/>
               <line data-spoke="seo"          x1="50" y1="50" x2="84.24" y2="38.88"/>
               <line data-spoke="chatbots"     x1="50" y1="50" x2="71.16" y2="79.12"/>
@@ -413,118 +444,118 @@
             </g>
           </svg>
 
-          <div class="rl-eco__hub" aria-hidden="true">
-            <span class="rl-eco__hub-label">Your<br>business</span>
+          <div class="ol-eco__hub" aria-hidden="true">
+            <span class="ol-eco__hub-label">Your<br>business</span>
           </div>
 
-          <div class="rl-eco__nodes" role="tablist" aria-label="RocketLift capabilities">
-            <button class="rl-eco__node" style="--x:50%;--y:14%" role="tab" id="eco-tab-websites"
+          <div class="ol-eco__nodes" role="tablist" aria-label="OrbitLift capabilities">
+            <button class="ol-eco__node" style="--x:50%;--y:14%" role="tab" id="eco-tab-websites"
                     aria-selected="true" aria-controls="eco-panel-websites" tabindex="0" data-eco-tab="websites">
-              <span class="rl-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
-              <span class="rl-eco__node-label">Websites</span>
+              <span class="ol-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
+              <span class="ol-eco__node-label">Websites</span>
             </button>
-            <button class="rl-eco__node" style="--x:84.24%;--y:38.88%" role="tab" id="eco-tab-seo"
+            <button class="ol-eco__node" style="--x:84.24%;--y:38.88%" role="tab" id="eco-tab-seo"
                     aria-selected="false" aria-controls="eco-panel-seo" tabindex="-1" data-eco-tab="seo">
-              <span class="rl-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
-              <span class="rl-eco__node-label">SEO</span>
+              <span class="ol-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
+              <span class="ol-eco__node-label">SEO</span>
             </button>
-            <button class="rl-eco__node" style="--x:71.16%;--y:79.12%" role="tab" id="eco-tab-chatbots"
+            <button class="ol-eco__node" style="--x:71.16%;--y:79.12%" role="tab" id="eco-tab-chatbots"
                     aria-selected="false" aria-controls="eco-panel-chatbots" tabindex="-1" data-eco-tab="chatbots">
-              <span class="rl-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
-              <span class="rl-eco__node-label">Chatbots</span>
+              <span class="ol-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
+              <span class="ol-eco__node-label">Chatbots</span>
             </button>
-            <button class="rl-eco__node" style="--x:28.84%;--y:79.12%" role="tab" id="eco-tab-receptionists"
+            <button class="ol-eco__node" style="--x:28.84%;--y:79.12%" role="tab" id="eco-tab-receptionists"
                     aria-selected="false" aria-controls="eco-panel-receptionists" tabindex="-1" data-eco-tab="receptionists">
-              <span class="rl-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
-              <span class="rl-eco__node-label">Receptionists</span>
+              <span class="ol-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span class="ol-eco__node-label">Receptionists</span>
             </button>
-            <button class="rl-eco__node" style="--x:15.76%;--y:38.88%" role="tab" id="eco-tab-automation"
+            <button class="ol-eco__node" style="--x:15.76%;--y:38.88%" role="tab" id="eco-tab-automation"
                     aria-selected="false" aria-controls="eco-panel-automation" tabindex="-1" data-eco-tab="automation">
-              <span class="rl-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
-              <span class="rl-eco__node-label">Automation</span>
+              <span class="ol-eco__node-icon"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
+              <span class="ol-eco__node-label">Automation</span>
             </button>
           </div>
         </div>
       </div>
 
-      <div class="rl-eco__detail" data-reveal style="--rl-reveal-delay:120ms">
+      <div class="ol-eco__detail" data-reveal style="--ol-reveal-delay:120ms">
 
-        <div class="rl-eco__panel is-active" id="eco-panel-websites" role="tabpanel" aria-labelledby="eco-tab-websites" tabindex="0">
-          <p class="rl-mono rl-eco__panel-kicker">01 / Websites</p>
-          <h3 class="rl-h3">Custom digital experiences, designed around the business.</h3>
-          <p class="rl-eco__panel-body">
+        <div class="ol-eco__panel is-active" id="eco-panel-websites" role="tabpanel" aria-labelledby="eco-tab-websites" tabindex="0">
+          <p class="ol-mono ol-eco__panel-kicker">01 / Websites</p>
+          <h3 class="ol-h3">Custom digital experiences, designed around the business.</h3>
+          <p class="ol-eco__panel-body">
             Not a template with your logo dropped in. We design the pages around how people
             actually decide to buy from you, then build them to load fast and work everywhere.
           </p>
-          <ul class="rl-checks">
+          <ul class="ol-checks">
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Interface and layout designed for your offer, not a category</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Built mobile-first, tested on real screen sizes</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Custom functionality where an off-the-shelf plugin won't do</li>
           </ul>
-          <a class="rl-link" href="#websites">See the craft <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+          <a class="ol-link" href="/features/websites.html">See the craft <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
         </div>
 
-        <div class="rl-eco__panel" id="eco-panel-seo" role="tabpanel" aria-labelledby="eco-tab-seo" tabindex="0" hidden>
-          <p class="rl-mono rl-eco__panel-kicker">02 / SEO</p>
-          <h3 class="rl-h3">Built to be found, not just built.</h3>
-          <p class="rl-eco__panel-body">
+        <div class="ol-eco__panel" id="eco-panel-seo" role="tabpanel" aria-labelledby="eco-tab-seo" tabindex="0" hidden>
+          <p class="ol-mono ol-eco__panel-kicker">02 / SEO</p>
+          <h3 class="ol-h3">Built to be found, not just built.</h3>
+          <p class="ol-eco__panel-body">
             Search engines read structure before they read marketing. We work on the
             foundations — technical health, site structure, content that answers real
             questions, and consistent local business information.
           </p>
-          <ul class="rl-checks">
+          <ul class="ol-checks">
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Technical SEO: crawlability, speed, mobile, metadata</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Site structure and internal linking that makes sense to both</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Local SEO fundamentals for businesses that serve an area</li>
           </ul>
-          <a class="rl-link" href="#seo">See how it works <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+          <a class="ol-link" href="/features/seo.html">See how it works <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
         </div>
 
-        <div class="rl-eco__panel" id="eco-panel-chatbots" role="tabpanel" aria-labelledby="eco-tab-chatbots" tabindex="0" hidden>
-          <p class="rl-mono rl-eco__panel-kicker">03 / AI chatbots</p>
-          <h3 class="rl-h3">Answers the questions that stop people buying.</h3>
-          <p class="rl-eco__panel-body">
+        <div class="ol-eco__panel" id="eco-panel-chatbots" role="tabpanel" aria-labelledby="eco-tab-chatbots" tabindex="0" hidden>
+          <p class="ol-mono ol-eco__panel-kicker">03 / AI chatbots</p>
+          <h3 class="ol-h3">Answers the questions that stop people buying.</h3>
+          <p class="ol-eco__panel-body">
             Most visitors leave because of one unanswered question. A chatbot trained on your
             business answers it in the moment, then points them at the next step instead of
             the back button.
           </p>
-          <ul class="rl-checks">
+          <ul class="ol-checks">
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Trained on your services, process, coverage and policies</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Guides visitors toward enquiring instead of dead-ending</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Hands over to a person when it should</li>
           </ul>
-          <a class="rl-link" href="#chatbots">Try the demo <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+          <a class="ol-link" href="/features/ai-chatbots.html">Try the demo <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
         </div>
 
-        <div class="rl-eco__panel" id="eco-panel-receptionists" role="tabpanel" aria-labelledby="eco-tab-receptionists" tabindex="0" hidden>
-          <p class="rl-mono rl-eco__panel-kicker">04 / AI receptionists</p>
-          <h3 class="rl-h3">The calls you can't take are still customers.</h3>
-          <p class="rl-eco__panel-body">
+        <div class="ol-eco__panel" id="eco-panel-receptionists" role="tabpanel" aria-labelledby="eco-tab-receptionists" tabindex="0" hidden>
+          <p class="ol-mono ol-eco__panel-kicker">04 / AI receptionists</p>
+          <h3 class="ol-h3">The calls you can't take are still customers.</h3>
+          <p class="ol-eco__panel-body">
             An AI receptionist picks up when you're on a job, in a meeting, or closed. It
             answers common questions, works out what the caller needs, and captures the
             details so nothing depends on someone remembering to call back.
           </p>
-          <ul class="rl-checks">
+          <ul class="ol-checks">
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Answers routine questions in your business's own words</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Qualifies the caller and captures appointment requests</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Routes anything it shouldn't handle to the right person</li>
           </ul>
-          <a class="rl-link" href="#receptionists">Hear it work <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+          <a class="ol-link" href="/features/ai-receptionists.html">Hear it work <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
         </div>
 
-        <div class="rl-eco__panel" id="eco-panel-automation" role="tabpanel" aria-labelledby="eco-tab-automation" tabindex="0" hidden>
-          <p class="rl-mono rl-eco__panel-kicker">05 / Automation</p>
-          <h3 class="rl-h3">The admin between an enquiry and a paying customer.</h3>
-          <p class="rl-eco__panel-body">
+        <div class="ol-eco__panel" id="eco-panel-automation" role="tabpanel" aria-labelledby="eco-tab-automation" tabindex="0" hidden>
+          <p class="ol-mono ol-eco__panel-kicker">05 / Automation</p>
+          <h3 class="ol-h3">The admin between an enquiry and a paying customer.</h3>
+          <p class="ol-eco__panel-body">
             Every business has a set of steps that happen the same way every time and still
             eat someone's afternoon. We map those steps and build them to run on their own.
           </p>
-          <ul class="rl-checks">
+          <ul class="ol-checks">
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Lead handling, routing and follow-up sequences</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Appointment and enquiry workflows</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Internal processes that currently live in someone's head</li>
           </ul>
-          <a class="rl-link" href="#automation">See a workflow <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+          <a class="ol-link" href="/features/automation.html">See a workflow <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
         </div>
 
       </div>
@@ -532,193 +563,189 @@
   </div>
 </section>
 
-<!-- The five capabilities, threaded by one continuous current ----------- -->
-<div class="rl-thread">
-  <span class="rl-current" aria-hidden="true"></span>
-
 <!-- 03 · AI RECEPTIONISTS ------------------------------------------------ -->
-<section class="rl-section rl-feature" id="receptionists" aria-labelledby="rec-title">
-  <div class="rl-container">
+<section class="ol-section ol-feature" id="receptionists" aria-labelledby="rec-title">
+  <div class="ol-container">
 
-    <header class="rl-section-head">
-      <p class="rl-eyebrow rl-eyebrow--ember" data-reveal="fade">AI receptionists</p>
-      <h2 class="rl-h2" id="rec-title" data-reveal="mask"><span>Someone answers. Every time.</span></h2>
-      <p class="rl-lead" data-reveal>
+    <header class="ol-section-head">
+      <p class="ol-eyebrow ol-eyebrow--ember" data-reveal="fade">AI receptionists</p>
+      <h2 class="ol-h2" id="rec-title" data-reveal="mask"><span>Someone answers. Every time.</span></h2>
+      <p class="ol-lead" data-reveal>
         A missed call is usually a customer who called the next business on the list.
         Here's what happens instead. Pick a situation and watch it play out.
       </p>
     </header>
 
-    <div class="rl-rec" data-rec data-reveal="edge" data-ambient>
+    <div class="ol-rec" data-rec data-reveal="edge" data-ambient>
 
-      <div class="rl-tabs rl-rec__scenarios" role="tablist" aria-label="Call scenarios">
-        <button class="rl-tab" role="tab" aria-selected="true" tabindex="0" data-rec-tab="0">After-hours booking</button>
-        <button class="rl-tab" role="tab" aria-selected="false" tabindex="-1" data-rec-tab="1">Pricing question</button>
-        <button class="rl-tab" role="tab" aria-selected="false" tabindex="-1" data-rec-tab="2">Needs a human</button>
+      <div class="ol-tabs ol-rec__scenarios" role="tablist" aria-label="Call scenarios">
+        <button class="ol-tab" role="tab" aria-selected="true" tabindex="0" data-rec-tab="0">After-hours booking</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-rec-tab="1">Pricing question</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-rec-tab="2">Needs a human</button>
       </div>
 
-      <div class="rl-window rl-rec__window">
-        <div class="rl-window__bar">
-          <span class="rl-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="rl-window__title">rocketlift receptionist</span>
-          <span class="rl-rec__timer rl-mono" data-rec-timer aria-hidden="true">00:00</span>
-          <span class="rl-live rl-rec__live" data-rec-live>On call</span>
+      <div class="ol-window ol-rec__window">
+        <div class="ol-window__bar">
+          <span class="ol-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="ol-window__title">orbitlift receptionist</span>
+          <span class="ol-rec__timer ol-mono" data-rec-timer aria-hidden="true">00:00</span>
+          <span class="ol-live ol-rec__live" data-rec-live>On call</span>
         </div>
 
-        <div class="rl-rec__grid">
+        <div class="ol-rec__grid">
 
-          <div class="rl-rec__transcript">
-            <p class="rl-rec__col-label rl-mono">Transcript</p>
-            <ol class="rl-rec__lines" data-rec-lines aria-live="polite" aria-atomic="false">
-              <li class="rl-rec__line rl-rec__line--ai">
-                <span class="rl-rec__who">Receptionist</span>
-                <p class="rl-rec__bubble">Good evening, thanks for calling. We're closed right now, but I can help — what do you need?</p>
+          <div class="ol-rec__transcript">
+            <p class="ol-rec__col-label ol-mono">Transcript</p>
+            <ol class="ol-rec__lines" data-rec-lines aria-live="polite" aria-atomic="false">
+              <li class="ol-rec__line ol-rec__line--ai">
+                <span class="ol-rec__who">Receptionist</span>
+                <p class="ol-rec__bubble">Good evening, thanks for calling. We're closed right now, but I can help — what do you need?</p>
               </li>
             </ol>
           </div>
 
-          <div class="rl-rec__side">
-            <p class="rl-rec__col-label rl-mono">What it's doing</p>
-            <ol class="rl-rec__steps" data-rec-steps>
-              <li class="rl-rec__step" data-step="0"><span class="rl-rec__step-dot" aria-hidden="true"></span><span>Listening</span></li>
-              <li class="rl-rec__step" data-step="1"><span class="rl-rec__step-dot" aria-hidden="true"></span><span>Understanding the request</span></li>
-              <li class="rl-rec__step" data-step="2"><span class="rl-rec__step-dot" aria-hidden="true"></span><span>Qualifying</span></li>
-              <li class="rl-rec__step" data-step="3"><span class="rl-rec__step-dot" aria-hidden="true"></span><span>Taking the next step</span></li>
+          <div class="ol-rec__side">
+            <p class="ol-rec__col-label ol-mono">What it's doing</p>
+            <ol class="ol-rec__steps" data-rec-steps>
+              <li class="ol-rec__step" data-step="0"><span class="ol-rec__step-dot" aria-hidden="true"></span><span>Listening</span></li>
+              <li class="ol-rec__step" data-step="1"><span class="ol-rec__step-dot" aria-hidden="true"></span><span>Understanding the request</span></li>
+              <li class="ol-rec__step" data-step="2"><span class="ol-rec__step-dot" aria-hidden="true"></span><span>Qualifying</span></li>
+              <li class="ol-rec__step" data-step="3"><span class="ol-rec__step-dot" aria-hidden="true"></span><span>Taking the next step</span></li>
             </ol>
 
-            <div class="rl-rec__capture" data-rec-capture hidden>
-              <p class="rl-rec__col-label rl-mono">Captured</p>
-              <dl class="rl-rec__fields" data-rec-fields></dl>
-              <p class="rl-rec__handoff" data-rec-handoff></p>
+            <div class="ol-rec__capture" data-rec-capture hidden>
+              <p class="ol-rec__col-label ol-mono">Captured</p>
+              <dl class="ol-rec__fields" data-rec-fields></dl>
+              <p class="ol-rec__handoff" data-rec-handoff></p>
             </div>
           </div>
         </div>
 
-        <div class="rl-rec__foot">
-          <button class="rl-btn rl-btn--ghost rl-rec__replay" type="button" data-rec-replay>
+        <div class="ol-rec__foot">
+          <button class="ol-btn ol-btn--ghost ol-rec__replay" type="button" data-rec-replay>
             <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16.5 10a6.5 6.5 0 1 1-2.1-4.8M16.5 3.5V7H13"/></svg>
             Replay
           </button>
-          <p class="rl-rec__disclaimer rl-mono">Illustrative demonstration · Scripted example, not a live call</p>
+          <p class="ol-rec__disclaimer ol-mono">Illustrative demonstration · Scripted example, not a live call</p>
         </div>
       </div>
     </div>
 
-    <ul class="rl-notes" data-reveal="seq">
-      <li class="rl-notes__item">
-        <span class="rl-notes__idx rl-mono">i</span>
-        <h3 class="rl-notes__title">It knows your business</h3>
-        <p class="rl-notes__body">Hours, services, coverage area, pricing approach, what you don't do — written by you, spoken in a consistent voice.</p>
+    <ul class="ol-notes" data-reveal="seq">
+      <li class="ol-notes__item">
+        <span class="ol-notes__idx ol-mono">i</span>
+        <h3 class="ol-notes__title">It knows your business</h3>
+        <p class="ol-notes__body">Hours, services, coverage area, pricing approach, what you don't do — written by you, spoken in a consistent voice.</p>
       </li>
-      <li class="rl-notes__item">
-        <span class="rl-notes__idx rl-mono">ii</span>
-        <h3 class="rl-notes__title">It asks the right questions</h3>
-        <p class="rl-notes__body">The three or four things you'd want to know before booking a job — captured every time, in the same order.</p>
+      <li class="ol-notes__item">
+        <span class="ol-notes__idx ol-mono">ii</span>
+        <h3 class="ol-notes__title">It asks the right questions</h3>
+        <p class="ol-notes__body">The three or four things you'd want to know before booking a job — captured every time, in the same order.</p>
       </li>
-      <li class="rl-notes__item">
-        <span class="rl-notes__idx rl-mono">iii</span>
-        <h3 class="rl-notes__title">It knows when to stop</h3>
-        <p class="rl-notes__body">Anything outside what it's been set up to handle gets taken down and passed to a person rather than guessed at.</p>
+      <li class="ol-notes__item">
+        <span class="ol-notes__idx ol-mono">iii</span>
+        <h3 class="ol-notes__title">It knows when to stop</h3>
+        <p class="ol-notes__body">Anything outside what it's been set up to handle gets taken down and passed to a person rather than guessed at.</p>
       </li>
     </ul>
 
-    <p class="rl-feature__cta" data-reveal="fade">
-      <a class="rl-link" href="#start">Talk through how your calls come in <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+    <p class="ol-feature__cta" data-reveal="fade">
+      <a class="ol-link" href="/features/ai-receptionists.html">Everything about AI receptionists <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
     </p>
   </div>
 </section>
 
 <!-- 04 · AI CHATBOTS ----------------------------------------------------- -->
-<section class="rl-section rl-feature" id="chatbots" aria-labelledby="bot-title">
-  <div class="rl-container">
+<section class="ol-section ol-feature" id="chatbots" aria-labelledby="bot-title">
+  <div class="ol-container">
 
-    <div class="rl-split rl-bot__split">
-      <div class="rl-section-head">
-        <p class="rl-eyebrow" data-reveal="fade">AI chatbots</p>
-        <h2 class="rl-h2" id="bot-title" data-reveal="mask"><span>The question they didn't want to phone about.</span></h2>
-        <p class="rl-lead" data-reveal>
+    <div class="ol-split ol-bot__split">
+      <div class="ol-section-head">
+        <p class="ol-eyebrow" data-reveal="fade">AI chatbots</p>
+        <h2 class="ol-h2" id="bot-title" data-reveal="mask"><span>The question they didn't want to phone about.</span></h2>
+        <p class="ol-lead" data-reveal>
           "Do you cover my area?" "How long does it take?" "Do I need to be home?"
           People won't call to ask — they'll just leave. A chatbot that actually knows your
           business answers in five seconds and keeps the conversation going.
         </p>
-        <ul class="rl-checks rl-bot__checks">
+        <ul class="ol-checks ol-bot__checks">
           <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Answers from what you've told it, not from the open internet</li>
           <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Offers the next step instead of ending the conversation</li>
           <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Passes anything it isn't sure about to a person</li>
         </ul>
-        <p class="rl-bot__nudge rl-small">
-          <span class="rl-badge rl-badge--ember">Try it</span>
+        <p class="ol-bot__nudge ol-small">
+          <span class="ol-badge ol-badge--ember">Try it</span>
           It's interactive — pick a reply.
         </p>
       </div>
 
-      <div class="rl-bot__stage" data-reveal="edge" data-ambient>
-        <div class="rl-bot__backdrop" aria-hidden="true">
-          <span class="rl-bot__bd-bar"></span>
-          <span class="rl-bot__bd-h"></span>
-          <span class="rl-bot__bd-line"></span>
-          <span class="rl-bot__bd-line rl-bot__bd-line--short"></span>
-          <span class="rl-bot__bd-btn"></span>
-          <span class="rl-bot__bd-block"></span>
-          <span class="rl-bot__bd-block"></span>
+      <div class="ol-bot__stage" data-reveal="edge" data-ambient>
+        <div class="ol-bot__backdrop" aria-hidden="true">
+          <span class="ol-bot__bd-bar"></span>
+          <span class="ol-bot__bd-h"></span>
+          <span class="ol-bot__bd-line"></span>
+          <span class="ol-bot__bd-line ol-bot__bd-line--short"></span>
+          <span class="ol-bot__bd-btn"></span>
+          <span class="ol-bot__bd-block"></span>
+          <span class="ol-bot__bd-block"></span>
         </div>
 
-        <div class="rl-bot" data-bot>
-          <div class="rl-bot__head">
-            <span class="rl-bot__avatar" aria-hidden="true">
+        <div class="ol-bot" data-bot>
+          <div class="ol-bot__head">
+            <span class="ol-bot__avatar" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 20 20"><use href="#i-chat"/></svg>
             </span>
-            <span class="rl-bot__ident">
+            <span class="ol-bot__ident">
               <strong>Ask us anything</strong>
-              <span class="rl-bot__status">Typically replies instantly</span>
+              <span class="ol-bot__status">Typically replies instantly</span>
             </span>
-            <button class="rl-bot__reset" type="button" data-bot-reset aria-label="Restart the conversation">
+            <button class="ol-bot__reset" type="button" data-bot-reset aria-label="Restart the conversation">
               <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16.5 10a6.5 6.5 0 1 1-2.1-4.8M16.5 3.5V7H13"/></svg>
             </button>
           </div>
 
-          <div class="rl-bot__log" data-bot-log role="log" aria-live="polite" aria-label="Chat conversation">
-            <div class="rl-bot__msg rl-bot__msg--bot">Hi — I'm the assistant for this business. What can I help with?</div>
+          <div class="ol-bot__log" data-bot-log role="log" aria-live="polite" aria-label="Chat conversation">
+            <div class="ol-bot__msg ol-bot__msg--bot">Hi — I'm the assistant for this business. What can I help with?</div>
           </div>
 
-          <div class="rl-bot__replies" data-bot-replies aria-label="Suggested replies"></div>
+          <div class="ol-bot__replies" data-bot-replies aria-label="Suggested replies"></div>
 
-          <p class="rl-bot__footnote rl-mono">Demonstration · A real deployment answers from your own information</p>
+          <p class="ol-bot__footnote ol-mono">Demonstration · A real deployment answers from your own information</p>
         </div>
       </div>
     </div>
 
-    <p class="rl-feature__cta" data-reveal="fade">
-      <a class="rl-link" href="#start">Ask about a chatbot for your site <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+    <p class="ol-feature__cta" data-reveal="fade">
+      <a class="ol-link" href="/features/ai-chatbots.html">Everything about AI chatbots <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
     </p>
   </div>
 </section>
 
 <!-- 05 · SEO ------------------------------------------------------------- -->
-<section class="rl-section rl-feature" id="seo" aria-labelledby="seo-title">
-  <div class="rl-container">
+<section class="ol-section ol-feature" id="seo" aria-labelledby="seo-title">
+  <div class="ol-container">
 
-    <header class="rl-section-head">
-      <p class="rl-eyebrow" data-reveal="fade">SEO</p>
-      <h2 class="rl-h2" id="seo-title" data-reveal="mask"><span>Search engines read the parts your customers never see.</span></h2>
-      <p class="rl-lead" data-reveal>
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">SEO</p>
+      <h2 class="ol-h2" id="seo-title" data-reveal="mask"><span>Search engines read the parts your customers never see.</span></h2>
+      <p class="ol-lead" data-reveal>
         SEO isn't a keyword you sprinkle on at the end. It's four layers underneath the
         website, and they have to be built, not bolted on.
       </p>
     </header>
 
-    <div class="rl-seo" data-seo>
+    <div class="ol-seo" data-seo>
 
-      <div class="rl-seo__visual">
-        <div class="rl-seo__stack" data-seo-stack>
+      <div class="ol-seo__visual">
+        <div class="ol-seo__stack" data-seo-stack>
 
-          <div class="rl-seo__plane" data-plane="0">
-            <p class="rl-seo__plane-head">
-              <span class="rl-seo__plane-n rl-mono">01</span>
-              <span class="rl-seo__plane-tag">Technical foundation</span>
+          <div class="ol-seo__plane" data-plane="0">
+            <p class="ol-seo__plane-head">
+              <span class="ol-seo__plane-n ol-mono">01</span>
+              <span class="ol-seo__plane-tag">Technical foundation</span>
             </p>
-            <div class="rl-seo__plane-body"><div>
-              <div class="rl-seo__gauges">
+            <div class="ol-seo__plane-body"><div>
+              <div class="ol-seo__gauges">
                 <span><b>Loads fast</b><i style="--w:88%"></i></span>
                 <span><b>Works on mobile</b><i style="--w:96%"></i></span>
                 <span><b>Crawlable</b><i style="--w:92%"></i></span>
@@ -726,28 +753,28 @@
             </div></div>
           </div>
 
-          <div class="rl-seo__plane" data-plane="1">
-            <p class="rl-seo__plane-head">
-              <span class="rl-seo__plane-n rl-mono">02</span>
-              <span class="rl-seo__plane-tag">Structure</span>
+          <div class="ol-seo__plane" data-plane="1">
+            <p class="ol-seo__plane-head">
+              <span class="ol-seo__plane-n ol-mono">02</span>
+              <span class="ol-seo__plane-tag">Structure</span>
             </p>
-            <div class="rl-seo__plane-body"><div>
-              <ul class="rl-seo__tree">
+            <div class="ol-seo__plane-body"><div>
+              <ul class="ol-seo__tree">
                 <li>Home</li>
-                <li class="rl-seo__tree--in">Services</li>
-                <li class="rl-seo__tree--in2">Each service, its own page</li>
-                <li class="rl-seo__tree--in">Areas covered</li>
+                <li class="ol-seo__tree--in">Services</li>
+                <li class="ol-seo__tree--in2">Each service, its own page</li>
+                <li class="ol-seo__tree--in">Areas covered</li>
               </ul>
             </div></div>
           </div>
 
-          <div class="rl-seo__plane" data-plane="2">
-            <p class="rl-seo__plane-head">
-              <span class="rl-seo__plane-n rl-mono">03</span>
-              <span class="rl-seo__plane-tag">Content</span>
+          <div class="ol-seo__plane" data-plane="2">
+            <p class="ol-seo__plane-head">
+              <span class="ol-seo__plane-n ol-mono">03</span>
+              <span class="ol-seo__plane-tag">Content</span>
             </p>
-            <div class="rl-seo__plane-body"><div>
-              <div class="rl-seo__q">
+            <div class="ol-seo__plane-body"><div>
+              <div class="ol-seo__q">
                 <span>"how much does&nbsp;…"</span>
                 <span>"near me"</span>
                 <span>"how long does&nbsp;…"</span>
@@ -755,53 +782,53 @@
             </div></div>
           </div>
 
-          <div class="rl-seo__plane" data-plane="3">
-            <p class="rl-seo__plane-head">
-              <span class="rl-seo__plane-n rl-mono">04</span>
-              <span class="rl-seo__plane-tag">Discoverability</span>
+          <div class="ol-seo__plane" data-plane="3">
+            <p class="ol-seo__plane-head">
+              <span class="ol-seo__plane-n ol-mono">04</span>
+              <span class="ol-seo__plane-tag">Discoverability</span>
             </p>
-            <div class="rl-seo__plane-body"><div>
-              <div class="rl-seo__result">
-                <span class="rl-seo__serp"></span>
-                <span class="rl-seo__serp rl-seo__serp--lit"></span>
-                <span class="rl-seo__serp"></span>
+            <div class="ol-seo__plane-body"><div>
+              <div class="ol-seo__result">
+                <span class="ol-seo__serp"></span>
+                <span class="ol-seo__serp ol-seo__serp--lit"></span>
+                <span class="ol-seo__serp"></span>
               </div>
             </div></div>
           </div>
 
         </div>
-        <p class="rl-seo__caption rl-mono rl-muted">Each layer only works if the one under it does.</p>
+        <p class="ol-seo__caption ol-mono ol-muted">Each layer only works if the one under it does.</p>
       </div>
 
-      <ol class="rl-seo__steps" data-reveal="seq">
-        <li class="rl-seo__step" data-seo-step="0">
-          <span class="rl-seo__step-n rl-mono">01</span>
-          <h3 class="rl-h4">Fix the foundation</h3>
-          <p class="rl-small rl-muted">
+      <ol class="ol-seo__steps" data-reveal="seq">
+        <li class="ol-seo__step" data-seo-step="0">
+          <span class="ol-seo__step-n ol-mono">01</span>
+          <h3 class="ol-h4">Fix the foundation</h3>
+          <p class="ol-small ol-muted">
             Speed, mobile rendering, clean markup, metadata, sitemaps, and making sure nothing
             is quietly blocking search engines from reading the site at all.
           </p>
         </li>
-        <li class="rl-seo__step" data-seo-step="1">
-          <span class="rl-seo__step-n rl-mono">02</span>
-          <h3 class="rl-h4">Give it a shape</h3>
-          <p class="rl-small rl-muted">
+        <li class="ol-seo__step" data-seo-step="1">
+          <span class="ol-seo__step-n ol-mono">02</span>
+          <h3 class="ol-h4">Give it a shape</h3>
+          <p class="ol-small ol-muted">
             One page per thing you actually sell, organised so both people and crawlers can
             tell what the site is about — with internal links that lead somewhere useful.
           </p>
         </li>
-        <li class="rl-seo__step" data-seo-step="2">
-          <span class="rl-seo__step-n rl-mono">03</span>
-          <h3 class="rl-h4">Answer the real questions</h3>
-          <p class="rl-small rl-muted">
+        <li class="ol-seo__step" data-seo-step="2">
+          <span class="ol-seo__step-n ol-mono">03</span>
+          <h3 class="ol-h4">Answer the real questions</h3>
+          <p class="ol-small ol-muted">
             Content written for what people type when they need what you do — including the
             local phrasing, if you serve an area rather than the whole country.
           </p>
         </li>
-        <li class="rl-seo__step" data-seo-step="3">
-          <span class="rl-seo__step-n rl-mono">04</span>
-          <h3 class="rl-h4">Make it easier to find</h3>
-          <p class="rl-small rl-muted">
+        <li class="ol-seo__step" data-seo-step="3">
+          <span class="ol-seo__step-n ol-mono">04</span>
+          <h3 class="ol-h4">Make it easier to find</h3>
+          <p class="ol-small ol-muted">
             Better foundations, clearer structure and content that matches intent give a site
             a fairer chance of being surfaced. No one can promise a position — anyone who does
             is guessing.
@@ -810,218 +837,217 @@
       </ol>
     </div>
 
-    <p class="rl-feature__cta" data-reveal="fade">
-      <a class="rl-link" href="#start">Ask what's holding your site back <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+    <p class="ol-feature__cta" data-reveal="fade">
+      <a class="ol-link" href="/features/seo.html">Everything about SEO <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
     </p>
   </div>
 </section>
 
 <!-- 06 · CUSTOM WEBSITES ------------------------------------------------- -->
-<section class="rl-section rl-feature" id="websites" aria-labelledby="web-title">
-  <div class="rl-container">
+<section class="ol-section ol-feature" id="websites" aria-labelledby="web-title">
+  <div class="ol-container">
 
-    <header class="rl-section-head">
-      <p class="rl-eyebrow" data-reveal="fade">Custom websites</p>
-      <h2 class="rl-h2" id="web-title" data-reveal="mask"><span>Still the thing everything else plugs into.</span></h2>
-      <p class="rl-lead" data-reveal>
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">Custom websites</p>
+      <h2 class="ol-h2" id="web-title" data-reveal="mask"><span>Still the thing everything else plugs into.</span></h2>
+      <p class="ol-lead" data-reveal>
         Four things separate a website that works from one that just exists. Switch between
         them — the frame below changes to show what each one actually means.
       </p>
     </header>
 
-    <div class="rl-craft" data-craft data-reveal="edge" data-ambient>
+    <div class="ol-craft" data-craft data-reveal="edge" data-ambient>
 
-      <div class="rl-craft__controls">
-        <div class="rl-tabs" role="tablist" aria-label="Craft dimensions">
-          <button class="rl-tab" role="tab" aria-selected="true" tabindex="0" data-craft-tab="layout">Layout &amp; type</button>
-          <button class="rl-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="motion">Motion</button>
-          <button class="rl-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="performance">Performance</button>
-          <button class="rl-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="conversion">Conversion</button>
+      <div class="ol-craft__controls">
+        <div class="ol-tabs" role="tablist" aria-label="Craft dimensions">
+          <button class="ol-tab" role="tab" aria-selected="true" tabindex="0" data-craft-tab="layout">Layout &amp; type</button>
+          <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="motion">Motion</button>
+          <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="performance">Performance</button>
+          <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="conversion">Conversion</button>
         </div>
 
-        <div class="rl-seg" role="group" aria-label="Viewport">
-          <button class="rl-seg__btn is-on" type="button" data-craft-view="desktop" aria-pressed="true">Desktop</button>
-          <button class="rl-seg__btn" type="button" data-craft-view="mobile" aria-pressed="false">Mobile</button>
+        <div class="ol-seg" role="group" aria-label="Viewport">
+          <button class="ol-seg__btn is-on" type="button" data-craft-view="desktop" aria-pressed="true">Desktop</button>
+          <button class="ol-seg__btn" type="button" data-craft-view="mobile" aria-pressed="false">Mobile</button>
         </div>
       </div>
 
-      <div class="rl-craft__stage">
-        <div class="rl-window rl-craft__frame" data-craft-frame data-mode="layout" data-view="desktop">
-          <div class="rl-window__bar">
-            <span class="rl-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="rl-window__title" data-craft-url>a-rocketlift-build.example</span>
+      <div class="ol-craft__stage">
+        <div class="ol-window ol-craft__frame" data-craft-frame data-mode="layout" data-view="desktop">
+          <div class="ol-window__bar">
+            <span class="ol-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="ol-window__title" data-craft-url>a-orbitlift-build.example</span>
           </div>
 
-          <div class="rl-craft__viewport">
-            <div class="rl-craft__site" data-craft-site>
-              <div class="rl-craft__grid-overlay" aria-hidden="true"></div>
+          <div class="ol-craft__viewport">
+            <div class="ol-craft__site" data-craft-site>
+              <div class="ol-craft__grid-overlay" aria-hidden="true"></div>
 
-              <div class="rl-craft__nav">
-                <span class="rl-craft__logo"></span>
-                <span class="rl-craft__navlinks"><i></i><i></i><i></i></span>
-                <span class="rl-craft__navcta" data-focus="3"></span>
+              <div class="ol-craft__nav">
+                <span class="ol-craft__logo"></span>
+                <span class="ol-craft__navlinks"><i></i><i></i><i></i></span>
+                <span class="ol-craft__navcta" data-focus="3"></span>
               </div>
 
-              <div class="rl-craft__hero">
-                <span class="rl-craft__eyebrow"></span>
-                <p class="rl-craft__headline" data-focus="1">Type that does the heavy lifting</p>
-                <p class="rl-craft__sub">Supporting line, one size down, dialled back so the headline keeps its job.</p>
-                <span class="rl-craft__cta" data-focus="2">Get a quote</span>
+              <div class="ol-craft__hero">
+                <span class="ol-craft__eyebrow"></span>
+                <p class="ol-craft__headline" data-focus="1">Type that does the heavy lifting</p>
+                <p class="ol-craft__sub">Supporting line, one size down, dialled back so the headline keeps its job.</p>
+                <span class="ol-craft__cta" data-focus="2">Get a quote</span>
               </div>
 
-              <div class="rl-craft__cards">
-                <span class="rl-craft__card"><i></i><i></i></span>
-                <span class="rl-craft__card"><i></i><i></i></span>
-                <span class="rl-craft__card"><i></i><i></i></span>
+              <div class="ol-craft__cards">
+                <span class="ol-craft__card"><i></i><i></i></span>
+                <span class="ol-craft__card"><i></i><i></i></span>
+                <span class="ol-craft__card"><i></i><i></i></span>
               </div>
             </div>
 
-            <div class="rl-craft__skeleton" aria-hidden="true">
+            <div class="ol-craft__skeleton" aria-hidden="true">
               <span></span><span></span><span></span><span></span>
             </div>
           </div>
         </div>
 
-        <p class="rl-craft__note" data-craft-note aria-live="polite"></p>
+        <p class="ol-craft__note" data-craft-note aria-live="polite"></p>
       </div>
     </div>
 
-    <p class="rl-feature__cta" data-reveal="fade">
-      <a class="rl-link" href="/work.html">See the work <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+    <p class="ol-feature__cta" data-reveal="fade">
+      <a class="ol-link" href="/features/websites.html">Everything about custom websites <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
     </p>
   </div>
 </section>
 
 <!-- 07 · AUTOMATION ------------------------------------------------------ -->
-<section class="rl-section rl-feature" id="automation" aria-labelledby="auto-title">
-  <div class="rl-container">
+<section class="ol-section ol-feature" id="automation" aria-labelledby="auto-title">
+  <div class="ol-container">
 
-    <header class="rl-section-head">
-      <p class="rl-eyebrow rl-eyebrow--ember" data-reveal="fade">Automation</p>
-      <h2 class="rl-h2" id="auto-title" data-reveal="mask"><span>The same sequence, every time, forever.</span></h2>
-      <p class="rl-lead" data-reveal>
+    <header class="ol-section-head">
+      <p class="ol-eyebrow ol-eyebrow--ember" data-reveal="fade">Automation</p>
+      <h2 class="ol-h2" id="auto-title" data-reveal="mask"><span>The same sequence, every time, forever.</span></h2>
+      <p class="ol-lead" data-reveal>
         Every business runs on a handful of sequences that never change and always need a
         human to babysit them. Those are the ones worth building.
       </p>
     </header>
 
-    <div class="rl-flowbuild" data-auto data-reveal="edge" data-ambient>
-      <div class="rl-tabs" role="tablist" aria-label="Automation examples">
-        <button class="rl-tab" role="tab" aria-selected="true" tabindex="0" data-auto-tab="0">New enquiry</button>
-        <button class="rl-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="1">Missed call</button>
-        <button class="rl-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="2">Quote follow-up</button>
+    <div class="ol-flowbuild" data-auto data-reveal="edge" data-ambient>
+      <div class="ol-tabs" role="tablist" aria-label="Automation examples">
+        <button class="ol-tab" role="tab" aria-selected="true" tabindex="0" data-auto-tab="0">New enquiry</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="1">Missed call</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="2">Quote follow-up</button>
       </div>
 
-      <div class="rl-window rl-flowbuild__window">
-        <div class="rl-window__bar">
-          <span class="rl-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="rl-window__title" data-auto-name>workflow / new-enquiry</span>
-          <span class="rl-live">Running</span>
+      <div class="ol-window ol-flowbuild__window">
+        <div class="ol-window__bar">
+          <span class="ol-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="ol-window__title" data-auto-name>workflow / new-enquiry</span>
+          <span class="ol-live">Running</span>
         </div>
 
-        <div class="rl-flowbuild__canvas" data-auto-canvas>
-          <ol class="rl-wf" data-auto-nodes>
-            <li class="rl-wf__step">
-              <div class="rl-wf__node">
-                <span class="rl-wf__kind">Trigger</span>
-                <span class="rl-wf__title">Enquiry arrives</span>
-                <span class="rl-wf__desc">From the site form, the chatbot, or a call the receptionist took.</span>
+        <div class="ol-flowbuild__canvas" data-auto-canvas>
+          <ol class="ol-wf" data-auto-nodes>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Trigger</span>
+                <span class="ol-wf__title">Enquiry arrives</span>
+                <span class="ol-wf__desc">From the site form, the chatbot, or a call the receptionist took.</span>
               </div>
-              <span class="rl-wf__wire" style="--d:0s" aria-hidden="true"></span>
+              <span class="ol-wf__wire" style="--d:0s" aria-hidden="true"></span>
             </li>
-            <li class="rl-wf__step">
-              <div class="rl-wf__node">
-                <span class="rl-wf__kind">Sort</span>
-                <span class="rl-wf__title">Read and categorise</span>
-                <span class="rl-wf__desc">Service type, location and urgency pulled out of what they actually wrote.</span>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Sort</span>
+                <span class="ol-wf__title">Read and categorise</span>
+                <span class="ol-wf__desc">Service type, location and urgency pulled out of what they actually wrote.</span>
               </div>
-              <span class="rl-wf__wire" style="--d:0.85s" aria-hidden="true"></span>
+              <span class="ol-wf__wire" style="--d:0.85s" aria-hidden="true"></span>
             </li>
-            <li class="rl-wf__step">
-              <div class="rl-wf__node">
-                <span class="rl-wf__kind">Action</span>
-                <span class="rl-wf__title">Route to the right person</span>
-                <span class="rl-wf__desc">Sent where it belongs instead of into one shared inbox nobody owns.</span>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Action</span>
+                <span class="ol-wf__title">Route to the right person</span>
+                <span class="ol-wf__desc">Sent where it belongs instead of into one shared inbox nobody owns.</span>
               </div>
-              <span class="rl-wf__wire" style="--d:1.7s" aria-hidden="true"></span>
+              <span class="ol-wf__wire" style="--d:1.7s" aria-hidden="true"></span>
             </li>
-            <li class="rl-wf__step">
-              <div class="rl-wf__node">
-                <span class="rl-wf__kind">Follow-up</span>
-                <span class="rl-wf__title">Chase if it goes quiet</span>
-                <span class="rl-wf__desc">A reminder fires if nothing has happened by the time you said it would.</span>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Follow-up</span>
+                <span class="ol-wf__title">Chase if it goes quiet</span>
+                <span class="ol-wf__desc">A reminder fires if nothing has happened by the time you said it would.</span>
               </div>
             </li>
           </ol>
-          <p class="rl-flowbuild__outcome" data-auto-outcome>Nothing sits unanswered because one person was on site all day.</p>
+          <p class="ol-flowbuild__outcome" data-auto-outcome>Nothing sits unanswered because one person was on site all day.</p>
         </div>
       </div>
 
-      <p class="rl-flowbuild__disclaimer rl-mono">
+      <p class="ol-flowbuild__disclaimer ol-mono">
         Example workflows. What we build depends on the tools a business already uses — we
         scope that before we promise it.
       </p>
     </div>
 
-    <p class="rl-feature__cta" data-reveal="fade">
-      <a class="rl-link" href="#start">Tell us the task you keep redoing <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+    <p class="ol-feature__cta" data-reveal="fade">
+      <a class="ol-link" href="/features/automation.html">Everything about automation <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
     </p>
   </div>
 </section>
 
-</div>
 
-<hr class="rl-rule rl-container" aria-hidden="true">
+<hr class="ol-rule ol-container" aria-hidden="true">
 
 <!-- 08 · PROCESS --------------------------------------------------------- -->
-<section class="rl-section" id="process" aria-labelledby="proc-title">
-  <div class="rl-container">
-    <div class="rl-proc">
-      <header class="rl-proc__head" data-reveal>
-        <p class="rl-eyebrow" data-reveal="fade">How RocketLift works</p>
-        <h2 class="rl-h2" id="proc-title" data-reveal="mask"><span>Four steps. No mystery.</span></h2>
-        <p class="rl-lead rl-measure">
+<section class="ol-section" id="process" aria-labelledby="proc-title">
+  <div class="ol-container">
+    <div class="ol-proc">
+      <header class="ol-proc__head" data-reveal>
+        <p class="ol-eyebrow" data-reveal="fade">How OrbitLift works</p>
+        <h2 class="ol-h2" id="proc-title" data-reveal="mask"><span>Four steps. No mystery.</span></h2>
+        <p class="ol-lead ol-measure">
           We don't start with a template or a package. We start by understanding how the
           business actually operates, then build the part that matters most first.
         </p>
       </header>
 
-      <ol class="rl-proc__list" data-reveal="seq">
-        <li class="rl-proc__item">
-          <span class="rl-proc__n rl-mono">01</span>
+      <ol class="ol-proc__list" data-reveal="seq">
+        <li class="ol-proc__item">
+          <span class="ol-proc__n ol-mono">01</span>
           <div>
-            <h3 class="rl-h3">Understand</h3>
-            <p class="rl-muted">
+            <h3 class="ol-h3">Understand</h3>
+            <p class="ol-muted">
               How enquiries arrive, what happens to them, where they stall, and what a good
               customer looks like. Usually one conversation and a look at what you have now.
             </p>
           </div>
         </li>
-        <li class="rl-proc__item">
-          <span class="rl-proc__n rl-mono">02</span>
+        <li class="ol-proc__item">
+          <span class="ol-proc__n ol-mono">02</span>
           <div>
-            <h3 class="rl-h3">Build</h3>
-            <p class="rl-muted">
+            <h3 class="ol-h3">Build</h3>
+            <p class="ol-muted">
               Design and development of the pieces you need — starting with the one that
               changes the most, not the one that's easiest to sell.
             </p>
           </div>
         </li>
-        <li class="rl-proc__item">
-          <span class="rl-proc__n rl-mono">03</span>
+        <li class="ol-proc__item">
+          <span class="ol-proc__n ol-mono">03</span>
           <div>
-            <h3 class="rl-h3">Connect</h3>
-            <p class="rl-muted">
+            <h3 class="ol-h3">Connect</h3>
+            <p class="ol-muted">
               Website, SEO, AI and automation wired together so an enquiry moves through
               without anyone copying details from one place to another.
             </p>
           </div>
         </li>
-        <li class="rl-proc__item">
-          <span class="rl-proc__n rl-mono">04</span>
+        <li class="ol-proc__item">
+          <span class="ol-proc__n ol-mono">04</span>
           <div>
-            <h3 class="rl-h3">Improve</h3>
-            <p class="rl-muted">
+            <h3 class="ol-h3">Improve</h3>
+            <p class="ol-muted">
               Once it's live, you find out what people really do. We keep looking for the next
               thing worth changing rather than declaring it finished.
             </p>
@@ -1033,115 +1059,115 @@
 </section>
 
 <!-- 09 · REAL WORK ------------------------------------------------------- -->
-<section class="rl-section" id="work" aria-labelledby="work-title">
-  <div class="rl-container">
+<section class="ol-section" id="work" aria-labelledby="work-title">
+  <div class="ol-container">
 
-    <header class="rl-section-head">
-      <p class="rl-eyebrow" data-reveal="fade">Real work</p>
-      <h2 class="rl-h2" id="work-title" data-reveal="mask"><span>Built, shipped, in use.</span></h2>
-      <p class="rl-lead" data-reveal>
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">Real work</p>
+      <h2 class="ol-h2" id="work-title" data-reveal="mask"><span>Built, shipped, in use.</span></h2>
+      <p class="ol-lead" data-reveal>
         What the business needed, what we built, and what it does now. We only publish
         outcomes we can actually stand behind.
       </p>
     </header>
 
     <!-- work:start · generated from assets/data/projects.json by scripts/build-work.mjs -->
-    <ul class="rl-work" data-work data-reveal="seq">
-      <li class="rl-work__item is-placeholder rl-work__item--lead">
-        <article class="rl-work__card">
-          <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
-          <div class="rl-work__body">
-            <p class="rl-work__tags">
-              <span class="rl-badge rl-badge--ember">Placeholder</span>
-              <span class="rl-mono rl-muted">Website · SEO</span>
+    <ul class="ol-work" data-work data-reveal="seq">
+      <li class="ol-work__item is-placeholder ol-work__item--lead">
+        <article class="ol-work__card">
+          <div class="ol-work__visual" aria-hidden="true"><span class="ol-work__glyph"></span></div>
+          <div class="ol-work__body">
+            <p class="ol-work__tags">
+              <span class="ol-badge ol-badge--ember">Placeholder</span>
+              <span class="ol-mono ol-muted">Website · SEO</span>
             </p>
-            <h3 class="rl-h3">Project title</h3>
-            <p class="rl-work__need"><strong>The need.</strong> Replace this entry in assets/data/projects.json with a real project.</p>
-            <p class="rl-work__built"><strong>What we built.</strong> Describe the system that was delivered.</p>
-            <p class="rl-work__outcome rl-small rl-muted">Outcomes are only listed where they have been verified.</p>
+            <h3 class="ol-h3">Project title</h3>
+            <p class="ol-work__need"><strong>The need.</strong> Replace this entry in assets/data/projects.json with a real project.</p>
+            <p class="ol-work__built"><strong>What we built.</strong> Describe the system that was delivered.</p>
+            <p class="ol-work__outcome ol-small ol-muted">Outcomes are only listed where they have been verified.</p>
           </div>
         </article>
       </li>
-      <li class="rl-work__item is-placeholder">
-        <article class="rl-work__card">
-          <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
-          <div class="rl-work__body">
-            <p class="rl-work__tags">
-              <span class="rl-badge rl-badge--ember">Placeholder</span>
-              <span class="rl-mono rl-muted">Website · Chatbot</span>
+      <li class="ol-work__item is-placeholder">
+        <article class="ol-work__card">
+          <div class="ol-work__visual" aria-hidden="true"><span class="ol-work__glyph"></span></div>
+          <div class="ol-work__body">
+            <p class="ol-work__tags">
+              <span class="ol-badge ol-badge--ember">Placeholder</span>
+              <span class="ol-mono ol-muted">Website · Chatbot</span>
             </p>
-            <h3 class="rl-h3">Project title</h3>
-            <p class="rl-work__need"><strong>The need.</strong> Replace this entry in assets/data/projects.json with a real project.</p>
-            <p class="rl-work__built"><strong>What we built.</strong> Describe the system that was delivered.</p>
-            <p class="rl-work__outcome rl-small rl-muted">Outcomes are only listed where they have been verified.</p>
+            <h3 class="ol-h3">Project title</h3>
+            <p class="ol-work__need"><strong>The need.</strong> Replace this entry in assets/data/projects.json with a real project.</p>
+            <p class="ol-work__built"><strong>What we built.</strong> Describe the system that was delivered.</p>
+            <p class="ol-work__outcome ol-small ol-muted">Outcomes are only listed where they have been verified.</p>
           </div>
         </article>
       </li>
-      <li class="rl-work__item is-placeholder">
-        <article class="rl-work__card">
-          <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
-          <div class="rl-work__body">
-            <p class="rl-work__tags">
-              <span class="rl-badge rl-badge--ember">Placeholder</span>
-              <span class="rl-mono rl-muted">Automation</span>
+      <li class="ol-work__item is-placeholder">
+        <article class="ol-work__card">
+          <div class="ol-work__visual" aria-hidden="true"><span class="ol-work__glyph"></span></div>
+          <div class="ol-work__body">
+            <p class="ol-work__tags">
+              <span class="ol-badge ol-badge--ember">Placeholder</span>
+              <span class="ol-mono ol-muted">Automation</span>
             </p>
-            <h3 class="rl-h3">Project title</h3>
-            <p class="rl-work__need"><strong>The need.</strong> Replace this entry in assets/data/projects.json with a real project.</p>
-            <p class="rl-work__built"><strong>What we built.</strong> Describe the system that was delivered.</p>
-            <p class="rl-work__outcome rl-small rl-muted">Outcomes are only listed where they have been verified.</p>
+            <h3 class="ol-h3">Project title</h3>
+            <p class="ol-work__need"><strong>The need.</strong> Replace this entry in assets/data/projects.json with a real project.</p>
+            <p class="ol-work__built"><strong>What we built.</strong> Describe the system that was delivered.</p>
+            <p class="ol-work__outcome ol-small ol-muted">Outcomes are only listed where they have been verified.</p>
           </div>
         </article>
       </li>
     </ul>
     <!-- work:end -->
 
-    <p class="rl-feature__cta" data-reveal="fade">
-      <a class="rl-link" href="/work.html">All work <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+    <p class="ol-feature__cta" data-reveal="fade">
+      <a class="ol-link" href="/work.html">All work <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
     </p>
   </div>
 </section>
 
-<!-- 10 · WHY ROCKETLIFT -------------------------------------------------- -->
-<section class="rl-section rl-why" id="why" aria-labelledby="why-title">
-  <div class="rl-container">
-    <div class="rl-why__grid">
+<!-- 10 · WHY ORBITLIFT -------------------------------------------------- -->
+<section class="ol-section ol-why" id="why" aria-labelledby="why-title">
+  <div class="ol-container">
+    <div class="ol-why__grid">
 
-      <header class="rl-why__head">
-        <p class="rl-eyebrow" data-reveal="fade">Why RocketLift</p>
-        <h2 class="rl-h2" id="why-title" data-reveal="mask"><span>Built around the business. Not around a package.</span></h2>
+      <header class="ol-why__head">
+        <p class="ol-eyebrow" data-reveal="fade">Why OrbitLift</p>
+        <h2 class="ol-h2" id="why-title" data-reveal="mask"><span>Built around the business. Not around a package.</span></h2>
       </header>
 
-      <div class="rl-why__items" data-reveal="seq">
-        <article class="rl-why__item">
-          <h3 class="rl-h3">No two businesses need the same system</h3>
-          <p class="rl-muted">
+      <div class="ol-why__items" data-reveal="seq">
+        <article class="ol-why__item">
+          <h3 class="ol-h3">No two businesses need the same system</h3>
+          <p class="ol-muted">
             A trades business losing calls after 5pm and a studio losing enquiries on a slow
             site have nothing in common. We build what the problem needs — which sometimes
             means talking you out of the thing you asked for.
           </p>
         </article>
 
-        <article class="rl-why__item">
-          <h3 class="rl-h3">Custom, not configured</h3>
-          <p class="rl-muted">
+        <article class="ol-why__item">
+          <h3 class="ol-h3">Custom, not configured</h3>
+          <p class="ol-muted">
             Templates make every business in a category look and behave identically. Our work
             is designed and coded for the business it belongs to, which is why it can do
             things the template version can't.
           </p>
         </article>
 
-        <article class="rl-why__item">
-          <h3 class="rl-h3">One team for all five parts</h3>
-          <p class="rl-muted">
+        <article class="ol-why__item">
+          <h3 class="ol-h3">One team for all five parts</h3>
+          <p class="ol-muted">
             The website developer, the SEO consultant and the automation contractor all
             blaming each other is a real cost. Here it's one system, one team, one person to
             call.
           </p>
         </article>
 
-        <article class="rl-why__item">
-          <h3 class="rl-h3">We only claim what we've built</h3>
-          <p class="rl-muted">
+        <article class="ol-why__item">
+          <h3 class="ol-h3">We only claim what we've built</h3>
+          <p class="ol-muted">
             No guaranteed rankings, no borrowed case studies, no integrations that exist in a
             sales deck. If we haven't done it, we'll tell you — and then tell you what it
             would take.
@@ -1153,71 +1179,71 @@
 </section>
 
 <!-- 11 · SOLUTION FINDER ------------------------------------------------- -->
-<section class="rl-section rl-finder" id="finder" aria-labelledby="finder-title">
-  <div class="rl-container">
+<section class="ol-section ol-finder" id="finder" aria-labelledby="finder-title">
+  <div class="ol-container">
 
-    <header class="rl-section-head rl-section-head--center">
-      <p class="rl-eyebrow rl-eyebrow--ember" data-reveal="fade">Solution finder</p>
-      <h2 class="rl-h2" id="finder-title" data-reveal="mask"><span>What does your business actually need?</span></h2>
-      <p class="rl-lead" data-reveal>
+    <header class="ol-section-head ol-section-head--center">
+      <p class="ol-eyebrow ol-eyebrow--ember" data-reveal="fade">Solution finder</p>
+      <h2 class="ol-h2" id="finder-title" data-reveal="mask"><span>What does your business actually need?</span></h2>
+      <p class="ol-lead" data-reveal>
         Pick whatever sounds like your week. We'll tell you which parts are worth building
         first — and which you can leave alone.
       </p>
     </header>
 
-    <div class="rl-finder__panel rl-panel rl-panel--lit" data-finder data-reveal="edge">
-      <div class="rl-finder__grid">
+    <div class="ol-finder__panel ol-panel ol-panel--lit" data-finder data-reveal="edge">
+      <div class="ol-finder__grid">
 
-        <fieldset class="rl-finder__needs">
-          <legend class="rl-finder__legend rl-mono">Select what applies</legend>
-          <div class="rl-finder__opts">
-            <label class="rl-opt">
+        <fieldset class="ol-finder__needs">
+          <legend class="ol-finder__legend ol-mono">Select what applies</legend>
+          <div class="ol-finder__opts">
+            <label class="ol-opt">
               <input type="checkbox" value="found">
-              <span class="rl-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
-              <span class="rl-opt__label">Not enough people find us</span>
+              <span class="ol-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
+              <span class="ol-opt__label">Not enough people find us</span>
             </label>
-            <label class="rl-opt">
+            <label class="ol-opt">
               <input type="checkbox" value="site">
-              <span class="rl-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
-              <span class="rl-opt__label">Our website is dated or embarrassing</span>
+              <span class="ol-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
+              <span class="ol-opt__label">Our website is dated or embarrassing</span>
             </label>
-            <label class="rl-opt">
+            <label class="ol-opt">
               <input type="checkbox" value="leads">
-              <span class="rl-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
-              <span class="rl-opt__label">Traffic comes in, enquiries don't</span>
+              <span class="ol-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
+              <span class="ol-opt__label">Traffic comes in, enquiries don't</span>
             </label>
-            <label class="rl-opt">
+            <label class="ol-opt">
               <input type="checkbox" value="calls">
-              <span class="rl-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
-              <span class="rl-opt__label">We miss calls and messages</span>
+              <span class="ol-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
+              <span class="ol-opt__label">We miss calls and messages</span>
             </label>
-            <label class="rl-opt">
+            <label class="ol-opt">
               <input type="checkbox" value="questions">
-              <span class="rl-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
-              <span class="rl-opt__label">We answer the same questions all day</span>
+              <span class="ol-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
+              <span class="ol-opt__label">We answer the same questions all day</span>
             </label>
-            <label class="rl-opt">
+            <label class="ol-opt">
               <input type="checkbox" value="manual">
-              <span class="rl-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
-              <span class="rl-opt__label">Too much of the admin is manual</span>
+              <span class="ol-opt__box" aria-hidden="true"><svg viewBox="0 0 20 20"><use href="#i-check"/></svg></span>
+              <span class="ol-opt__label">Too much of the admin is manual</span>
             </label>
           </div>
-          <button class="rl-finder__clear rl-link" type="button" data-finder-clear hidden>Clear selection</button>
+          <button class="ol-finder__clear ol-link" type="button" data-finder-clear hidden>Clear selection</button>
         </fieldset>
 
-        <div class="rl-finder__out" data-finder-out aria-live="polite">
-          <div class="rl-finder__empty" data-finder-empty>
-            <p class="rl-mono rl-muted">Awaiting input</p>
-            <p class="rl-finder__empty-text">
+        <div class="ol-finder__out" data-finder-out aria-live="polite">
+          <div class="ol-finder__empty" data-finder-empty>
+            <p class="ol-mono ol-muted">Awaiting input</p>
+            <p class="ol-finder__empty-text">
               Choose one or more on the left. Recommendations appear here.
             </p>
           </div>
-          <div class="rl-finder__result" data-finder-result hidden>
-            <p class="rl-mono rl-finder__result-kicker">Recommended for you</p>
-            <ul class="rl-finder__recs" data-finder-recs></ul>
-            <p class="rl-finder__summary" data-finder-summary></p>
-            <a class="rl-btn rl-btn--primary rl-finder__cta" href="#start">
-              Start with this <span class="rl-btn__arrow" aria-hidden="true">→</span>
+          <div class="ol-finder__result" data-finder-result hidden>
+            <p class="ol-mono ol-finder__result-kicker">Recommended for you</p>
+            <ul class="ol-finder__recs" data-finder-recs></ul>
+            <p class="ol-finder__summary" data-finder-summary></p>
+            <a class="ol-btn ol-btn--primary ol-finder__cta" href="#start">
+              Start with this <span class="ol-btn__arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -1227,23 +1253,23 @@
 </section>
 
 <!-- 12 · FINAL CTA ------------------------------------------------------- -->
-<section class="rl-section rl-start" id="start" aria-labelledby="start-title">
-  <div class="rl-container rl-container--narrow">
-    <div class="rl-start__inner" data-reveal>
-      <p class="rl-eyebrow rl-eyebrow--bare rl-eyebrow--ember" data-reveal="fade">Start here</p>
-      <h2 class="rl-display rl-start__title" id="start-title">
+<section class="ol-section ol-start" id="start" aria-labelledby="start-title">
+  <div class="ol-container ol-container--narrow">
+    <div class="ol-start__inner" data-reveal>
+      <p class="ol-eyebrow ol-eyebrow--bare ol-eyebrow--ember" data-reveal="fade">Start here</p>
+      <h2 class="ol-display ol-start__title" id="start-title">
         Build a better digital system for your business.
       </h2>
-      <p class="rl-lead rl-start__lead">
+      <p class="ol-lead ol-start__lead">
         Tell us how enquiries reach you today. We'll tell you what's worth building first.
       </p>
-      <div class="rl-btn-row rl-start__cta">
-        <a class="rl-btn rl-btn--primary" href="mailto:hello@rocketlift.com?subject=New%20project%20enquiry">
-          Let's build <span class="rl-btn__arrow" aria-hidden="true">→</span>
+      <div class="ol-btn-row ol-start__cta">
+        <a class="ol-btn ol-btn--primary" href="mailto:hello@orbitlift.com?subject=New%20project%20enquiry">
+          Let's build <span class="ol-btn__arrow" aria-hidden="true">→</span>
         </a>
-        <a class="rl-btn rl-btn--ghost" href="#ecosystem">Explore RocketLift</a>
+        <a class="ol-btn ol-btn--ghost" href="#ecosystem">Explore OrbitLift</a>
       </div>
-      <p class="rl-start__note rl-small rl-muted">
+      <p class="ol-start__note ol-small ol-muted">
         No pitch deck. One conversation about how your business actually gets customers.
       </p>
     </div>
@@ -1252,55 +1278,55 @@
 
 </main>
 
-<!-- Footer ---------------------------------------------------------------- -->
-<footer class="rl-footer" aria-labelledby="footer-title">
-  <h2 class="rl-sr-only" id="footer-title">Site footer</h2>
-  <div class="rl-container">
-    <div class="rl-footer__grid">
+<footer class="ol-footer" aria-labelledby="footer-title">
+  <h2 class="ol-sr-only" id="footer-title">Site footer</h2>
+  <div class="ol-container">
+    <div class="ol-footer__grid">
 
-      <div class="rl-footer__brand">
-        <a class="rl-logo" href="/" aria-label="RocketLift home">
-          <svg class="rl-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
-          RocketLift
+      <div class="ol-footer__brand">
+        <a class="ol-logo" href="/" aria-label="OrbitLift home">
+          <svg class="ol-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
+          OrbitLift
         </a>
-        <p class="rl-small rl-muted rl-footer__blurb">
+        <p class="ol-small ol-muted ol-footer__blurb">
           The digital systems businesses use to attract, convert and serve customers.
         </p>
       </div>
 
-      <nav class="rl-footer__col" aria-label="Features">
-        <h3 class="rl-footer__label">Features</h3>
+      <nav class="ol-footer__col" aria-label="Features">
+        <h3 class="ol-footer__label">Features</h3>
         <ul>
-          <li><a href="/#websites">Custom websites</a></li>
-          <li><a href="/#receptionists">AI receptionists</a></li>
-          <li><a href="/#chatbots">AI chatbots</a></li>
-          <li><a href="/#seo">SEO</a></li>
-          <li><a href="/#automation">Automation</a></li>
+          <li><a href="/features/websites.html">Custom websites</a></li>
+          <li><a href="/features/ai-receptionists.html">AI receptionists</a></li>
+          <li><a href="/features/ai-chatbots.html">AI chatbots</a></li>
+          <li><a href="/features/seo.html">SEO</a></li>
+          <li><a href="/features/automation.html">Automation</a></li>
         </ul>
       </nav>
 
-      <nav class="rl-footer__col" aria-label="Company">
-        <h3 class="rl-footer__label">Company</h3>
+      <nav class="ol-footer__col" aria-label="Company">
+        <h3 class="ol-footer__label">Company</h3>
         <ul>
           <li><a href="/work.html">Work</a></li>
           <li><a href="/about.html">About</a></li>
+          <li><a href="/features.html">All features</a></li>
           <li><a href="/#process">How we work</a></li>
           <li><a href="/#finder">Solution finder</a></li>
         </ul>
       </nav>
 
-      <div class="rl-footer__col">
-        <h3 class="rl-footer__label">Start</h3>
+      <div class="ol-footer__col">
+        <h3 class="ol-footer__label">Start</h3>
         <ul>
-          <li><a href="mailto:hello@rocketlift.com">hello@rocketlift.com</a></li>
+          <li><a href="mailto:hello@orbitlift.com">hello@orbitlift.com</a></li>
         </ul>
-        <a class="rl-btn rl-btn--ghost rl-footer__cta" href="#start">Start a project</a>
+        <a class="ol-btn ol-btn--ghost ol-footer__cta" href="#start">Start a project</a>
       </div>
     </div>
 
-    <div class="rl-footer__base">
-      <p class="rl-mono rl-muted">© <span data-year>2026</span> RocketLift. All rights reserved.</p>
-      <p class="rl-mono rl-muted">Websites · AI receptionists · AI chatbots · SEO · Automation</p>
+    <div class="ol-footer__base">
+      <p class="ol-mono ol-muted">© <span data-year>2026</span> OrbitLift. All rights reserved.</p>
+      <p class="ol-mono ol-muted">Websites · AI receptionists · AI chatbots · SEO · Automation</p>
     </div>
   </div>
 </footer>

@@ -1,4 +1,4 @@
-# RocketLift — Design & Content Strategy
+# OrbitLift — Design & Content Strategy
 
 The strategy document behind `index.html`. Written before implementation; kept as the
 reference for anyone extending the site.
@@ -8,9 +8,9 @@ reference for anyone extending the site.
 ## 1. Positioning
 
 **One idea the site must land:**
-> RocketLift builds the digital systems businesses use to attract, convert, and serve customers.
+> OrbitLift builds the digital systems businesses use to attract, convert, and serve customers.
 
-RocketLift is not "a website agency that also does AI." It is one connected system with five
+OrbitLift is not "a website agency that also does AI." It is one connected system with five
 parts. Every design and copy decision below serves that single argument.
 
 **The argument, in page order:**
@@ -22,7 +22,7 @@ parts. Every design and copy decision below serves that single argument.
 | Proof of capability | What does it actually *do*? | 3–7 — the five product demos |
 | Proof of process | How do we work together? | 8 — How it works |
 | Proof of craft | Have you done this? | 9 — Work |
-| Differentiation | Why you? | 10 — Why RocketLift |
+| Differentiation | Why you? | 10 — Why OrbitLift |
 | Self-qualification | What do *I* need? | 11 — Solution finder |
 | Action | What now? | 12 — Final CTA |
 
@@ -36,14 +36,14 @@ capability without reading a paragraph. Copy supports the demo; it does not repl
 ```
 /                 index.html    The full system experience (12 sections)
 /work.html        Selected work, project detail
-/about.html       How RocketLift works, who it's for, contact
+/about.html       How OrbitLift works, who it's for, contact
 /404.html
 ```
 
 Navigation is deliberately small:
 
 ```
-RocketLift   Features ▾   Work   About            [Start a project]
+OrbitLift   Features ▾   Work   About            [Start a project]
              └ mega-menu: the five capabilities, each with a one-line
                descriptor, anchored to its section on the homepage
 ```

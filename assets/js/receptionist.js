@@ -85,7 +85,7 @@ export function initReceptionist() {
   const liveEl    = qs('[data-rec-live]', root);
   const replayBtn = qs('[data-rec-replay]', root);
 
-  const steps = qsa('.rl-rec__step', stepsEl);
+  const steps = qsa('.ol-rec__step', stepsEl);
   let tl = createTimeline();
   let current = 0;
   let seconds = 0;
@@ -101,12 +101,12 @@ export function initReceptionist() {
 
   const addLine = ({ who, text }) => {
     const li = document.createElement('li');
-    li.className = `rl-rec__line rl-rec__line--${who === 'AI' ? 'ai' : 'caller'}`;
+    li.className = `ol-rec__line ol-rec__line--${who === 'AI' ? 'ai' : 'caller'}`;
     const label = document.createElement('span');
-    label.className = 'rl-rec__who';
+    label.className = 'ol-rec__who';
     label.textContent = who === 'AI' ? 'Receptionist' : 'Caller';
     const bubble = document.createElement('p');
-    bubble.className = 'rl-rec__bubble';
+    bubble.className = 'ol-rec__bubble';
     bubble.textContent = text;
     li.append(label, bubble);
     linesEl.append(li);
@@ -144,7 +144,7 @@ export function initReceptionist() {
     fieldsEl.innerHTML = '';
     scenario.capture.forEach(([label, value]) => {
       const wrap = document.createElement('div');
-      wrap.className = 'rl-rec__field';
+      wrap.className = 'ol-rec__field';
       const dt = document.createElement('dt');
       dt.textContent = label;
       const dd = document.createElement('dd');

@@ -14,7 +14,7 @@ export function initCraft() {
 
   const frame = qs('[data-craft-frame]', root);
   const site = qs('[data-craft-site]', root);
-  const viewport = qs('.rl-craft__viewport', root);
+  const viewport = qs('.ol-craft__viewport', root);
   const note = qs('[data-craft-note]', root);
   const url = qs('[data-craft-url]', root);
   let loadTimer = null;
@@ -44,7 +44,7 @@ export function initCraft() {
       const mode = tab.dataset.craftTab;
       frame.dataset.mode = mode;
       note.textContent = NOTES[mode];
-      if (url) url.textContent = `a-rocketlift-build.example / ${mode}`;
+      if (url) url.textContent = `a-orbitlift-build.example / ${mode}`;
       playMode(mode);
     }
   }).select(0);

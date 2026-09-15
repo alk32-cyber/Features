@@ -1,0 +1,57 @@
+<div class="ol-flowbuild" data-auto data-reveal="edge" data-ambient>
+      <div class="ol-tabs" role="tablist" aria-label="Automation examples">
+        <button class="ol-tab" role="tab" aria-selected="true" tabindex="0" data-auto-tab="0">New enquiry</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="1">Missed call</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="2">Quote follow-up</button>
+      </div>
+
+      <div class="ol-window ol-flowbuild__window">
+        <div class="ol-window__bar">
+          <span class="ol-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="ol-window__title" data-auto-name>workflow / new-enquiry</span>
+          <span class="ol-live">Running</span>
+        </div>
+
+        <div class="ol-flowbuild__canvas" data-auto-canvas>
+          <ol class="ol-wf" data-auto-nodes>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Trigger</span>
+                <span class="ol-wf__title">Enquiry arrives</span>
+                <span class="ol-wf__desc">From the site form, the chatbot, or a call the receptionist took.</span>
+              </div>
+              <span class="ol-wf__wire" style="--d:0s" aria-hidden="true"></span>
+            </li>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Sort</span>
+                <span class="ol-wf__title">Read and categorise</span>
+                <span class="ol-wf__desc">Service type, location and urgency pulled out of what they actually wrote.</span>
+              </div>
+              <span class="ol-wf__wire" style="--d:0.85s" aria-hidden="true"></span>
+            </li>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Action</span>
+                <span class="ol-wf__title">Route to the right person</span>
+                <span class="ol-wf__desc">Sent where it belongs instead of into one shared inbox nobody owns.</span>
+              </div>
+              <span class="ol-wf__wire" style="--d:1.7s" aria-hidden="true"></span>
+            </li>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Follow-up</span>
+                <span class="ol-wf__title">Chase if it goes quiet</span>
+                <span class="ol-wf__desc">A reminder fires if nothing has happened by the time you said it would.</span>
+              </div>
+            </li>
+          </ol>
+          <p class="ol-flowbuild__outcome" data-auto-outcome>Nothing sits unanswered because one person was on site all day.</p>
+        </div>
+      </div>
+
+      <p class="ol-flowbuild__disclaimer ol-mono">
+        Example workflows. What we build depends on the tools a business already uses — we
+        scope that before we promise it.
+      </p>
+    </div>

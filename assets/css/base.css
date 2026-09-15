@@ -1,5 +1,5 @@
 /* ==========================================================================
-   RocketLift — Reset, document, typography primitives
+   OrbitLift — Reset, document, typography primitives
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -17,11 +17,11 @@ html {
 }
 
 body {
-  background: var(--rl-black);
-  color: var(--rl-text-2);
-  font-family: var(--rl-font-body);
-  font-size: var(--rl-t-body);
-  line-height: var(--rl-lh-body);
+  background: var(--ol-black);
+  color: var(--ol-text-2);
+  font-family: var(--ol-font-body);
+  font-size: var(--ol-t-body);
+  line-height: var(--ol-lh-body);
   font-synthesis-weight: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -44,35 +44,35 @@ ul, ol { list-style: none; padding: 0; }
 a { color: inherit; text-decoration: none; }
 
 :where(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--rl-font-display);
-  color: var(--rl-text);
+  font-family: var(--ol-font-display);
+  color: var(--ol-text);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: var(--rl-lh-snug);
+  line-height: var(--ol-lh-snug);
   text-wrap: balance;
 }
 
 p { text-wrap: pretty; }
 
-hr { border: 0; border-top: 1px solid var(--rl-line); }
+hr { border: 0; border-top: 1px solid var(--ol-line); }
 
 /* --- Focus: always visible, always on-brand ----------------------------- */
 :focus { outline: none; }
 
 :focus-visible {
-  outline: 2px solid var(--rl-ember-400);
+  outline: 2px solid var(--ol-ember-400);
   outline-offset: 3px;
-  border-radius: var(--rl-r-xs);
+  border-radius: var(--ol-r-xs);
 }
 
 ::selection {
-  background: var(--rl-violet-600);
+  background: var(--ol-violet-600);
   color: #fff;
 }
 
 /* --- Utilities ---------------------------------------------------------- */
 
-.rl-sr-only {
+.ol-sr-only {
   position: absolute;
   width: 1px; height: 1px;
   padding: 0; margin: -1px;
@@ -82,84 +82,84 @@ hr { border: 0; border-top: 1px solid var(--rl-line); }
   border: 0;
 }
 
-.rl-skip-link {
+.ol-skip-link {
   position: absolute;
-  top: var(--rl-s-3);
-  left: var(--rl-s-3);
+  top: var(--ol-s-3);
+  left: var(--ol-s-3);
   z-index: 200;
   padding: 0.7rem 1.1rem;
-  background: var(--rl-ember-500);
-  color: var(--rl-on-ember);
+  background: var(--ol-ember-500);
+  color: var(--ol-on-ember);
   font-weight: 600;
-  font-size: var(--rl-t-small);
-  border-radius: var(--rl-r-sm);
+  font-size: var(--ol-t-small);
+  border-radius: var(--ol-r-sm);
   transform: translateY(-160%);
-  transition: transform var(--rl-d-base) var(--rl-ease);
+  transition: transform var(--ol-d-base) var(--ol-ease);
 }
 
-.rl-skip-link:focus-visible { transform: translateY(0); }
+.ol-skip-link:focus-visible { transform: translateY(0); }
 
 /* --- Type primitives ---------------------------------------------------- */
 
-.rl-eyebrow {
+.ol-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  font-family: var(--rl-font-mono);
-  font-size: var(--rl-t-label);
+  font-family: var(--ol-font-mono);
+  font-size: var(--ol-t-label);
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--rl-violet-300);
+  color: var(--ol-violet-300);
 }
 
-.rl-eyebrow::before {
+.ol-eyebrow::before {
   content: "";
   width: 1.75rem;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--rl-violet-400));
+  background: linear-gradient(90deg, transparent, var(--ol-violet-400));
 }
 
-.rl-eyebrow--ember { color: var(--rl-ember-400); }
-.rl-eyebrow--ember::before { background: linear-gradient(90deg, transparent, var(--rl-ember-500)); }
-.rl-eyebrow--bare::before { display: none; }
+.ol-eyebrow--ember { color: var(--ol-ember-400); }
+.ol-eyebrow--ember::before { background: linear-gradient(90deg, transparent, var(--ol-ember-500)); }
+.ol-eyebrow--bare::before { display: none; }
 
-.rl-display {
-  font-size: var(--rl-t-h1);
-  line-height: var(--rl-lh-tight);
+.ol-display {
+  font-size: var(--ol-t-h1);
+  line-height: var(--ol-lh-tight);
   letter-spacing: -0.042em;
   font-weight: 700;
 }
 
-.rl-h2 {
-  font-size: var(--rl-t-h2);
+.ol-h2 {
+  font-size: var(--ol-t-h2);
   line-height: 1.04;
   letter-spacing: -0.038em;
 }
 
-.rl-h3 { font-size: var(--rl-t-h3); letter-spacing: -0.028em; line-height: 1.16; }
-.rl-h4 { font-size: var(--rl-t-h4); letter-spacing: -0.02em; line-height: 1.3; }
+.ol-h3 { font-size: var(--ol-t-h3); letter-spacing: -0.028em; line-height: 1.16; }
+.ol-h4 { font-size: var(--ol-t-h4); letter-spacing: -0.02em; line-height: 1.3; }
 
-.rl-lead {
-  font-size: var(--rl-t-lead);
+.ol-lead {
+  font-size: var(--ol-t-lead);
   line-height: 1.5;
-  color: var(--rl-text-2);
+  color: var(--ol-text-2);
   letter-spacing: -0.011em;
 }
 
-.rl-muted { color: var(--rl-text-3); }
-.rl-small { font-size: var(--rl-t-small); line-height: 1.55; }
-.rl-mono  { font-family: var(--rl-font-mono); font-size: var(--rl-t-micro); letter-spacing: 0.02em; }
+.ol-muted { color: var(--ol-text-3); }
+.ol-small { font-size: var(--ol-t-small); line-height: 1.55; }
+.ol-mono  { font-family: var(--ol-font-mono); font-size: var(--ol-t-micro); letter-spacing: 0.02em; }
 
-.rl-measure { max-width: var(--rl-maxw-text); }
+.ol-measure { max-width: var(--ol-maxw-text); }
 
 /* One emphasised phrase per headline, and only where the phrase is the point.
    This was a purple-to-orange gradient clipped to the text; across a line break
    the gradient restarted mid-word, which looked like a rendering fault rather
    than a decision. Solid colour with a rule beneath it says the same thing and
    survives any wrap. */
-.rl-hl {
-  color: var(--rl-violet-300);
+.ol-hl {
+  color: var(--ol-violet-300);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   background-image: linear-gradient(transparent 82%, rgba(162, 119, 255, 0.28) 82%);

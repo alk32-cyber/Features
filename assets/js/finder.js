@@ -8,11 +8,11 @@ import { qs, qsa } from './util.js';
 // `phrase` is the prose form used in the summary sentence, so it reads as English
 // rather than as a lowercased label.
 const CAPS = {
-  websites:      { name: 'Custom website',  phrase: 'a custom website',   icon: 'i-web',   href: '#websites' },
-  seo:           { name: 'SEO',             phrase: 'SEO',                icon: 'i-seo',   href: '#seo' },
-  chatbots:      { name: 'AI chatbot',      phrase: 'a chatbot',          icon: 'i-chat',  href: '#chatbots' },
-  receptionists: { name: 'AI receptionist', phrase: 'an AI receptionist', icon: 'i-phone', href: '#receptionists' },
-  automation:    { name: 'Automation',      phrase: 'automation',         icon: 'i-auto',  href: '#automation' }
+  websites:      { name: 'Custom website',  phrase: 'a custom website',   icon: 'i-web',   href: '/features/websites.html' },
+  seo:           { name: 'SEO',             phrase: 'SEO',                icon: 'i-seo',   href: '/features/seo.html' },
+  chatbots:      { name: 'AI chatbot',      phrase: 'a chatbot',          icon: 'i-chat',  href: '/features/ai-chatbots.html' },
+  receptionists: { name: 'AI receptionist', phrase: 'an AI receptionist', icon: 'i-phone', href: '/features/ai-receptionists.html' },
+  automation:    { name: 'Automation',      phrase: 'automation',         icon: 'i-auto',  href: '/features/automation.html' }
 };
 
 const NEEDS = {
@@ -117,17 +117,17 @@ export function initFinder() {
     ranked.forEach(([cap], i) => {
       const meta = CAPS[cap];
       const li = document.createElement('li');
-      li.className = `rl-finder__rec${i === 0 ? ' rl-finder__rec--lead' : ''}`;
+      li.className = `ol-finder__rec${i === 0 ? ' ol-finder__rec--lead' : ''}`;
       li.style.animationDelay = `${i * 70}ms`;
       li.innerHTML = `
-        <span class="rl-finder__rec-icon">
+        <span class="ol-finder__rec-icon">
           <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#${meta.icon}"/></svg>
         </span>
         <span>
-          <a class="rl-finder__rec-name" href="${meta.href}">${meta.name}</a>
-          <span class="rl-finder__rec-why">${reasons[cap].text}</span>
+          <a class="ol-finder__rec-name" href="${meta.href}">${meta.name}</a>
+          <span class="ol-finder__rec-why">${reasons[cap].text}</span>
         </span>
-        <span class="rl-finder__rec-tag">${i === 0 ? 'Start here' : `0${i + 1}`}</span>`;
+        <span class="ol-finder__rec-tag">${i === 0 ? 'Start here' : `0${i + 1}`}</span>`;
       recsEl.append(li);
     });
 

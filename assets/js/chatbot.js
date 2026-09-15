@@ -104,7 +104,7 @@ export function initChatbot() {
 
   const append = (cls, text) => {
     const el = document.createElement('div');
-    el.className = `rl-bot__msg rl-bot__msg--${cls}`;
+    el.className = `ol-bot__msg ol-bot__msg--${cls}`;
     el.textContent = text;
     log.append(el);
     scrollLog();
@@ -113,7 +113,7 @@ export function initChatbot() {
 
   const showTyping = () => {
     const el = document.createElement('div');
-    el.className = 'rl-bot__typing';
+    el.className = 'ol-bot__typing';
     el.innerHTML = '<i></i><i></i><i></i>';
     el.setAttribute('aria-hidden', 'true');
     log.append(el);
@@ -126,7 +126,7 @@ export function initChatbot() {
     replies.forEach((reply, i) => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = `rl-bot__reply${reply.restart ? '' : i === 0 && reply.next === 'book' ? ' rl-bot__reply--cta' : ''}`;
+      btn.className = `ol-bot__reply${reply.restart ? '' : i === 0 && reply.next === 'book' ? ' ol-bot__reply--cta' : ''}`;
       btn.textContent = reply.label;
       btn.style.animationDelay = `${i * 60}ms`;
       btn.addEventListener('click', () => {

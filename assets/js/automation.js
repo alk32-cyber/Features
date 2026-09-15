@@ -53,19 +53,19 @@ export function initAutomation() {
 
     flow.nodes.forEach((node, i) => {
       const li = document.createElement('li');
-      li.className = 'rl-wf__step';
+      li.className = 'ol-wf__step';
 
       const card = document.createElement('div');
-      card.className = 'rl-wf__node';
+      card.className = 'ol-wf__node';
       card.innerHTML = `
-        <span class="rl-wf__kind">${node.kind}</span>
-        <span class="rl-wf__title">${node.title}</span>
-        <span class="rl-wf__desc">${node.desc}</span>`;
+        <span class="ol-wf__kind">${node.kind}</span>
+        <span class="ol-wf__title">${node.title}</span>
+        <span class="ol-wf__desc">${node.desc}</span>`;
       li.append(card);
 
       if (i < flow.nodes.length - 1) {
         const wire = document.createElement('span');
-        wire.className = 'rl-wf__wire';
+        wire.className = 'ol-wf__wire';
         wire.style.setProperty('--d', `${i * 0.85}s`);
         wire.setAttribute('aria-hidden', 'true');
         li.append(wire);

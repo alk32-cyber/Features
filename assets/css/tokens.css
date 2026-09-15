@@ -1,123 +1,184 @@
 /* ==========================================================================
-   RocketLift — Design tokens
+   OrbitLift — Design tokens
    Hierarchy: Black establishes the environment. Purple carries the identity.
    Orange marks action.
    ========================================================================== */
 
 :root {
+  /* Channel used by every translucent surface overlay, so one value flips the
+     whole set between themes without touching a single alpha. */
+  --ol-tint-rgb: 255 255 255;
+
   /* --- Surfaces: near-black with a violet cast, never pure black --------- */
-  --rl-void:        #050409;
-  --rl-black:       #07060C;
-  --rl-surface-1:   #0C0A14;
-  --rl-surface-2:   #12101C;
-  --rl-surface-3:   #191527;
-  --rl-surface-4:   #221D34;
+  --ol-void:        #050409;
+  --ol-black:       #07060C;
+  --ol-surface-1:   #0C0A14;
+  --ol-surface-2:   #12101C;
+  --ol-surface-3:   #191527;
+  --ol-surface-4:   #221D34;
 
   /* --- Lines ------------------------------------------------------------ */
-  --rl-line:        rgba(167, 139, 250, 0.13);
-  --rl-line-strong: rgba(167, 139, 250, 0.26);
-  --rl-line-soft:   rgba(167, 139, 250, 0.07);
+  --ol-line:        rgba(167, 139, 250, 0.13);
+  --ol-line-strong: rgba(167, 139, 250, 0.26);
+  --ol-line-soft:   rgba(167, 139, 250, 0.07);
 
   /* --- Purple: the identity --------------------------------------------- */
-  --rl-violet-100:  #EDE4FF;
-  --rl-violet-200:  #D7C4FF;
-  --rl-violet-300:  #BFA1FF;
-  --rl-violet-400:  #A277FF;
-  --rl-violet-500:  #8B5CF6;
-  --rl-violet-600:  #6D3BEA;
-  --rl-violet-700:  #5324C4;
-  --rl-violet-900:  #2A1163;
+  --ol-violet-100:  #EDE4FF;
+  --ol-violet-200:  #D7C4FF;
+  --ol-violet-300:  #BFA1FF;
+  --ol-violet-400:  #A277FF;
+  --ol-violet-500:  #8B5CF6;
+  --ol-violet-600:  #6D3BEA;
+  --ol-violet-700:  #5324C4;
+  --ol-violet-900:  #2A1163;
 
   /* --- Orange: the action ----------------------------------------------- */
-  --rl-ember-300:   #FFB682;
-  --rl-ember-400:   #FF9147;
-  --rl-ember-500:   #FF6B2C;
-  --rl-ember-600:   #E8501A;
+  --ol-ember-300:   #FFB682;
+  --ol-ember-400:   #FF9147;
+  --ol-ember-500:   #FF6B2C;
+  --ol-ember-600:   #E8501A;
 
   /* --- Text ------------------------------------------------------------- */
-  --rl-text:        #F6F3FF;
-  --rl-text-2:      #C9C1E0;   /* ~11:1 on --rl-black */
-  --rl-text-3:      #9B92B8;   /* ~6.4:1 on --rl-black */
-  --rl-text-4:      #6F6788;   /* decorative / disabled only */
-  --rl-on-ember:    #1A0B03;
-  --rl-on-violet:   #FFFFFF;
+  --ol-text:        #F6F3FF;
+  --ol-text-2:      #C9C1E0;   /* ~11:1 on --ol-black */
+  --ol-text-3:      #9B92B8;   /* ~6.4:1 on --ol-black */
+  --ol-text-4:      #6F6788;   /* decorative / disabled only */
+  --ol-on-ember:    #1A0B03;
+  --ol-on-violet:   #FFFFFF;
 
   /* --- Semantic --------------------------------------------------------- */
-  --rl-live:        #4ADE80;
+  --ol-live:        #4ADE80;
 
   /* --- Atmosphere (lighting, not decoration) ---------------------------- */
-  --rl-glow-violet: rgba(124, 58, 237, 0.42);
-  --rl-glow-deep:   rgba(58, 18, 140, 0.55);
-  --rl-glow-ember:  rgba(255, 107, 44, 0.30);
+  --ol-glow-violet: rgba(124, 58, 237, 0.42);
+  --ol-glow-deep:   rgba(58, 18, 140, 0.55);
+  --ol-glow-ember:  rgba(255, 107, 44, 0.30);
 
   /* --- Typography ------------------------------------------------------- */
-  --rl-font-display: "Schibsted Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --rl-font-body:    "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --rl-font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --ol-font-display: "Schibsted Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ol-font-body:    "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ol-font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* Fluid scale — aggressive contrast, nothing sits in the middle */
-  --rl-t-label:   0.6875rem;                              /* 11px mono eyebrow */
-  --rl-t-micro:   0.75rem;                                /* 12px */
-  --rl-t-small:   0.8125rem;                              /* 13px */
-  --rl-t-body:    clamp(0.9375rem, 0.9rem + 0.18vw, 1.0625rem);
-  --rl-t-lead:    clamp(1.0625rem, 0.98rem + 0.4vw, 1.3125rem);
-  --rl-t-h4:      clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
-  --rl-t-h3:      clamp(1.375rem, 1.2rem + 0.75vw, 1.875rem);
-  --rl-t-h2:      clamp(2rem, 1.4rem + 2.1vw, 3.375rem);
-  --rl-t-h1:      clamp(2.5rem, 1.6rem + 3.3vw, 4.5rem);
+  --ol-t-label:   0.6875rem;                              /* 11px mono eyebrow */
+  --ol-t-micro:   0.75rem;                                /* 12px */
+  --ol-t-small:   0.8125rem;                              /* 13px */
+  --ol-t-body:    clamp(0.9375rem, 0.9rem + 0.18vw, 1.0625rem);
+  --ol-t-lead:    clamp(1.0625rem, 0.98rem + 0.4vw, 1.3125rem);
+  --ol-t-h4:      clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --ol-t-h3:      clamp(1.375rem, 1.2rem + 0.75vw, 1.875rem);
+  --ol-t-h2:      clamp(2rem, 1.4rem + 2.1vw, 3.375rem);
+  --ol-t-h1:      clamp(2.5rem, 1.6rem + 3.3vw, 4.5rem);
 
-  --rl-lh-tight:  0.98;
-  --rl-lh-snug:   1.12;
-  --rl-lh-body:   1.62;
+  --ol-lh-tight:  0.98;
+  --ol-lh-snug:   1.12;
+  --ol-lh-body:   1.62;
 
   /* --- Space ------------------------------------------------------------ */
-  --rl-s-1: 0.25rem;
-  --rl-s-2: 0.5rem;
-  --rl-s-3: 0.75rem;
-  --rl-s-4: 1rem;
-  --rl-s-5: 1.5rem;
-  --rl-s-6: 2rem;
-  --rl-s-7: 3rem;
-  --rl-s-8: 4rem;
-  --rl-s-9: 6rem;
-  --rl-s-10: 8rem;
-  --rl-section-y: clamp(5rem, 3rem + 9vw, 11rem);
-  --rl-gutter:    clamp(1.25rem, 0.6rem + 2.6vw, 3rem);
-  --rl-maxw:      78rem;
-  --rl-maxw-text: 38rem;
+  --ol-s-1: 0.25rem;
+  --ol-s-2: 0.5rem;
+  --ol-s-3: 0.75rem;
+  --ol-s-4: 1rem;
+  --ol-s-5: 1.5rem;
+  --ol-s-6: 2rem;
+  --ol-s-7: 3rem;
+  --ol-s-8: 4rem;
+  --ol-s-9: 6rem;
+  --ol-s-10: 8rem;
+  --ol-section-y: clamp(5rem, 3rem + 9vw, 11rem);
+  --ol-gutter:    clamp(1.25rem, 0.6rem + 2.6vw, 3rem);
+  --ol-maxw:      78rem;
+  --ol-maxw-text: 38rem;
 
   /* --- Radii: restrained. Product chrome is crisp, not pillowy ---------- */
-  --rl-r-xs: 4px;
-  --rl-r-sm: 7px;
-  --rl-r-md: 11px;
-  --rl-r-lg: 16px;
-  --rl-r-xl: 22px;
-  --rl-r-pill: 999px;
+  --ol-r-xs: 4px;
+  --ol-r-sm: 7px;
+  --ol-r-md: 11px;
+  --ol-r-lg: 16px;
+  --ol-r-xl: 22px;
+  --ol-r-pill: 999px;
 
   /* --- Elevation: light, not shadow ------------------------------------- */
-  --rl-lift-1: 0 1px 0 rgba(255,255,255,0.045) inset, 0 10px 30px -12px rgba(0,0,0,0.9);
-  --rl-lift-2: 0 1px 0 rgba(255,255,255,0.06) inset, 0 28px 60px -24px rgba(0,0,0,0.95);
-  --rl-ring-violet: 0 0 0 1px rgba(162,119,255,0.28), 0 0 42px -8px rgba(124,58,237,0.55);
-  --rl-ring-ember:  0 0 0 1px rgba(255,107,44,0.42), 0 0 34px -10px rgba(255,107,44,0.7);
+  --ol-lift-1: 0 1px 0 rgb(var(--ol-tint-rgb) / 0.045) inset, 0 10px 30px -12px rgba(0,0,0,0.9);
+  --ol-lift-2: 0 1px 0 rgb(var(--ol-tint-rgb) / 0.06) inset, 0 28px 60px -24px rgba(0,0,0,0.95);
+  --ol-ring-violet: 0 0 0 1px rgba(162,119,255,0.28), 0 0 42px -8px rgba(124,58,237,0.55);
+  --ol-ring-ember:  0 0 0 1px rgba(255,107,44,0.42), 0 0 34px -10px rgba(255,107,44,0.7);
 
   /* --- Motion ----------------------------------------------------------- */
-  --rl-ease:      cubic-bezier(0.22, 1, 0.36, 1);
-  --rl-ease-in:   cubic-bezier(0.55, 0, 0.45, 1);
-  --rl-ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
-  --rl-d-fast:    140ms;
-  --rl-d-base:    280ms;
-  --rl-d-slow:    620ms;
-  --rl-d-reveal:  900ms;
+  --ol-ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ol-ease-in:   cubic-bezier(0.55, 0, 0.45, 1);
+  --ol-ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ol-d-fast:    140ms;
+  --ol-d-base:    280ms;
+  --ol-d-slow:    620ms;
+  --ol-d-reveal:  900ms;
 
   /* Set to 0 by the reduced-motion block so JS can read one source of truth */
-  --rl-motion: 1;
+  --ol-motion: 1;
 
-  --rl-z-atmos: 0;
-  --rl-z-body: 1;
-  --rl-z-nav: 80;
-  --rl-z-overlay: 90;
+  --ol-z-atmos: 0;
+  --ol-z-body: 1;
+  --ol-z-nav: 80;
+  --ol-z-overlay: 90;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --rl-motion: 0; }
+  :root { --ol-motion: 0; }
+}
+
+/* ==========================================================================
+   Light theme.
+
+   Not an inversion of the dark one. The dark theme is lit from behind — light
+   comes out of the surfaces. The light theme is lit from in front, so the
+   violet moves from glow to ink: it stops being atmosphere and becomes the
+   colour the type and the rules are drawn in. Orange keeps exactly the same
+   job in both.
+
+   Applied by [data-theme="light"] on <html>, set before first paint.
+   ========================================================================== */
+
+:root[data-theme="light"] {
+  --ol-tint-rgb: 26 18 48;
+
+  --ol-void:      #F2EEFA;
+  --ol-black:     #FAF8FF;
+  --ol-surface-1: #FFFFFF;
+  --ol-surface-2: #F7F4FE;
+  --ol-surface-3: #F0EBFB;
+  --ol-surface-4: #E6DEF7;
+
+  --ol-line:        rgba(76, 29, 149, 0.16);
+  --ol-line-strong: rgba(76, 29, 149, 0.28);
+  --ol-line-soft:   rgba(76, 29, 149, 0.08);
+
+  /* violet darkens so it can carry text and marks on a light ground */
+  --ol-violet-100: #2A1163;
+  --ol-violet-200: #3C1A86;
+  --ol-violet-300: #5B21B6;
+  --ol-violet-400: #6D28D9;
+  --ol-violet-500: #7C3AED;
+  --ol-violet-600: #6D28D9;
+
+  --ol-ember-300: #B23A0C;
+  --ol-ember-400: #C2410C;
+  --ol-ember-500: #E8500F;
+  --ol-ember-600: #C2410C;
+
+  --ol-text:   #14102A;   /* 16.9:1 on --ol-black */
+  --ol-text-2: #3B3357;   /*  9.4:1 */
+  --ol-text-3: #574E75;   /*  6.4:1 */
+  --ol-text-4: #6E6590;   /*  4.8:1 */
+  --ol-on-violet: #FFFFFF;
+
+  --ol-live: #0F7B4F;
+
+  --ol-glow-violet: rgba(124, 58, 237, 0.13);
+  --ol-glow-deep:   rgba(58, 18, 140, 0.10);
+  --ol-glow-ember:  rgba(255, 107, 44, 0.10);
+
+  --ol-lift-1: 0 1px 0 rgba(255,255,255,0.7) inset, 0 6px 18px -10px rgba(38, 20, 80, 0.28);
+  --ol-lift-2: 0 1px 0 rgba(255,255,255,0.8) inset, 0 20px 44px -26px rgba(38, 20, 80, 0.38);
+  --ol-ring-violet: 0 0 0 1px rgba(109, 40, 217, 0.3), 0 8px 30px -14px rgba(109, 40, 217, 0.4);
+  --ol-ring-ember:  0 0 0 1px rgba(194, 65, 12, 0.4), 0 8px 26px -14px rgba(194, 65, 12, 0.45);
 }

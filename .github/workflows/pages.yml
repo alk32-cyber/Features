@@ -53,25 +53,28 @@ jobs:
 
           site = pathlib.Path('_site')
 
+          # Pages at different depths need different prefixes: /features/seo.html
+          # is one level down, so its assets live at ../assets/, not assets/.
           for f in site.rglob('*.html'):
+              depth = len(f.relative_to(site).parts) - 1
+              up = '../' * depth
               s = f.read_text()
-              s = s.replace('href="/assets/', 'href="assets/')
-              s = s.replace('src="/assets/', 'src="assets/')
-              s = s.replace('href="/site.webmanifest"', 'href="site.webmanifest"')
-              s = s.replace('href="/work.html"', 'href="work.html"')
-              s = s.replace('href="/about.html"', 'href="about.html"')
-              s = s.replace('href="/#', 'href="index.html#')
-              s = re.sub(r'href="/"', 'href="index.html"', s)
-              # a preview copy must never compete with the real site in search
+              s = s.replace('href="/assets/', f'href="{up}assets/')
+              s = s.replace('src="/assets/',  f'src="{up}assets/')
+              s = s.replace('href="/site.webmanifest"', f'href="{up}site.webmanifest"')
+              s = s.replace('href="/features/', f'href="{up}features/')
+              s = s.replace('href="/features.html"', f'href="{up}features.html"')
+              s = s.replace('href="/work.html"',  f'href="{up}work.html"')
+              s = s.replace('href="/about.html"', f'href="{up}about.html"')
+              s = s.replace('href="/#', f'href="{up}index.html#')
+              s = re.sub(r'href="/"', f'href="{up}index.html"', s)
               s = s.replace('<meta name="viewport"',
                             '<meta name="robots" content="noindex, nofollow">\n<meta name="viewport"', 1)
               f.write_text(s)
 
-          # fonts.css lives in assets/css/, the font files in assets/fonts/
           css = site / 'assets' / 'css' / 'fonts.css'
           css.write_text(css.read_text().replace('url("/assets/fonts/', 'url("../fonts/'))
 
-          # the preview is not the canonical site; drop the sitemap
           (site / 'sitemap.xml').unlink(missing_ok=True)
           (site / 'robots.txt').write_text('User-agent: *\nDisallow: /\n')
           print('rewritten')

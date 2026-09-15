@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will callers know it is not a person?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and that is deliberate. It introduces itself as an assistant. Pretending otherwise damages trust the moment somebody works it out, and people tend to be more forthcoming once they know what they are talking to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to a call it cannot handle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It stops trying. It takes the caller&rsquo;s details, tells them a person will call back, and flags the call according to the rules you set \u2014 so an unhappy customer reaches you rather than an FAQ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it replace answering the phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It covers the calls that currently go to voicemail or ring out. Most businesses keep answering everything they can and use it for evenings, weekends and the hours when everyone is already on a job."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to set up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The build is quick; the briefing is the work. Most of the effort goes into writing down what you already say to callers."
+      }
+    }
+  ]
+}

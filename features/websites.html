@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Custom Websites — OrbitLift</title>
+<meta name="description" content="Custom websites designed and coded around how a business actually sells: real layout and typography, purposeful motion, fast loading, and a clear path to enquiry. Not a template with a logo dropped in.">
+<link rel="canonical" href="https://orbitlift.com/features/websites.html">
+
+<meta name="theme-color" content="#07060C">
+<meta name="color-scheme" content="dark light">
+
+<script>
+  /* Sets the theme before first paint so the page never flashes the wrong one.
+     Kept inline and tiny on purpose: an external file would be a round trip. */
+  try {
+    var t = localStorage.getItem('ol-theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+</script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OrbitLift">
+<meta property="og:url" content="https://orbitlift.com/features/websites.html">
+<meta property="og:title" content="Custom Websites — OrbitLift">
+<meta property="og:description" content="Still the thing everything else plugs into. Layout, motion, performance and conversion, built rather than configured.">
+<meta property="og:image" content="https://orbitlift.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Custom Websites — OrbitLift">
+<meta name="twitter:description" content="Still the thing everything else plugs into. Layout, motion, performance and conversion, built rather than configured.">
+<meta name="twitter:image" content="https://orbitlift.com/assets/img/og.jpg">
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/schibsted-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
+
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/sections.css">
+
+<script type="module" src="/assets/js/main.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I own the site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The code and the content are yours. We will not hold a site hostage to a retainer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit it myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends what you want to edit. Text and images, yes. Reworking a page layout is design work, and pretending otherwise is how sites slowly fall apart."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a website builder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A builder gives you a category&rsquo;s worth of layouts and stops where they stop. A custom build starts from what you sell and can do things the builder cannot — which only matters if you need those things."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about hosting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a static-first build, so it runs on any modern host cheaply and fast. We will recommend one and set it up, or deploy to yours."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://orbitlift.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Features",
+      "item": "https://orbitlift.com/features.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Custom websites",
+      "item": "https://orbitlift.com/features/websites.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="ol-skip-link" href="#main">Skip to content</a>
+
+<!-- Icon sprite ---------------------------------------------------------- -->
+<svg class="ol-sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="i-web" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.75" y="3.75" width="14.5" height="12.5" rx="2.25"/>
+      <path d="M2.75 7.75h14.5M5.5 5.75h.01M7.75 5.75h.01"/>
+    </g>
+    <g id="i-seo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="9" r="5.25"/>
+      <path d="m13 13 4 4M7 9.75l1.6 1.6L11.4 7.9"/>
+    </g>
+    <g id="i-chat" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.25 9.5c0 3.45-3.25 6.25-7.25 6.25a8.6 8.6 0 0 1-2.1-.26L4.2 16.8l.9-2.85A5.87 5.87 0 0 1 2.75 9.5c0-3.45 3.25-6.25 7.25-6.25s7.25 2.8 7.25 6.25Z"/>
+      <path d="M7.25 9.5h.01M10 9.5h.01M12.75 9.5h.01"/>
+    </g>
+    <g id="i-phone" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.4 3.6h2.4l1.3 3.2-1.7 1.2a9.2 9.2 0 0 0 4.1 4.1l1.2-1.7 3.2 1.3v2.4a1.6 1.6 0 0 1-1.75 1.6A12.6 12.6 0 0 1 2.8 5.35 1.6 1.6 0 0 1 4.4 3.6Z"/>
+      <path d="M12.25 2.75a5 5 0 0 1 5 5"/>
+    </g>
+    <g id="i-auto" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="4.75" cy="5.25" r="2"/>
+      <circle cx="15.25" cy="5.25" r="2"/>
+      <circle cx="10" cy="15" r="2"/>
+      <path d="M6.75 5.25h6.5M5.4 7.1 8.9 13.3M14.6 7.1 11.1 13.3"/>
+    </g>
+    <g id="i-check" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m4.5 10.5 3.25 3.25 7.75-8"/>
+    </g>
+    <g id="i-arrow" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 10h12m-4.75-4.75L16 10l-4.75 4.75"/>
+    </g>
+    <g id="i-caret" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 6.5 5 5 5-5"/>
+    </g>
+    <g id="i-logo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <ellipse cx="10" cy="10" rx="7.2" ry="3.4" transform="rotate(-32 10 10)"/>
+      <circle cx="10" cy="10" r="2.1"/>
+      <circle cx="14.9" cy="6.2" r="1.5" fill="currentColor" stroke="none"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- Environmental lighting ------------------------------------------------ -->
+<div class="ol-atmos" aria-hidden="true"></div>
+
+<header class="ol-nav" data-nav>
+  <div class="ol-nav__inner">
+    <a class="ol-logo" href="/" aria-label="OrbitLift home">
+      <svg class="ol-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
+      OrbitLift
+    </a>
+
+    <nav class="ol-nav__menu" aria-label="Primary">
+      <div class="ol-nav__item" data-mega-root>
+        <button class="ol-nav__link" type="button" aria-expanded="false" aria-controls="mega-features" data-mega-trigger>
+          Features
+          <svg class="ol-nav__caret" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-caret"/></svg>
+        </button>
+
+        <div class="ol-mega" id="mega-features" data-mega-panel>
+          <div class="ol-mega__grid">
+            <a class="ol-mega__item" href="/features/websites.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
+              <span>
+                <span class="ol-mega__title">Custom websites</span>
+                <span class="ol-mega__desc">Designed and built around how the business actually sells.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features/ai-receptionists.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span>
+                <span class="ol-mega__title">AI receptionists</span>
+                <span class="ol-mega__desc">Answers, qualifies and captures the calls you'd otherwise miss.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features/ai-chatbots.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
+              <span>
+                <span class="ol-mega__title">AI chatbots</span>
+                <span class="ol-mega__desc">Answers questions on your site and points people to the next step.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features/seo.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
+              <span>
+                <span class="ol-mega__title">SEO</span>
+                <span class="ol-mega__desc">Technical foundations, structure and content built to be found.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features/automation.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
+              <span>
+                <span class="ol-mega__title">Automation</span>
+                <span class="ol-mega__desc">The repetitive steps between an enquiry and a paying customer.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <span>
+                <span class="ol-mega__title">All features</span>
+                <span class="ol-mega__desc">How the five parts fit together, and where to start.</span>
+              </span>
+            </a>
+          </div>
+          <p class="ol-mega__foot">
+            <span>Every capability is built to work with the others — or on its own.</span>
+            <a class="ol-link" href="/features.html">Compare all five <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
+          </p>
+        </div>
+      </div>
+
+      <a class="ol-nav__link" href="/work.html">Work</a>
+      <a class="ol-nav__link" href="/about.html">About</a>
+    </nav>
+
+    <div class="ol-nav__actions">
+      <button class="ol-themetoggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <span class="ol-themetoggle__track" aria-hidden="true">
+          <svg class="ol-themetoggle__ico ol-themetoggle__ico--moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 11.8A6.9 6.9 0 0 1 8.2 3.5a6.9 6.9 0 1 0 8.3 8.3Z"/></svg>
+          <svg class="ol-themetoggle__ico ol-themetoggle__ico--sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="3.4"/><path d="M10 2.6v1.6M10 15.8v1.6M17.4 10h-1.6M4.2 10H2.6M15.2 4.8l-1.1 1.1M5.9 14.1l-1.1 1.1M15.2 15.2l-1.1-1.1M5.9 5.9 4.8 4.8"/></svg>
+        </span>
+        <span class="ol-sr-only" data-theme-label>Dark</span>
+      </button>
+      <a class="ol-btn ol-btn--ghost" href="/#finder">Find what you need</a>
+      <a class="ol-btn ol-btn--primary" href="/#start">Start a project</a>
+      <button class="ol-nav__toggle" type="button" aria-expanded="false" aria-controls="ol-drawer" aria-label="Open menu" data-drawer-toggle>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="ol-drawer" id="ol-drawer" data-drawer hidden>
+    <section>
+      <p class="ol-drawer__label">Features</p>
+      <a class="ol-drawer__sub" href="/features/websites.html"><span>Custom websites</span><span>01</span></a>
+      <a class="ol-drawer__sub" href="/features/ai-receptionists.html"><span>AI receptionists</span><span>02</span></a>
+      <a class="ol-drawer__sub" href="/features/ai-chatbots.html"><span>AI chatbots</span><span>03</span></a>
+      <a class="ol-drawer__sub" href="/features/seo.html"><span>SEO</span><span>04</span></a>
+      <a class="ol-drawer__sub" href="/features/automation.html"><span>Automation</span><span>05</span></a>
+    </section>
+    <section>
+      <p class="ol-drawer__label">OrbitLift</p>
+      <a class="ol-drawer__link" href="/features.html"><span>All features</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/work.html"><span>Work</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/about.html"><span>About</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/#finder"><span>Find what you need</span><span aria-hidden="true">→</span></a>
+    </section>
+    <a class="ol-btn ol-btn--primary" href="/#start">Start a project</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ol-feat-hero">
+  <div class="ol-container">
+    <nav class="ol-crumbs" aria-label="Breadcrumb">
+      <ol style="display:flex;gap:.5rem;flex-wrap:wrap;list-style:none;padding:0;margin:0">
+        <li><a href="/">Home</a></li>
+        <li><a href="/features.html">Features</a></li>
+        <li aria-current="page">Custom websites</li>
+      </ol>
+    </nav>
+
+    <div class="ol-feat-hero__inner">
+      <div>
+        <p class="ol-eyebrow ol-enter" style="--e:1">Feature 01</p>
+        <h1 class="ol-display ol-enter" style="--e:2">Still the thing everything else plugs into.</h1>
+        <p class="ol-lead ol-feat-hero__lead ol-enter" style="--e:3">
+          A website is where SEO sends people, where the chatbot lives, and where most enquiries begin. It is worth building properly, which means designing it around your offer instead of picking a category template and swapping the photos.
+        </p>
+        <div class="ol-btn-row ol-enter" style="--e:4">
+          <a class="ol-btn ol-btn--primary" href="/#start">Start a project <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
+          <a class="ol-btn ol-btn--ghost" href="#demo">See the craft</a>
+        </div>
+      </div>
+
+      <dl class="ol-feat-hero__aside ol-enter" style="--e:5">
+        <div><dt>Best for</dt><dd>Businesses whose site is dated, slow, or quietly losing the people who do visit.</dd></div>
+        <div><dt>Pairs with</dt><dd>SEO — a rebuild is the cheapest moment to get the technical foundations right.</dd></div>
+        <div><dt>Not for</dt><dd>Anyone who needs a five-page brochure site by Friday. A template will serve you better and cost less.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section ol-section--tight" id="demo" aria-labelledby="demo-title">
+  <div class="ol-container">
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">The product</p>
+      <h2 class="ol-h2" id="demo-title" data-reveal="mask"><span>Four things separate a site that works from one that exists.</span></h2>
+      <p class="ol-lead" data-reveal>Switch between them. The frame below changes to show what each one actually means, including a real desktop-to-mobile switch.</p>
+    </header>
+    <div class="ol-craft" data-craft data-reveal="edge" data-ambient>
+
+      <div class="ol-craft__controls">
+        <div class="ol-tabs" role="tablist" aria-label="Craft dimensions">
+          <button class="ol-tab" role="tab" aria-selected="true" tabindex="0" data-craft-tab="layout">Layout &amp; type</button>
+          <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="motion">Motion</button>
+          <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="performance">Performance</button>
+          <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-craft-tab="conversion">Conversion</button>
+        </div>
+
+        <div class="ol-seg" role="group" aria-label="Viewport">
+          <button class="ol-seg__btn is-on" type="button" data-craft-view="desktop" aria-pressed="true">Desktop</button>
+          <button class="ol-seg__btn" type="button" data-craft-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+      </div>
+
+      <div class="ol-craft__stage">
+        <div class="ol-window ol-craft__frame" data-craft-frame data-mode="layout" data-view="desktop">
+          <div class="ol-window__bar">
+            <span class="ol-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="ol-window__title" data-craft-url>a-orbitlift-build.example</span>
+          </div>
+
+          <div class="ol-craft__viewport">
+            <div class="ol-craft__site" data-craft-site>
+              <div class="ol-craft__grid-overlay" aria-hidden="true"></div>
+
+              <div class="ol-craft__nav">
+                <span class="ol-craft__logo"></span>
+                <span class="ol-craft__navlinks"><i></i><i></i><i></i></span>
+                <span class="ol-craft__navcta" data-focus="3"></span>
+              </div>
+
+              <div class="ol-craft__hero">
+                <span class="ol-craft__eyebrow"></span>
+                <p class="ol-craft__headline" data-focus="1">Type that does the heavy lifting</p>
+                <p class="ol-craft__sub">Supporting line, one size down, dialled back so the headline keeps its job.</p>
+                <span class="ol-craft__cta" data-focus="2">Get a quote</span>
+              </div>
+
+              <div class="ol-craft__cards">
+                <span class="ol-craft__card"><i></i><i></i></span>
+                <span class="ol-craft__card"><i></i><i></i></span>
+                <span class="ol-craft__card"><i></i><i></i></span>
+              </div>
+            </div>
+
+            <div class="ol-craft__skeleton" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+
+        <p class="ol-craft__note" data-craft-note aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section" aria-labelledby="spec-title">
+  <div class="ol-container">
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">What's included</p>
+      <h2 class="ol-h2" id="spec-title" data-reveal="mask"><span>Designed for your offer, then built to hold up.</span></h2>
+    </header>
+
+    <div class="ol-spec" data-reveal="seq">
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">01</span>
+        <h3>Layout and typography that carry meaning</h3>
+        <p>A type scale and grid chosen for your content, so the eye lands on the thing you most need it to land on. Hierarchy does the persuading, not decoration.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">02</span>
+        <h3>Motion with a job</h3>
+        <p>Sequencing that helps people read in order, hover and press feedback that confirms what is interactive, and every effect honouring a visitor&rsquo;s reduced-motion setting.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">03</span>
+        <h3>Performance as a design constraint</h3>
+        <p>Images sized and lazy-loaded, fonts subset and self-hosted, scripts kept small and deferred. Fast is not a phase at the end; it decides what the design can be.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">04</span>
+        <h3>One obvious path</h3>
+        <p>The promise, the proof, the action, and a fallback in the navigation. Everything else on the page supports that path rather than competing with it.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">05</span>
+        <h3>Custom functionality</h3>
+        <p>Calculators, booking flows, filtered galleries, gated resources — the things a plugin does badly and a bespoke build does properly.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">06</span>
+        <h3>Built to extend</h3>
+        <p>Structured so a chatbot, a receptionist handover or an automation can be added later without a rebuild.</p>
+      </div>
+    </div>
+
+    <div class="ol-limits" data-reveal>
+      <h2>What it deliberately doesn't do</h2>
+      <ul>
+        <li>We don&rsquo;t ship a template with your logo on it. If a template is genuinely the right answer for your budget, we&rsquo;ll say so.</li>
+        <li>We don&rsquo;t promise a launch date before scoping. Custom functionality is where estimates go wrong, so we scope that first.</li>
+        <li>We don&rsquo;t hand over a site nobody can edit. You get something you can update, or we keep maintaining it — your choice, agreed up front.</li>
+        <li>We don&rsquo;t pad a site with pages that exist only for search engines.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section" aria-labelledby="faq-title">
+  <div class="ol-container">
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">Questions</p>
+      <h2 class="ol-h2" id="faq-title" data-reveal="mask"><span>The things people ask before saying yes.</span></h2>
+    </header>
+
+    <div class="ol-faq" data-reveal>
+      <details class="ol-faq__item">
+        <summary>Do I own the site?</summary>
+        <p class="ol-faq__answer">Yes. The code and the content are yours. We will not hold a site hostage to a retainer.</p>
+      </details>
+      <details class="ol-faq__item">
+        <summary>Can I edit it myself?</summary>
+        <p class="ol-faq__answer">That depends what you want to edit. Text and images, yes. Reworking a page layout is design work, and pretending otherwise is how sites slowly fall apart.</p>
+      </details>
+      <details class="ol-faq__item">
+        <summary>How is this different from a website builder?</summary>
+        <p class="ol-faq__answer">A builder gives you a category&rsquo;s worth of layouts and stops where they stop. A custom build starts from what you sell and can do things the builder cannot — which only matters if you need those things.</p>
+      </details>
+      <details class="ol-faq__item">
+        <summary>What about hosting?</summary>
+        <p class="ol-faq__answer">It is a static-first build, so it runs on any modern host cheaply and fast. We will recommend one and set it up, or deploy to yours.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section ol-section--tight" aria-labelledby="rel-title">
+  <div class="ol-container">
+    <h2 class="ol-h3" id="rel-title" data-reveal="mask"><span>Works with</span></h2>
+    <div class="ol-related" data-reveal="seq">
+      <a class="ol-related__link" href="/features/seo.html">
+        <span class="ol-related__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
+        <span><span class="ol-related__name">SEO</span><br><span class="ol-related__why">Sends people to the site in the first place</span></span>
+      </a>
+      <a class="ol-related__link" href="/features/ai-chatbots.html">
+        <span class="ol-related__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <span><span class="ol-related__name">AI chatbots</span><br><span class="ol-related__why">Answers the question that loses the visitor</span></span>
+      </a>
+      <a class="ol-related__link" href="/features/ai-receptionists.html">
+        <span class="ol-related__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <span><span class="ol-related__name">AI receptionists</span><br><span class="ol-related__why">Catches the ones who call instead</span></span>
+      </a>
+      <a class="ol-related__link" href="/features/automation.html">
+        <span class="ol-related__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
+        <span><span class="ol-related__name">Automation</span><br><span class="ol-related__why">Handles the enquiry once it arrives</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section ol-start" id="start">
+  <div class="ol-container ol-container--narrow">
+    <div class="ol-start__inner" data-reveal>
+      <p class="ol-eyebrow ol-eyebrow--bare ol-eyebrow--ember">Start here</p>
+      <h2 class="ol-display ol-start__title">What is your website costing you right now?</h2>
+      <p class="ol-lead ol-start__lead">Send us the URL. We will tell you what we would change first, and why.</p>
+      <div class="ol-btn-row ol-start__cta">
+        <a class="ol-btn ol-btn--primary" href="mailto:hello@orbitlift.com?subject=Website%20enquiry">Let's build <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
+        <a class="ol-btn ol-btn--ghost" href="/features.html">All features</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ol-footer" aria-labelledby="footer-title">
+  <h2 class="ol-sr-only" id="footer-title">Site footer</h2>
+  <div class="ol-container">
+    <div class="ol-footer__grid">
+
+      <div class="ol-footer__brand">
+        <a class="ol-logo" href="/" aria-label="OrbitLift home">
+          <svg class="ol-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
+          OrbitLift
+        </a>
+        <p class="ol-small ol-muted ol-footer__blurb">
+          The digital systems businesses use to attract, convert and serve customers.
+        </p>
+      </div>
+
+      <nav class="ol-footer__col" aria-label="Features">
+        <h3 class="ol-footer__label">Features</h3>
+        <ul>
+          <li><a href="/features/websites.html">Custom websites</a></li>
+          <li><a href="/features/ai-receptionists.html">AI receptionists</a></li>
+          <li><a href="/features/ai-chatbots.html">AI chatbots</a></li>
+          <li><a href="/features/seo.html">SEO</a></li>
+          <li><a href="/features/automation.html">Automation</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ol-footer__col" aria-label="Company">
+        <h3 class="ol-footer__label">Company</h3>
+        <ul>
+          <li><a href="/work.html">Work</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/features.html">All features</a></li>
+          <li><a href="/#process">How we work</a></li>
+          <li><a href="/#finder">Solution finder</a></li>
+        </ul>
+      </nav>
+
+      <div class="ol-footer__col">
+        <h3 class="ol-footer__label">Start</h3>
+        <ul>
+          <li><a href="mailto:hello@orbitlift.com">hello@orbitlift.com</a></li>
+        </ul>
+        <a class="ol-btn ol-btn--ghost ol-footer__cta" href="#start">Start a project</a>
+      </div>
+    </div>
+
+    <div class="ol-footer__base">
+      <p class="ol-mono ol-muted">© <span data-year>2026</span> OrbitLift. All rights reserved.</p>
+      <p class="ol-mono ol-muted">Websites · AI receptionists · AI chatbots · SEO · Automation</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

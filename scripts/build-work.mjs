@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 /*
- * Renders assets/data/projects.json into the static Work markup in index.html and
- * work.html, between the <!-- work:start --> / <!-- work:end --> markers.
+ * Renders assets/data/projects.json into the Work markup in the page sources
+ * (src/pages/index.html and src/pages/work.html), between the
+ * <!-- work:start --> / <!-- work:end --> markers. scripts/build.mjs then
+ * assembles those sources into the HTML served at the repo root.
  *
  * The output is plain HTML on purpose: the case studies are the most SEO-relevant
  * content on the site, so they ship in the document rather than being fetched.
  *
- * Usage: node scripts/build-work.mjs
+ * Usage: npm run build:work   (runs this, then the page build)
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -25,8 +27,8 @@ function renderProject(project, index) {
   const caps = (project.capabilities || []).map(escape).join(' · ');
 
   const tags = [
-    placeholder ? '<span class="rl-badge rl-badge--ember">Placeholder</span>' : '',
-    caps ? `<span class="rl-mono rl-muted">${caps}</span>` : ''
+    placeholder ? '<span class="ol-badge ol-badge--ember">Placeholder</span>' : '',
+    caps ? `<span class="ol-mono ol-muted">${caps}</span>` : ''
   ].filter(Boolean).join('\n              ');
 
   const title = project.url
@@ -37,17 +39,17 @@ function renderProject(project, index) {
     ? `<strong>Outcome.</strong> ${escape(project.outcome)}`
     : NEUTRAL_OUTCOME;
 
-  return `      <li class="rl-work__item${placeholder ? ' is-placeholder' : ''}${index === 0 ? ' rl-work__item--lead' : ''}">
-        <article class="rl-work__card">
-          <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
-          <div class="rl-work__body">
-            <p class="rl-work__tags">
+  return `      <li class="ol-work__item${placeholder ? ' is-placeholder' : ''}${index === 0 ? ' ol-work__item--lead' : ''}">
+        <article class="ol-work__card">
+          <div class="ol-work__visual" aria-hidden="true"><span class="ol-work__glyph"></span></div>
+          <div class="ol-work__body">
+            <p class="ol-work__tags">
               ${tags}
             </p>
-            <h3 class="rl-h3">${title}</h3>
-            <p class="rl-work__need"><strong>The need.</strong> ${escape(project.need)}</p>
-            <p class="rl-work__built"><strong>What we built.</strong> ${escape(project.built)}</p>
-            <p class="rl-work__outcome rl-small rl-muted">${outcome}</p>
+            <h3 class="ol-h3">${title}</h3>
+            <p class="ol-work__need"><strong>The need.</strong> ${escape(project.need)}</p>
+            <p class="ol-work__built"><strong>What we built.</strong> ${escape(project.built)}</p>
+            <p class="ol-work__outcome ol-small ol-muted">${outcome}</p>
           </div>
         </article>
       </li>`;
@@ -55,9 +57,9 @@ function renderProject(project, index) {
 
 function renderList(projects) {
   if (!projects.length) {
-    return `    <p class="rl-work-empty rl-lead rl-muted">Case studies are being written up. In the meantime, ask us what we've built.</p>`;
+    return `    <p class="ol-work-empty ol-lead ol-muted">Case studies are being written up. In the meantime, ask us what we've built.</p>`;
   }
-  return `    <ul class="rl-work" data-work data-reveal="seq">\n${projects.map(renderProject).join('\n')}\n    </ul>`;
+  return `    <ul class="ol-work" data-work data-reveal="seq">\n${projects.map(renderProject).join('\n')}\n    </ul>`;
 }
 
 async function inject(file, projects) {
@@ -88,5 +90,9 @@ if (placeholders) {
   console.warn('     They render with a visible "Placeholder" tag. Replace them with real work before launch.\n');
 }
 
-await inject('index.html', projects.slice(0, 3));
-await inject('work.html', projects);
+// Writes into the page SOURCES, not the built output — scripts/build.mjs
+// assembles those into the HTML at the repo root afterwards.
+await inject('src/pages/index.html', projects.slice(0, 3));
+await inject('src/pages/work.html', projects);
+
+console.log('\n  now run: node scripts/build.mjs');

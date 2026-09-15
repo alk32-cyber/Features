@@ -15,7 +15,7 @@ import { qsa, reducedMotion } from './util.js';
 function applySequenceIndices(container) {
   const children = Array.from(container.children);
   const stagger = children.length > 6 ? 45 : 70;
-  container.style.setProperty('--rl-stagger', `${stagger}ms`);
+  container.style.setProperty('--ol-stagger', `${stagger}ms`);
   children.forEach((child, i) => child.style.setProperty('--i', String(i)));
 }
 

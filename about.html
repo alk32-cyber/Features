@@ -4,20 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>About RocketLift — how we build digital systems</title>
-<meta name="description" content="RocketLift builds websites, SEO, AI receptionists, chatbots and automation as one connected system. How we work, who it suits, and what we will not claim.">
-<link rel="canonical" href="https://rocketlift.com/about.html">
+<title>About OrbitLift — how we build digital systems</title>
+<meta name="description" content="OrbitLift builds websites, SEO, AI receptionists, chatbots and automation as one connected system. How we work, who it suits, and what we will not claim.">
+<link rel="canonical" href="https://orbitlift.com/about.html">
 
 <meta name="theme-color" content="#07060C">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="dark light">
+
+<script>
+  /* Sets the theme before first paint so the page never flashes the wrong one.
+     Kept inline and tiny on purpose: an external file would be a round trip. */
+  try {
+    var t = localStorage.getItem('ol-theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+</script>
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RocketLift">
-<meta property="og:url" content="https://rocketlift.com/about.html">
-<meta property="og:title" content="About RocketLift">
+<meta property="og:site_name" content="OrbitLift">
+<meta property="og:url" content="https://orbitlift.com/about.html">
+<meta property="og:title" content="About OrbitLift">
 <meta property="og:description" content="One team for websites, SEO, AI and automation — built around the business, not around a package.">
-<meta property="og:image" content="https://rocketlift.com/assets/img/og.jpg">
+<meta property="og:image" content="https://orbitlift.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About OrbitLift">
+<meta name="twitter:description" content="One team for websites, SEO, AI and automation — built around the business, not around a package.">
+<meta name="twitter:image" content="https://orbitlift.com/assets/img/og.jpg">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -35,23 +50,33 @@
 <link rel="stylesheet" href="/assets/css/sections.css">
 
 <script type="module" src="/assets/js/main.js"></script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rocketlift.com/" },
-    { "@type": "ListItem", "position": 2, "name": "About", "item": "https://rocketlift.com/about.html" }
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://orbitlift.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://orbitlift.com/about.html"
+    }
   ]
 }
 </script>
 </head>
 <body>
-<a class="rl-skip-link" href="#main">Skip to content</a>
+
+<a class="ol-skip-link" href="#main">Skip to content</a>
 
 <!-- Icon sprite ---------------------------------------------------------- -->
-<svg class="rl-sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<svg class="ol-sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <g id="i-web" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <rect x="2.75" y="3.75" width="14.5" height="12.5" rx="2.25"/>
@@ -84,129 +109,136 @@
     <g id="i-caret" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m3 6.5 5 5 5-5"/>
     </g>
-    <g id="i-logo" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M11 2.5c3.5 1.2 6.5 4.6 6.5 8.4L14 14.5l-4.5.5L5 15.5 2.5 12A11 11 0 0 1 11 2.5Z"/>
-      <circle cx="11.5" cy="8.5" r="1.9"/>
-      <path d="M6.5 15.5c-1.4 1.3-1.9 3-2 4 1 0 2.8-.5 4.1-2"/>
+    <g id="i-logo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <ellipse cx="10" cy="10" rx="7.2" ry="3.4" transform="rotate(-32 10 10)"/>
+      <circle cx="10" cy="10" r="2.1"/>
+      <circle cx="14.9" cy="6.2" r="1.5" fill="currentColor" stroke="none"/>
     </g>
   </defs>
 </svg>
 
 <!-- Environmental lighting ------------------------------------------------ -->
-<div class="rl-atmos" aria-hidden="true"></div>
+<div class="ol-atmos" aria-hidden="true"></div>
 
-<!-- Navigation ----------------------------------------------------------- -->
-<header class="rl-nav" data-nav>
-  <div class="rl-nav__inner">
-    <a class="rl-logo" href="/" aria-label="RocketLift home">
-      <svg class="rl-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="/#i-logo"/></svg>
-      RocketLift
+<header class="ol-nav" data-nav>
+  <div class="ol-nav__inner">
+    <a class="ol-logo" href="/" aria-label="OrbitLift home">
+      <svg class="ol-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
+      OrbitLift
     </a>
 
-    <nav class="rl-nav__menu" aria-label="Primary">
-      <div class="rl-nav__item" data-mega-root>
-        <button class="rl-nav__link" type="button" aria-expanded="false" aria-controls="mega-features" data-mega-trigger>
+    <nav class="ol-nav__menu" aria-label="Primary">
+      <div class="ol-nav__item" data-mega-root>
+        <button class="ol-nav__link" type="button" aria-expanded="false" aria-controls="mega-features" data-mega-trigger>
           Features
-          <svg class="rl-nav__caret" viewBox="0 0 16 16" aria-hidden="true"><use href="/#i-caret"/></svg>
+          <svg class="ol-nav__caret" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-caret"/></svg>
         </button>
 
-        <div class="rl-mega" id="mega-features" data-mega-panel>
-          <div class="rl-mega__grid">
-            <a class="rl-mega__item" href="/#websites">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="/#i-web"/></svg></span>
+        <div class="ol-mega" id="mega-features" data-mega-panel>
+          <div class="ol-mega__grid">
+            <a class="ol-mega__item" href="/features/websites.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
               <span>
-                <span class="rl-mega__title">Custom websites</span>
-                <span class="rl-mega__desc">Designed and built around how the business actually sells.</span>
+                <span class="ol-mega__title">Custom websites</span>
+                <span class="ol-mega__desc">Designed and built around how the business actually sells.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="/#receptionists">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="/#i-phone"/></svg></span>
+            <a class="ol-mega__item" href="/features/ai-receptionists.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
               <span>
-                <span class="rl-mega__title">AI receptionists</span>
-                <span class="rl-mega__desc">Answers, qualifies and captures the calls you'd otherwise miss.</span>
+                <span class="ol-mega__title">AI receptionists</span>
+                <span class="ol-mega__desc">Answers, qualifies and captures the calls you'd otherwise miss.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="/#chatbots">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="/#i-chat"/></svg></span>
+            <a class="ol-mega__item" href="/features/ai-chatbots.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
               <span>
-                <span class="rl-mega__title">AI chatbots</span>
-                <span class="rl-mega__desc">Answers questions on your site and points people to the next step.</span>
+                <span class="ol-mega__title">AI chatbots</span>
+                <span class="ol-mega__desc">Answers questions on your site and points people to the next step.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="/#seo">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="/#i-seo"/></svg></span>
+            <a class="ol-mega__item" href="/features/seo.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
               <span>
-                <span class="rl-mega__title">SEO</span>
-                <span class="rl-mega__desc">Technical foundations, structure and content built to be found.</span>
+                <span class="ol-mega__title">SEO</span>
+                <span class="ol-mega__desc">Technical foundations, structure and content built to be found.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="/#automation">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="/#i-auto"/></svg></span>
+            <a class="ol-mega__item" href="/features/automation.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
               <span>
-                <span class="rl-mega__title">Automation</span>
-                <span class="rl-mega__desc">The repetitive steps between an enquiry and a paying customer.</span>
+                <span class="ol-mega__title">Automation</span>
+                <span class="ol-mega__desc">The repetitive steps between an enquiry and a paying customer.</span>
               </span>
             </a>
-            <a class="rl-mega__item" href="/#finder">
-              <span class="rl-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="/#i-arrow"/></svg></span>
+            <a class="ol-mega__item" href="/features.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-arrow"/></svg></span>
               <span>
-                <span class="rl-mega__title">Not sure what you need?</span>
-                <span class="rl-mega__desc">Answer three questions and see what fits.</span>
+                <span class="ol-mega__title">All features</span>
+                <span class="ol-mega__desc">How the five parts fit together, and where to start.</span>
               </span>
             </a>
           </div>
-          <p class="rl-mega__foot">
+          <p class="ol-mega__foot">
             <span>Every capability is built to work with the others — or on its own.</span>
-            <a class="rl-link" href="/#ecosystem">See how they connect <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
+            <a class="ol-link" href="/features.html">Compare all five <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
           </p>
         </div>
       </div>
 
-      <a class="rl-nav__link" href="/work.html">Work</a>
-      <a class="rl-nav__link" href="/about.html">About</a>
+      <a class="ol-nav__link" href="/work.html">Work</a>
+      <a class="ol-nav__link" href="/about.html">About</a>
     </nav>
 
-    <div class="rl-nav__actions">
-      <a class="rl-btn rl-btn--ghost" href="/#finder">Find what you need</a>
-      <a class="rl-btn rl-btn--primary" href="/#start">Start a project</a>
-      <button class="rl-nav__toggle" type="button" aria-expanded="false" aria-controls="rl-drawer" aria-label="Open menu" data-drawer-toggle>
+    <div class="ol-nav__actions">
+      <button class="ol-themetoggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <span class="ol-themetoggle__track" aria-hidden="true">
+          <svg class="ol-themetoggle__ico ol-themetoggle__ico--moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 11.8A6.9 6.9 0 0 1 8.2 3.5a6.9 6.9 0 1 0 8.3 8.3Z"/></svg>
+          <svg class="ol-themetoggle__ico ol-themetoggle__ico--sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="3.4"/><path d="M10 2.6v1.6M10 15.8v1.6M17.4 10h-1.6M4.2 10H2.6M15.2 4.8l-1.1 1.1M5.9 14.1l-1.1 1.1M15.2 15.2l-1.1-1.1M5.9 5.9 4.8 4.8"/></svg>
+        </span>
+        <span class="ol-sr-only" data-theme-label>Dark</span>
+      </button>
+      <a class="ol-btn ol-btn--ghost" href="/#finder">Find what you need</a>
+      <a class="ol-btn ol-btn--primary" href="/#start">Start a project</a>
+      <button class="ol-nav__toggle" type="button" aria-expanded="false" aria-controls="ol-drawer" aria-label="Open menu" data-drawer-toggle>
         <span></span>
       </button>
     </div>
   </div>
 
-  <div class="rl-drawer" id="rl-drawer" data-drawer hidden>
+  <div class="ol-drawer" id="ol-drawer" data-drawer hidden>
     <section>
-      <p class="rl-drawer__label">Features</p>
-      <a class="rl-drawer__sub" href="/#websites"><span>Custom websites</span><span>01</span></a>
-      <a class="rl-drawer__sub" href="/#receptionists"><span>AI receptionists</span><span>02</span></a>
-      <a class="rl-drawer__sub" href="/#chatbots"><span>AI chatbots</span><span>03</span></a>
-      <a class="rl-drawer__sub" href="/#seo"><span>SEO</span><span>04</span></a>
-      <a class="rl-drawer__sub" href="/#automation"><span>Automation</span><span>05</span></a>
+      <p class="ol-drawer__label">Features</p>
+      <a class="ol-drawer__sub" href="/features/websites.html"><span>Custom websites</span><span>01</span></a>
+      <a class="ol-drawer__sub" href="/features/ai-receptionists.html"><span>AI receptionists</span><span>02</span></a>
+      <a class="ol-drawer__sub" href="/features/ai-chatbots.html"><span>AI chatbots</span><span>03</span></a>
+      <a class="ol-drawer__sub" href="/features/seo.html"><span>SEO</span><span>04</span></a>
+      <a class="ol-drawer__sub" href="/features/automation.html"><span>Automation</span><span>05</span></a>
     </section>
     <section>
-      <p class="rl-drawer__label">RocketLift</p>
-      <a class="rl-drawer__link" href="/#ecosystem"><span>The system</span><span aria-hidden="true">→</span></a>
-      <a class="rl-drawer__link" href="/work.html"><span>Work</span><span aria-hidden="true">→</span></a>
-      <a class="rl-drawer__link" href="/about.html"><span>About</span><span aria-hidden="true">→</span></a>
-      <a class="rl-drawer__link" href="/#finder"><span>Find what you need</span><span aria-hidden="true">→</span></a>
+      <p class="ol-drawer__label">OrbitLift</p>
+      <a class="ol-drawer__link" href="/features.html"><span>All features</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/work.html"><span>Work</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/about.html"><span>About</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/#finder"><span>Find what you need</span><span aria-hidden="true">→</span></a>
     </section>
-    <a class="rl-btn rl-btn--primary" href="/#start">Start a project</a>
+    <a class="ol-btn ol-btn--primary" href="/#start">Start a project</a>
   </div>
 </header>
+
 <main id="main">
 
-<section class="rl-page-hero">
-  <div class="rl-container">
-    <div class="rl-page-hero__inner">
-      <nav class="rl-crumbs" aria-label="Breadcrumb">
+<section class="ol-page-hero">
+  <div class="ol-container">
+    <div class="ol-page-hero__inner">
+      <nav class="ol-crumbs" aria-label="Breadcrumb">
         <ol style="display:flex;gap:.5rem;flex-wrap:wrap;list-style:none;padding:0;margin:0">
           <li><a href="/">Home</a></li>
           <li aria-current="page">About</li>
         </ol>
       </nav>
-      <h1 class="rl-display">We started with websites.<br>The work kept going further.</h1>
-      <p class="rl-lead">
+      <h1 class="ol-display">We started with websites.<br>The work kept going further.</h1>
+      <p class="ol-lead">
         A great website stops mattering the moment an enquiry lands in an inbox nobody
         checks. So we kept following the customer past the site — into the calls, the
         questions, the follow-ups — and built those too.
@@ -215,13 +247,13 @@
   </div>
 </section>
 
-<section class="rl-section rl-section--tight">
-  <div class="rl-container">
-    <div class="rl-split">
-      <div class="rl-prose" data-reveal>
-        <h2 class="rl-h3">What RocketLift actually is</h2>
+<section class="ol-section ol-section--tight">
+  <div class="ol-container">
+    <div class="ol-split">
+      <div class="ol-prose" data-reveal>
+        <h2 class="ol-h3">What OrbitLift actually is</h2>
         <p>
-          RocketLift is a digital growth and automation company. In practice that means we
+          OrbitLift is a digital growth and automation company. In practice that means we
           design and build five things — websites, SEO, AI receptionists, AI chatbots and
           business automation — and we build them to work as one system rather than five
           invoices.
@@ -232,7 +264,7 @@
           make the next step obvious, a phone nobody can answer at 4pm on a Friday, an
           enquiry that sits for two days because it landed in the wrong inbox.
         </p>
-        <h2 class="rl-h3">How we decide what to build</h2>
+        <h2 class="ol-h3">How we decide what to build</h2>
         <p>
           We start with how enquiries reach you today and where they stall. That usually
           points at one thing worth fixing first. We build that, get it working, and then
@@ -245,10 +277,10 @@
         </p>
       </div>
 
-      <div data-reveal style="--rl-reveal-delay:120ms">
-        <div class="rl-panel" style="padding:clamp(1.25rem,1rem+1.5vw,2rem)">
-          <p class="rl-eyebrow rl-eyebrow--bare rl-eyebrow--ember" style="margin-bottom:1.25rem">What we won't do</p>
-          <ul class="rl-checks">
+      <div data-reveal style="--ol-reveal-delay:120ms">
+        <div class="ol-panel" style="padding:clamp(1.25rem,1rem+1.5vw,2rem)">
+          <p class="ol-eyebrow ol-eyebrow--bare ol-eyebrow--ember" style="margin-bottom:1.25rem">What we won't do</p>
+          <ul class="ol-checks">
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Guarantee a search ranking. Nobody can, and anyone who does is guessing.</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Publish results we haven't verified, or borrow someone else's case study.</li>
             <li><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#i-check"/></svg>Promise an integration before we've scoped whether it's actually possible.</li>
@@ -261,86 +293,88 @@
   </div>
 </section>
 
-<section class="rl-section" aria-labelledby="about-caps">
-  <div class="rl-container">
-    <header class="rl-section-head" data-reveal>
-      <p class="rl-eyebrow">Capabilities</p>
-      <h2 class="rl-h2" id="about-caps">Five parts, one system.</h2>
+<section class="ol-section" aria-labelledby="about-caps">
+  <div class="ol-container">
+    <header class="ol-section-head" data-reveal>
+      <p class="ol-eyebrow">Capabilities</p>
+      <h2 class="ol-h2" id="about-caps">Five parts, one system.</h2>
     </header>
-    <div class="rl-grid rl-grid--3" style="margin-top:clamp(2rem,1rem+3vw,3rem)">
-      <div data-reveal><h3 class="rl-h4"><a class="rl-link" href="/#websites">Custom websites</a></h3><p class="rl-small rl-muted" style="margin-top:.5rem">Designed and coded around how the business sells, not around a category template.</p></div>
-      <div data-reveal><h3 class="rl-h4"><a class="rl-link" href="/#receptionists">AI receptionists</a></h3><p class="rl-small rl-muted" style="margin-top:.5rem">Answers, qualifies and captures the calls that would otherwise go to voicemail.</p></div>
-      <div data-reveal><h3 class="rl-h4"><a class="rl-link" href="/#chatbots">AI chatbots</a></h3><p class="rl-small rl-muted" style="margin-top:.5rem">Answers the question on your site that was about to cost you the enquiry.</p></div>
-      <div data-reveal><h3 class="rl-h4"><a class="rl-link" href="/#seo">SEO</a></h3><p class="rl-small rl-muted" style="margin-top:.5rem">Technical foundations, site structure and content built to be found.</p></div>
-      <div data-reveal><h3 class="rl-h4"><a class="rl-link" href="/#automation">Automation</a></h3><p class="rl-small rl-muted" style="margin-top:.5rem">The repeating steps between an enquiry and a paying customer, built to run themselves.</p></div>
-      <div data-reveal><h3 class="rl-h4"><a class="rl-link" href="/work.html">See the work</a></h3><p class="rl-small rl-muted" style="margin-top:.5rem">Projects, what they needed, and what was built.</p></div>
+    <div class="ol-grid ol-grid--3" style="margin-top:clamp(2rem,1rem+3vw,3rem)">
+      <div data-reveal><h3 class="ol-h4"><a class="ol-link" href="/#websites">Custom websites</a></h3><p class="ol-small ol-muted" style="margin-top:.5rem">Designed and coded around how the business sells, not around a category template.</p></div>
+      <div data-reveal><h3 class="ol-h4"><a class="ol-link" href="/#receptionists">AI receptionists</a></h3><p class="ol-small ol-muted" style="margin-top:.5rem">Answers, qualifies and captures the calls that would otherwise go to voicemail.</p></div>
+      <div data-reveal><h3 class="ol-h4"><a class="ol-link" href="/#chatbots">AI chatbots</a></h3><p class="ol-small ol-muted" style="margin-top:.5rem">Answers the question on your site that was about to cost you the enquiry.</p></div>
+      <div data-reveal><h3 class="ol-h4"><a class="ol-link" href="/#seo">SEO</a></h3><p class="ol-small ol-muted" style="margin-top:.5rem">Technical foundations, site structure and content built to be found.</p></div>
+      <div data-reveal><h3 class="ol-h4"><a class="ol-link" href="/#automation">Automation</a></h3><p class="ol-small ol-muted" style="margin-top:.5rem">The repeating steps between an enquiry and a paying customer, built to run themselves.</p></div>
+      <div data-reveal><h3 class="ol-h4"><a class="ol-link" href="/work.html">See the work</a></h3><p class="ol-small ol-muted" style="margin-top:.5rem">Projects, what they needed, and what was built.</p></div>
     </div>
   </div>
 </section>
 
-<section class="rl-section rl-start" id="start">
-  <div class="rl-container rl-container--narrow">
-    <div class="rl-start__inner" data-reveal>
-      <p class="rl-eyebrow rl-eyebrow--bare rl-eyebrow--ember">Start here</p>
-      <h2 class="rl-display rl-start__title">Let's look at how your customers actually reach you.</h2>
-      <p class="rl-lead rl-start__lead">One conversation. No pitch deck.</p>
-      <div class="rl-btn-row rl-start__cta">
-        <a class="rl-btn rl-btn--primary" href="mailto:hello@rocketlift.com?subject=Hello%20RocketLift">Let's build <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
-        <a class="rl-btn rl-btn--ghost" href="/#finder">Find what you need</a>
+<section class="ol-section ol-start" id="start">
+  <div class="ol-container ol-container--narrow">
+    <div class="ol-start__inner" data-reveal>
+      <p class="ol-eyebrow ol-eyebrow--bare ol-eyebrow--ember">Start here</p>
+      <h2 class="ol-display ol-start__title">Let's look at how your customers actually reach you.</h2>
+      <p class="ol-lead ol-start__lead">One conversation. No pitch deck.</p>
+      <div class="ol-btn-row ol-start__cta">
+        <a class="ol-btn ol-btn--primary" href="mailto:hello@orbitlift.com?subject=Hello%20OrbitLift">Let's build <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
+        <a class="ol-btn ol-btn--ghost" href="/#finder">Find what you need</a>
       </div>
     </div>
   </div>
 </section>
 
 </main>
-<footer class="rl-footer" aria-labelledby="footer-title">
-  <h2 class="rl-sr-only" id="footer-title">Site footer</h2>
-  <div class="rl-container">
-    <div class="rl-footer__grid">
 
-      <div class="rl-footer__brand">
-        <a class="rl-logo" href="/" aria-label="RocketLift home">
-          <svg class="rl-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
-          RocketLift
+<footer class="ol-footer" aria-labelledby="footer-title">
+  <h2 class="ol-sr-only" id="footer-title">Site footer</h2>
+  <div class="ol-container">
+    <div class="ol-footer__grid">
+
+      <div class="ol-footer__brand">
+        <a class="ol-logo" href="/" aria-label="OrbitLift home">
+          <svg class="ol-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
+          OrbitLift
         </a>
-        <p class="rl-small rl-muted rl-footer__blurb">
+        <p class="ol-small ol-muted ol-footer__blurb">
           The digital systems businesses use to attract, convert and serve customers.
         </p>
       </div>
 
-      <nav class="rl-footer__col" aria-label="Features">
-        <h3 class="rl-footer__label">Features</h3>
+      <nav class="ol-footer__col" aria-label="Features">
+        <h3 class="ol-footer__label">Features</h3>
         <ul>
-          <li><a href="/#websites">Custom websites</a></li>
-          <li><a href="/#receptionists">AI receptionists</a></li>
-          <li><a href="/#chatbots">AI chatbots</a></li>
-          <li><a href="/#seo">SEO</a></li>
-          <li><a href="/#automation">Automation</a></li>
+          <li><a href="/features/websites.html">Custom websites</a></li>
+          <li><a href="/features/ai-receptionists.html">AI receptionists</a></li>
+          <li><a href="/features/ai-chatbots.html">AI chatbots</a></li>
+          <li><a href="/features/seo.html">SEO</a></li>
+          <li><a href="/features/automation.html">Automation</a></li>
         </ul>
       </nav>
 
-      <nav class="rl-footer__col" aria-label="Company">
-        <h3 class="rl-footer__label">Company</h3>
+      <nav class="ol-footer__col" aria-label="Company">
+        <h3 class="ol-footer__label">Company</h3>
         <ul>
           <li><a href="/work.html">Work</a></li>
           <li><a href="/about.html">About</a></li>
+          <li><a href="/features.html">All features</a></li>
           <li><a href="/#process">How we work</a></li>
           <li><a href="/#finder">Solution finder</a></li>
         </ul>
       </nav>
 
-      <div class="rl-footer__col">
-        <h3 class="rl-footer__label">Start</h3>
+      <div class="ol-footer__col">
+        <h3 class="ol-footer__label">Start</h3>
         <ul>
-          <li><a href="mailto:hello@rocketlift.com">hello@rocketlift.com</a></li>
+          <li><a href="mailto:hello@orbitlift.com">hello@orbitlift.com</a></li>
         </ul>
-        <a class="rl-btn rl-btn--ghost rl-footer__cta" href="#start">Start a project</a>
+        <a class="ol-btn ol-btn--ghost ol-footer__cta" href="#start">Start a project</a>
       </div>
     </div>
 
-    <div class="rl-footer__base">
-      <p class="rl-mono rl-muted">© <span data-year>2026</span> RocketLift. All rights reserved.</p>
-      <p class="rl-mono rl-muted">Websites · AI receptionists · AI chatbots · SEO · Automation</p>
+    <div class="ol-footer__base">
+      <p class="ol-mono ol-muted">© <span data-year>2026</span> OrbitLift. All rights reserved.</p>
+      <p class="ol-mono ol-muted">Websites · AI receptionists · AI chatbots · SEO · Automation</p>
     </div>
   </div>
 </footer>

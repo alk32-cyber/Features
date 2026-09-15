@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will this work with the software we already use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes directly, sometimes with a workaround, occasionally not at all. We check before quoting rather than after, and we will tell you when the honest answer is no."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if our process changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Then the workflow changes. They are built to be edited, and we document each step in plain language so a change is a conversation rather than an excavation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this going to replace someone&rsquo;s job?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the businesses we work with it replaces the part of a job everybody dislikes \u2014 copying details between places and remembering to chase things."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do we start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With whatever you have redone most times this month. That is almost always the right first automation."
+      }
+    }
+  ]
+}

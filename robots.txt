@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /.build/
 
-Sitemap: https://rocketlift.com/sitemap.xml
+Sitemap: https://orbitlift.com/sitemap.xml

@@ -21,7 +21,7 @@ export function initHeroChain() {
   const stop = () => { clearInterval(timer); timer = null; };
   const start = () => {
     if (timer || reducedMotion()) return;
-    timer = setInterval(advance, 2200);
+    timer = setInterval(advance, 3400);
   };
 
   // Hovering or focusing takes manual control; leaving resumes the cycle.
