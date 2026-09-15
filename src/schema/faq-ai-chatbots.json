@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will it make things up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It answers from the information you supply and is built to say it does not know rather than fill the gap. That is a deliberate trade: fewer confident answers, no invented ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to conversations it cannot finish?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are captured with the visitor&rsquo;s details and passed to you. An unanswered question you can see is far more useful than a visitor who quietly left."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on mobile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is designed for it \u2014 most of these conversations happen on a phone, so the widget is built for a thumb rather than shrunk from desktop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much work is it for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The writing is the work. Most of it already exists in your inbox as answers you have typed a hundred times."
+      }
+    }
+  ]
+}

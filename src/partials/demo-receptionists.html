@@ -1,0 +1,54 @@
+<div class="ol-rec" data-rec data-reveal="edge" data-ambient>
+
+      <div class="ol-tabs ol-rec__scenarios" role="tablist" aria-label="Call scenarios">
+        <button class="ol-tab" role="tab" aria-selected="true" tabindex="0" data-rec-tab="0">After-hours booking</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-rec-tab="1">Pricing question</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-rec-tab="2">Needs a human</button>
+      </div>
+
+      <div class="ol-window ol-rec__window">
+        <div class="ol-window__bar">
+          <span class="ol-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="ol-window__title">orbitlift receptionist</span>
+          <span class="ol-rec__timer ol-mono" data-rec-timer aria-hidden="true">00:00</span>
+          <span class="ol-live ol-rec__live" data-rec-live>On call</span>
+        </div>
+
+        <div class="ol-rec__grid">
+
+          <div class="ol-rec__transcript">
+            <p class="ol-rec__col-label ol-mono">Transcript</p>
+            <ol class="ol-rec__lines" data-rec-lines aria-live="polite" aria-atomic="false">
+              <li class="ol-rec__line ol-rec__line--ai">
+                <span class="ol-rec__who">Receptionist</span>
+                <p class="ol-rec__bubble">Good evening, thanks for calling. We're closed right now, but I can help — what do you need?</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="ol-rec__side">
+            <p class="ol-rec__col-label ol-mono">What it's doing</p>
+            <ol class="ol-rec__steps" data-rec-steps>
+              <li class="ol-rec__step" data-step="0"><span class="ol-rec__step-dot" aria-hidden="true"></span><span>Listening</span></li>
+              <li class="ol-rec__step" data-step="1"><span class="ol-rec__step-dot" aria-hidden="true"></span><span>Understanding the request</span></li>
+              <li class="ol-rec__step" data-step="2"><span class="ol-rec__step-dot" aria-hidden="true"></span><span>Qualifying</span></li>
+              <li class="ol-rec__step" data-step="3"><span class="ol-rec__step-dot" aria-hidden="true"></span><span>Taking the next step</span></li>
+            </ol>
+
+            <div class="ol-rec__capture" data-rec-capture hidden>
+              <p class="ol-rec__col-label ol-mono">Captured</p>
+              <dl class="ol-rec__fields" data-rec-fields></dl>
+              <p class="ol-rec__handoff" data-rec-handoff></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ol-rec__foot">
+          <button class="ol-btn ol-btn--ghost ol-rec__replay" type="button" data-rec-replay>
+            <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16.5 10a6.5 6.5 0 1 1-2.1-4.8M16.5 3.5V7H13"/></svg>
+            Replay
+          </button>
+          <p class="ol-rec__disclaimer ol-mono">Illustrative demonstration · Scripted example, not a live call</p>
+        </div>
+      </div>
+    </div>

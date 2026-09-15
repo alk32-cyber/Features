@@ -1,0 +1,264 @@
+/* ==========================================================================
+   OrbitLift — Layout, atmosphere, the Flow, reveal system
+   ========================================================================== */
+
+.ol-container {
+  width: 100%;
+  max-width: var(--ol-maxw);
+  margin-inline: auto;
+  padding-inline: var(--ol-gutter);
+}
+
+.ol-container--narrow { max-width: 62rem; }
+
+.ol-section {
+  position: relative;
+  padding-block: var(--ol-section-y);
+}
+
+.ol-section--tight { padding-block: clamp(3.5rem, 2rem + 6vw, 7rem); }
+
+/* Section headers: eyebrow / headline / lead, consistent rhythm everywhere */
+.ol-section-head { max-width: 46rem; }
+.ol-section-head > * + * { margin-top: var(--ol-s-5); }
+.ol-section-head .ol-lead { max-width: 40rem; }
+
+.ol-section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+.ol-section-head--center .ol-lead { margin-inline: auto; }
+.ol-section-head--center .ol-eyebrow::before { display: none; }
+
+/* --------------------------------------------------------------------------
+   Atmosphere — environmental lighting, not floating orbs.
+
+   One element, one layered background, painted once. The washes are wide
+   ellipses anchored off the viewport edges so no circular silhouette is ever
+   visible: it reads as light falling into the room rather than as decoration
+   drifting across it.
+
+   It has no looping animation. The only movement is scroll-linked (see the
+   scroll() timeline below), so nothing animates while the page is idle.
+
+   Previously this was three infinitely-drifting radial gradients under a
+   full-bleed mix-blend-mode: overlay layer. The blend forced the layers beneath
+   it to re-composite on every animation frame, which measured as ~2-14% of
+   frames exceeding 20ms during scroll. Both are gone.
+   -------------------------------------------------------------------------- */
+
+.ol-atmos {
+  position: fixed;
+  inset: 0;
+  z-index: var(--ol-z-atmos);
+  pointer-events: none;
+  contain: strict;
+  background:
+    radial-gradient(ellipse 120% 75% at 4% -8%,
+      rgba(124, 58, 237, 0.34) 0%,
+      rgba(109, 59, 234, 0.13) 38%,
+      transparent 68%),
+    radial-gradient(ellipse 95% 70% at 104% 58%,
+      rgba(58, 18, 140, 0.42) 0%,
+      rgba(82, 36, 196, 0.12) 40%,
+      transparent 72%),
+    radial-gradient(ellipse 80% 45% at 62% 112%,
+      rgba(255, 107, 44, 0.12) 0%,
+      transparent 62%);
+}
+
+/* On a light ground the washes stop being light sources and become a faint
+   violet cast in the paper. Same geometry, far less of it. */
+:root[data-theme="light"] .ol-atmos {
+  background:
+    radial-gradient(ellipse 120% 75% at 4% -8%,
+      rgba(124, 58, 237, 0.10) 0%, rgba(109, 59, 234, 0.04) 38%, transparent 68%),
+    radial-gradient(ellipse 95% 70% at 104% 58%,
+      rgba(82, 36, 196, 0.09) 0%, rgba(82, 36, 196, 0.03) 40%, transparent 72%),
+    radial-gradient(ellipse 80% 45% at 62% 112%,
+      rgba(255, 107, 44, 0.07) 0%, transparent 62%);
+}
+
+:root[data-theme="light"] .ol-atmos::after { opacity: 0.025; }
+
+/* Grain: viewport-sized, no blend mode. It stops the wide gradients banding on
+   8-bit displays, which is the only reason it exists. */
+.ol-atmos::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* The light drifts only as the page is scrolled — driven by the scroll
+   progress itself, so it runs on the compositor and costs nothing at rest. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ol-atmos {
+      animation: ol-atmos-drift linear both;
+      animation-timeline: scroll(root block);
+      will-change: transform;
+    }
+  }
+}
+
+@keyframes ol-atmos-drift {
+  from { transform: translate3d(0, 0, 0) scale(1.06); }
+  to   { transform: translate3d(-3vw, 4vh, 0) scale(1.14); }
+}
+
+/* Section-anchored light. Sits inside a section rather than floating over the
+   page, so it belongs to the content it lights. */
+/* --------------------------------------------------------------------------
+   Reveal choreography.
+
+   Not one fade-up applied to everything. Each variant belongs to a kind of
+   content, and the page uses them deliberately:
+
+     mask  — headings. The line wipes up from under its own baseline, the way
+             type is set, rather than sliding in from nowhere.
+     rise  — body copy and supporting text. Short, quiet, quick.
+     edge  — product surfaces (the demo windows). Heavier, with a little scale,
+             so a piece of software feels like it has mass.
+     seq   — ordered lists and steps. Stagger is derived from the item's real
+             index (--i, set once in JS), never from hand-typed delays, so the
+             rhythm always matches the content's order.
+
+   All are one-shot and IntersectionObserver-driven, deliberately NOT
+   scroll-scrubbed: scrubbed reveals reverse when the reader scrolls back up,
+   which reads as the page fighting them.
+   -------------------------------------------------------------------------- */
+
+[data-reveal] {
+  --_dur: var(--ol-d-reveal);
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity var(--_dur) var(--ol-ease-out),
+    transform var(--_dur) var(--ol-ease-out),
+    clip-path var(--_dur) var(--ol-ease-out);
+  transition-delay: var(--ol-reveal-delay, 0ms);
+}
+
+[data-reveal="fade"] { transform: none; }
+
+/* The clip lives on the heading and the motion on an inner span.
+   It must not be a clip-path on the observed element itself: a fully clipped
+   element has an empty intersection rect, so IntersectionObserver never reports
+   it as visible and the heading stays hidden forever. */
+[data-reveal="mask"] {
+  opacity: 1;
+  overflow: hidden;
+  padding-block: 0.12em;
+  transform: none;
+  transition: none;
+}
+
+[data-reveal="mask"] > span {
+  display: block;
+  opacity: 0;
+  transform: translate3d(0, 105%, 0);
+  transition:
+    opacity 620ms var(--ol-ease-out),
+    transform 820ms var(--ol-ease-out);
+}
+
+[data-reveal="mask"].is-in > span {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal="edge"] {
+  --_dur: 1000ms;
+  transform: translate3d(0, 26px, 0) scale(0.988);
+}
+
+[data-reveal="seq"] > * {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 640ms var(--ol-ease-out),
+    transform 640ms var(--ol-ease-out);
+  /* stagger tightens as the list grows so long lists never crawl */
+  transition-delay: calc(var(--i, 0) * var(--ol-stagger, 70ms));
+}
+
+[data-reveal].is-in,
+[data-reveal="seq"].is-in > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Once a reveal has played it must stop claiming compositor memory. */
+[data-reveal].is-in { will-change: auto; }
+
+/* Grids -------------------------------------------------------------------- */
+
+.ol-grid { display: grid; gap: var(--ol-s-6); }
+.ol-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ol-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .ol-split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ol-split { gap: var(--ol-s-7); }
+  .ol-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .ol-split,
+  .ol-grid--3 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion — no decorative movement anywhere
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .ol-atmos { animation: none !important; }
+
+  /* The hero entrance must be neutralised explicitly, not left to a shortened
+     duration: it is driven by animation-delay, and zeroing the duration alone
+     still leaves each element invisible (fill: both) until its delay elapses. */
+  .ol-enter,
+  .ol-line__in {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  [data-reveal],
+  [data-reveal="mask"] > span,
+  [data-reveal="seq"] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Ambient regions — decorative loops stop dead when they scroll out of view.
+   -------------------------------------------------------------------------- */
+
+/* animation-play-state is not an inherited property, so descendants' pseudo
+   elements have to be named explicitly — otherwise a ::after that carries the
+   animation (the workflow token, the live heartbeat) keeps running off-screen. */
+[data-ambient].is-idle,
+[data-ambient].is-idle *,
+[data-ambient].is-idle::before,
+[data-ambient].is-idle::after,
+[data-ambient].is-idle *::before,
+[data-ambient].is-idle *::after {
+  animation-play-state: paused !important;
+}

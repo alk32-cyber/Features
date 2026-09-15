@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+{{robots}}<link rel="canonical" href="{{origin}}{{path}}">
+
+<meta name="theme-color" content="#07060C">
+<meta name="color-scheme" content="dark light">
+
+<script>
+  /* Sets the theme before first paint so the page never flashes the wrong one.
+     Kept inline and tiny on purpose: an external file would be a round trip. */
+  try {
+    var t = localStorage.getItem('ol-theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+</script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OrbitLift">
+<meta property="og:url" content="{{origin}}{{path}}">
+<meta property="og:title" content="{{ogTitle}}">
+<meta property="og:description" content="{{ogDescription}}">
+<meta property="og:image" content="{{origin}}/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ogTitle}}">
+<meta name="twitter:description" content="{{ogDescription}}">
+<meta name="twitter:image" content="{{origin}}/assets/img/og.jpg">
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/schibsted-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
+
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/sections.css">
+
+<script type="module" src="/assets/js/main.js"></script>
+{{jsonld}}</head>
+<body>
+
+<a class="ol-skip-link" href="#main">Skip to content</a>
+
+{{sprite}}
+
+{{atmos}}
+
+{{nav}}

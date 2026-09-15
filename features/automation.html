@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Business Automation — OrbitLift</title>
+<meta name="description" content="Automating the repetitive sequences between an enquiry and a paying customer: lead routing, follow-ups, appointment workflows and the internal processes that currently live in someone’s head.">
+<link rel="canonical" href="https://orbitlift.com/features/automation.html">
+
+<meta name="theme-color" content="#07060C">
+<meta name="color-scheme" content="dark light">
+
+<script>
+  /* Sets the theme before first paint so the page never flashes the wrong one.
+     Kept inline and tiny on purpose: an external file would be a round trip. */
+  try {
+    var t = localStorage.getItem('ol-theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+</script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OrbitLift">
+<meta property="og:url" content="https://orbitlift.com/features/automation.html">
+<meta property="og:title" content="Business Automation — OrbitLift">
+<meta property="og:description" content="The same sequence, every time, forever — without anyone remembering to do it.">
+<meta property="og:image" content="https://orbitlift.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Business Automation — OrbitLift">
+<meta name="twitter:description" content="The same sequence, every time, forever — without anyone remembering to do it.">
+<meta name="twitter:image" content="https://orbitlift.com/assets/img/og.jpg">
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/schibsted-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
+
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/sections.css">
+
+<script type="module" src="/assets/js/main.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will this work with the software we already use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes directly, sometimes with a workaround, occasionally not at all. We check before quoting rather than after, and we will tell you when the honest answer is no."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if our process changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Then the workflow changes. They are built to be edited, and we document each step in plain language so a change is a conversation rather than an excavation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this going to replace someone&rsquo;s job?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the businesses we work with it replaces the part of a job everybody dislikes — copying details between places and remembering to chase things."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do we start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With whatever you have redone most times this month. That is almost always the right first automation."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://orbitlift.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Features",
+      "item": "https://orbitlift.com/features.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Automation",
+      "item": "https://orbitlift.com/features/automation.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="ol-skip-link" href="#main">Skip to content</a>
+
+<!-- Icon sprite ---------------------------------------------------------- -->
+<svg class="ol-sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="i-web" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.75" y="3.75" width="14.5" height="12.5" rx="2.25"/>
+      <path d="M2.75 7.75h14.5M5.5 5.75h.01M7.75 5.75h.01"/>
+    </g>
+    <g id="i-seo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="9" r="5.25"/>
+      <path d="m13 13 4 4M7 9.75l1.6 1.6L11.4 7.9"/>
+    </g>
+    <g id="i-chat" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.25 9.5c0 3.45-3.25 6.25-7.25 6.25a8.6 8.6 0 0 1-2.1-.26L4.2 16.8l.9-2.85A5.87 5.87 0 0 1 2.75 9.5c0-3.45 3.25-6.25 7.25-6.25s7.25 2.8 7.25 6.25Z"/>
+      <path d="M7.25 9.5h.01M10 9.5h.01M12.75 9.5h.01"/>
+    </g>
+    <g id="i-phone" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.4 3.6h2.4l1.3 3.2-1.7 1.2a9.2 9.2 0 0 0 4.1 4.1l1.2-1.7 3.2 1.3v2.4a1.6 1.6 0 0 1-1.75 1.6A12.6 12.6 0 0 1 2.8 5.35 1.6 1.6 0 0 1 4.4 3.6Z"/>
+      <path d="M12.25 2.75a5 5 0 0 1 5 5"/>
+    </g>
+    <g id="i-auto" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="4.75" cy="5.25" r="2"/>
+      <circle cx="15.25" cy="5.25" r="2"/>
+      <circle cx="10" cy="15" r="2"/>
+      <path d="M6.75 5.25h6.5M5.4 7.1 8.9 13.3M14.6 7.1 11.1 13.3"/>
+    </g>
+    <g id="i-check" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m4.5 10.5 3.25 3.25 7.75-8"/>
+    </g>
+    <g id="i-arrow" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 10h12m-4.75-4.75L16 10l-4.75 4.75"/>
+    </g>
+    <g id="i-caret" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 6.5 5 5 5-5"/>
+    </g>
+    <g id="i-logo" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <ellipse cx="10" cy="10" rx="7.2" ry="3.4" transform="rotate(-32 10 10)"/>
+      <circle cx="10" cy="10" r="2.1"/>
+      <circle cx="14.9" cy="6.2" r="1.5" fill="currentColor" stroke="none"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- Environmental lighting ------------------------------------------------ -->
+<div class="ol-atmos" aria-hidden="true"></div>
+
+<header class="ol-nav" data-nav>
+  <div class="ol-nav__inner">
+    <a class="ol-logo" href="/" aria-label="OrbitLift home">
+      <svg class="ol-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
+      OrbitLift
+    </a>
+
+    <nav class="ol-nav__menu" aria-label="Primary">
+      <div class="ol-nav__item" data-mega-root>
+        <button class="ol-nav__link" type="button" aria-expanded="false" aria-controls="mega-features" data-mega-trigger>
+          Features
+          <svg class="ol-nav__caret" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-caret"/></svg>
+        </button>
+
+        <div class="ol-mega" id="mega-features" data-mega-panel>
+          <div class="ol-mega__grid">
+            <a class="ol-mega__item" href="/features/websites.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
+              <span>
+                <span class="ol-mega__title">Custom websites</span>
+                <span class="ol-mega__desc">Designed and built around how the business actually sells.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features/ai-receptionists.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span>
+                <span class="ol-mega__title">AI receptionists</span>
+                <span class="ol-mega__desc">Answers, qualifies and captures the calls you'd otherwise miss.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features/ai-chatbots.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
+              <span>
+                <span class="ol-mega__title">AI chatbots</span>
+                <span class="ol-mega__desc">Answers questions on your site and points people to the next step.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features/seo.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
+              <span>
+                <span class="ol-mega__title">SEO</span>
+                <span class="ol-mega__desc">Technical foundations, structure and content built to be found.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features/automation.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-auto"/></svg></span>
+              <span>
+                <span class="ol-mega__title">Automation</span>
+                <span class="ol-mega__desc">The repetitive steps between an enquiry and a paying customer.</span>
+              </span>
+            </a>
+            <a class="ol-mega__item" href="/features.html">
+              <span class="ol-mega__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <span>
+                <span class="ol-mega__title">All features</span>
+                <span class="ol-mega__desc">How the five parts fit together, and where to start.</span>
+              </span>
+            </a>
+          </div>
+          <p class="ol-mega__foot">
+            <span>Every capability is built to work with the others — or on its own.</span>
+            <a class="ol-link" href="/features.html">Compare all five <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
+          </p>
+        </div>
+      </div>
+
+      <a class="ol-nav__link" href="/work.html">Work</a>
+      <a class="ol-nav__link" href="/about.html">About</a>
+    </nav>
+
+    <div class="ol-nav__actions">
+      <button class="ol-themetoggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <span class="ol-themetoggle__track" aria-hidden="true">
+          <svg class="ol-themetoggle__ico ol-themetoggle__ico--moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 11.8A6.9 6.9 0 0 1 8.2 3.5a6.9 6.9 0 1 0 8.3 8.3Z"/></svg>
+          <svg class="ol-themetoggle__ico ol-themetoggle__ico--sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="3.4"/><path d="M10 2.6v1.6M10 15.8v1.6M17.4 10h-1.6M4.2 10H2.6M15.2 4.8l-1.1 1.1M5.9 14.1l-1.1 1.1M15.2 15.2l-1.1-1.1M5.9 5.9 4.8 4.8"/></svg>
+        </span>
+        <span class="ol-sr-only" data-theme-label>Dark</span>
+      </button>
+      <a class="ol-btn ol-btn--ghost" href="/#finder">Find what you need</a>
+      <a class="ol-btn ol-btn--primary" href="/#start">Start a project</a>
+      <button class="ol-nav__toggle" type="button" aria-expanded="false" aria-controls="ol-drawer" aria-label="Open menu" data-drawer-toggle>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="ol-drawer" id="ol-drawer" data-drawer hidden>
+    <section>
+      <p class="ol-drawer__label">Features</p>
+      <a class="ol-drawer__sub" href="/features/websites.html"><span>Custom websites</span><span>01</span></a>
+      <a class="ol-drawer__sub" href="/features/ai-receptionists.html"><span>AI receptionists</span><span>02</span></a>
+      <a class="ol-drawer__sub" href="/features/ai-chatbots.html"><span>AI chatbots</span><span>03</span></a>
+      <a class="ol-drawer__sub" href="/features/seo.html"><span>SEO</span><span>04</span></a>
+      <a class="ol-drawer__sub" href="/features/automation.html"><span>Automation</span><span>05</span></a>
+    </section>
+    <section>
+      <p class="ol-drawer__label">OrbitLift</p>
+      <a class="ol-drawer__link" href="/features.html"><span>All features</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/work.html"><span>Work</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/about.html"><span>About</span><span aria-hidden="true">→</span></a>
+      <a class="ol-drawer__link" href="/#finder"><span>Find what you need</span><span aria-hidden="true">→</span></a>
+    </section>
+    <a class="ol-btn ol-btn--primary" href="/#start">Start a project</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ol-feat-hero">
+  <div class="ol-container">
+    <nav class="ol-crumbs" aria-label="Breadcrumb">
+      <ol style="display:flex;gap:.5rem;flex-wrap:wrap;list-style:none;padding:0;margin:0">
+        <li><a href="/">Home</a></li>
+        <li><a href="/features.html">Features</a></li>
+        <li aria-current="page">Automation</li>
+      </ol>
+    </nav>
+
+    <div class="ol-feat-hero__inner">
+      <div>
+        <p class="ol-eyebrow ol-eyebrow--ember ol-enter" style="--e:1">Feature 05</p>
+        <h1 class="ol-display ol-enter" style="--e:2">The same sequence, every time, forever.</h1>
+        <p class="ol-lead ol-feat-hero__lead ol-enter" style="--e:3">
+          Every business runs on a handful of sequences that never change and still need a person to babysit them. Those are the ones worth building — not because they are complicated, but because they are relentless.
+        </p>
+        <div class="ol-btn-row ol-enter" style="--e:4">
+          <a class="ol-btn ol-btn--primary" href="/#start">Start a project <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
+          <a class="ol-btn ol-btn--ghost" href="#demo">See a workflow</a>
+        </div>
+      </div>
+
+      <dl class="ol-feat-hero__aside ol-enter" style="--e:5">
+        <div><dt>Best for</dt><dd>Businesses where enquiries stall because the person who handles them was on site all day.</dd></div>
+        <div><dt>Pairs with</dt><dd>AI receptionists — a captured call becomes a booked job with nothing re-typed.</dd></div>
+        <div><dt>Not for</dt><dd>Processes nobody has agreed yet. Automating a broken process just breaks it faster.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section ol-section--tight" id="demo" aria-labelledby="demo-title">
+  <div class="ol-container">
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">The product</p>
+      <h2 class="ol-h2" id="demo-title" data-reveal="mask"><span>Three sequences most businesses already run by hand.</span></h2>
+      <p class="ol-lead" data-reveal>Switch between them and watch the work move. These are shapes, not products — what we build depends on the tools you already use.</p>
+    </header>
+    <div class="ol-flowbuild" data-auto data-reveal="edge" data-ambient>
+      <div class="ol-tabs" role="tablist" aria-label="Automation examples">
+        <button class="ol-tab" role="tab" aria-selected="true" tabindex="0" data-auto-tab="0">New enquiry</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="1">Missed call</button>
+        <button class="ol-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="2">Quote follow-up</button>
+      </div>
+
+      <div class="ol-window ol-flowbuild__window">
+        <div class="ol-window__bar">
+          <span class="ol-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="ol-window__title" data-auto-name>workflow / new-enquiry</span>
+          <span class="ol-live">Running</span>
+        </div>
+
+        <div class="ol-flowbuild__canvas" data-auto-canvas>
+          <ol class="ol-wf" data-auto-nodes>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Trigger</span>
+                <span class="ol-wf__title">Enquiry arrives</span>
+                <span class="ol-wf__desc">From the site form, the chatbot, or a call the receptionist took.</span>
+              </div>
+              <span class="ol-wf__wire" style="--d:0s" aria-hidden="true"></span>
+            </li>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Sort</span>
+                <span class="ol-wf__title">Read and categorise</span>
+                <span class="ol-wf__desc">Service type, location and urgency pulled out of what they actually wrote.</span>
+              </div>
+              <span class="ol-wf__wire" style="--d:0.85s" aria-hidden="true"></span>
+            </li>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Action</span>
+                <span class="ol-wf__title">Route to the right person</span>
+                <span class="ol-wf__desc">Sent where it belongs instead of into one shared inbox nobody owns.</span>
+              </div>
+              <span class="ol-wf__wire" style="--d:1.7s" aria-hidden="true"></span>
+            </li>
+            <li class="ol-wf__step">
+              <div class="ol-wf__node">
+                <span class="ol-wf__kind">Follow-up</span>
+                <span class="ol-wf__title">Chase if it goes quiet</span>
+                <span class="ol-wf__desc">A reminder fires if nothing has happened by the time you said it would.</span>
+              </div>
+            </li>
+          </ol>
+          <p class="ol-flowbuild__outcome" data-auto-outcome>Nothing sits unanswered because one person was on site all day.</p>
+        </div>
+      </div>
+
+      <p class="ol-flowbuild__disclaimer ol-mono">
+        Example workflows. What we build depends on the tools a business already uses — we
+        scope that before we promise it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section" aria-labelledby="spec-title">
+  <div class="ol-container">
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">What's included</p>
+      <h2 class="ol-h2" id="spec-title" data-reveal="mask"><span>We map what you do now, then build the parts that never vary.</span></h2>
+    </header>
+
+    <div class="ol-spec" data-reveal="seq">
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">01</span>
+        <h3>The mapping comes first</h3>
+        <p>An hour working out what actually happens to an enquiry today, including the steps nobody documented. This is where most of the value is, before anything is built.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">02</span>
+        <h3>Routing</h3>
+        <p>Enquiries sorted by what they are and sent where they belong, instead of landing in one shared inbox that everybody can see and nobody owns.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">03</span>
+        <h3>Follow-up that does not rely on memory</h3>
+        <p>A reminder fires when nothing has happened by the time you said it would. Quotes get chased the same way every time.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">04</span>
+        <h3>Appointment and enquiry workflows</h3>
+        <p>Confirmations, reschedules and the handful of messages that have to go out in a set order.</p>
+      </div>
+      <div class="ol-spec__item">
+        <span class="ol-spec__n">05</span>
+        <h3>Internal processes</h3>
+        <p>The recurring admin that currently lives in one person&rsquo;s head and stops entirely when they are on holiday.</p>
+      </div>
+    </div>
+
+    <div class="ol-limits" data-reveal>
+      <h2>What it deliberately doesn't do</h2>
+      <ul>
+        <li>We do not promise an integration before scoping it. What is possible depends on the tools you already run and what they expose.</li>
+        <li>We do not automate a process you have not agreed. If two people do it differently, that is a decision to make before it is a workflow.</li>
+        <li>We do not build something only we can maintain. You get a plain-language description of every step.</li>
+        <li>We do not automate customer conversations that should stay human.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section" aria-labelledby="faq-title">
+  <div class="ol-container">
+    <header class="ol-section-head">
+      <p class="ol-eyebrow" data-reveal="fade">Questions</p>
+      <h2 class="ol-h2" id="faq-title" data-reveal="mask"><span>The things people ask before saying yes.</span></h2>
+    </header>
+
+    <div class="ol-faq" data-reveal>
+      <details class="ol-faq__item">
+        <summary>Will this work with the software we already use?</summary>
+        <p class="ol-faq__answer">Sometimes directly, sometimes with a workaround, occasionally not at all. We check before quoting rather than after, and we will tell you when the honest answer is no.</p>
+      </details>
+      <details class="ol-faq__item">
+        <summary>What if our process changes?</summary>
+        <p class="ol-faq__answer">Then the workflow changes. They are built to be edited, and we document each step in plain language so a change is a conversation rather than an excavation.</p>
+      </details>
+      <details class="ol-faq__item">
+        <summary>Is this going to replace someone&rsquo;s job?</summary>
+        <p class="ol-faq__answer">In the businesses we work with it replaces the part of a job everybody dislikes — copying details between places and remembering to chase things.</p>
+      </details>
+      <details class="ol-faq__item">
+        <summary>Where do we start?</summary>
+        <p class="ol-faq__answer">With whatever you have redone most times this month. That is almost always the right first automation.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section ol-section--tight" aria-labelledby="rel-title">
+  <div class="ol-container">
+    <h2 class="ol-h3" id="rel-title" data-reveal="mask"><span>Works with</span></h2>
+    <div class="ol-related" data-reveal="seq">
+      <a class="ol-related__link" href="/features/ai-receptionists.html">
+        <span class="ol-related__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <span><span class="ol-related__name">AI receptionists</span><br><span class="ol-related__why">Feeds it captured calls</span></span>
+      </a>
+      <a class="ol-related__link" href="/features/ai-chatbots.html">
+        <span class="ol-related__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <span><span class="ol-related__name">AI chatbots</span><br><span class="ol-related__why">Feeds it finished conversations</span></span>
+      </a>
+      <a class="ol-related__link" href="/features/websites.html">
+        <span class="ol-related__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-web"/></svg></span>
+        <span><span class="ol-related__name">Custom websites</span><br><span class="ol-related__why">Where most enquiries originate</span></span>
+      </a>
+      <a class="ol-related__link" href="/features/seo.html">
+        <span class="ol-related__icon"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-seo"/></svg></span>
+        <span><span class="ol-related__name">SEO</span><br><span class="ol-related__why">Increases the volume worth automating</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="ol-section ol-start" id="start">
+  <div class="ol-container ol-container--narrow">
+    <div class="ol-start__inner" data-reveal>
+      <p class="ol-eyebrow ol-eyebrow--bare ol-eyebrow--ember">Start here</p>
+      <h2 class="ol-display ol-start__title">What did you redo five times this week?</h2>
+      <p class="ol-lead ol-start__lead">That is the one to build first. Tell us what it is.</p>
+      <div class="ol-btn-row ol-start__cta">
+        <a class="ol-btn ol-btn--primary" href="mailto:hello@orbitlift.com?subject=Automation%20enquiry">Let's build <span class="ol-btn__arrow" aria-hidden="true">→</span></a>
+        <a class="ol-btn ol-btn--ghost" href="/features.html">All features</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ol-footer" aria-labelledby="footer-title">
+  <h2 class="ol-sr-only" id="footer-title">Site footer</h2>
+  <div class="ol-container">
+    <div class="ol-footer__grid">
+
+      <div class="ol-footer__brand">
+        <a class="ol-logo" href="/" aria-label="OrbitLift home">
+          <svg class="ol-logo__mark" viewBox="0 0 20 20" aria-hidden="true"><use href="#i-logo"/></svg>
+          OrbitLift
+        </a>
+        <p class="ol-small ol-muted ol-footer__blurb">
+          The digital systems businesses use to attract, convert and serve customers.
+        </p>
+      </div>
+
+      <nav class="ol-footer__col" aria-label="Features">
+        <h3 class="ol-footer__label">Features</h3>
+        <ul>
+          <li><a href="/features/websites.html">Custom websites</a></li>
+          <li><a href="/features/ai-receptionists.html">AI receptionists</a></li>
+          <li><a href="/features/ai-chatbots.html">AI chatbots</a></li>
+          <li><a href="/features/seo.html">SEO</a></li>
+          <li><a href="/features/automation.html">Automation</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ol-footer__col" aria-label="Company">
+        <h3 class="ol-footer__label">Company</h3>
+        <ul>
+          <li><a href="/work.html">Work</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/features.html">All features</a></li>
+          <li><a href="/#process">How we work</a></li>
+          <li><a href="/#finder">Solution finder</a></li>
+        </ul>
+      </nav>
+
+      <div class="ol-footer__col">
+        <h3 class="ol-footer__label">Start</h3>
+        <ul>
+          <li><a href="mailto:hello@orbitlift.com">hello@orbitlift.com</a></li>
+        </ul>
+        <a class="ol-btn ol-btn--ghost ol-footer__cta" href="#start">Start a project</a>
+      </div>
+    </div>
+
+    <div class="ol-footer__base">
+      <p class="ol-mono ol-muted">© <span data-year>2026</span> OrbitLift. All rights reserved.</p>
+      <p class="ol-mono ol-muted">Websites · AI receptionists · AI chatbots · SEO · Automation</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

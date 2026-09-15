@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I own the site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The code and the content are yours. We will not hold a site hostage to a retainer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit it myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends what you want to edit. Text and images, yes. Reworking a page layout is design work, and pretending otherwise is how sites slowly fall apart."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a website builder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A builder gives you a category&rsquo;s worth of layouts and stops where they stop. A custom build starts from what you sell and can do things the builder cannot \u2014 which only matters if you need those things."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about hosting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a static-first build, so it runs on any modern host cheaply and fast. We will recommend one and set it up, or deploy to yours."
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://orbitlift.com/#organization",
+      "name": "OrbitLift",
+      "url": "https://orbitlift.com/",
+      "logo": "https://orbitlift.com/assets/img/favicon.svg",
+      "description": "OrbitLift designs and builds connected digital systems for businesses: custom websites, SEO, AI receptionists, AI chatbots and business automation.",
+      "knowsAbout": [
+        "Custom website design and development",
+        "Search engine optimisation",
+        "AI receptionists",
+        "AI chatbots",
+        "Business process automation"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://orbitlift.com/#website",
+      "url": "https://orbitlift.com/",
+      "name": "OrbitLift",
+      "publisher": {
+        "@id": "https://orbitlift.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://orbitlift.com/#webpage",
+      "url": "https://orbitlift.com/",
+      "name": "OrbitLift \u2014 Websites, AI Receptionists, Chatbots, SEO & Automation",
+      "isPartOf": {
+        "@id": "https://orbitlift.com/#website"
+      },
+      "about": {
+        "@id": "https://orbitlift.com/#organization"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Custom website design and development",
+      "serviceType": "Web design and development",
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#websites"
+    },
+    {
+      "@type": "Service",
+      "name": "AI receptionist",
+      "serviceType": "AI customer communication",
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#receptionists"
+    },
+    {
+      "@type": "Service",
+      "name": "AI chatbot",
+      "serviceType": "Website conversational assistant",
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#chatbots"
+    },
+    {
+      "@type": "Service",
+      "name": "Search engine optimisation",
+      "serviceType": "SEO",
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#seo"
+    },
+    {
+      "@type": "Service",
+      "name": "Business automation",
+      "serviceType": "Workflow automation",
+      "provider": {
+        "@id": "https://orbitlift.com/#organization"
+      },
+      "url": "https://orbitlift.com/#automation"
+    }
+  ]
+}
