@@ -1,0 +1,123 @@
+/* ==========================================================================
+   RocketLift — Design tokens
+   Hierarchy: Black establishes the environment. Purple carries the identity.
+   Orange marks action.
+   ========================================================================== */
+
+:root {
+  /* --- Surfaces: near-black with a violet cast, never pure black --------- */
+  --rl-void:        #050409;
+  --rl-black:       #07060C;
+  --rl-surface-1:   #0C0A14;
+  --rl-surface-2:   #12101C;
+  --rl-surface-3:   #191527;
+  --rl-surface-4:   #221D34;
+
+  /* --- Lines ------------------------------------------------------------ */
+  --rl-line:        rgba(167, 139, 250, 0.13);
+  --rl-line-strong: rgba(167, 139, 250, 0.26);
+  --rl-line-soft:   rgba(167, 139, 250, 0.07);
+
+  /* --- Purple: the identity --------------------------------------------- */
+  --rl-violet-100:  #EDE4FF;
+  --rl-violet-200:  #D7C4FF;
+  --rl-violet-300:  #BFA1FF;
+  --rl-violet-400:  #A277FF;
+  --rl-violet-500:  #8B5CF6;
+  --rl-violet-600:  #6D3BEA;
+  --rl-violet-700:  #5324C4;
+  --rl-violet-900:  #2A1163;
+
+  /* --- Orange: the action ----------------------------------------------- */
+  --rl-ember-300:   #FFB682;
+  --rl-ember-400:   #FF9147;
+  --rl-ember-500:   #FF6B2C;
+  --rl-ember-600:   #E8501A;
+
+  /* --- Text ------------------------------------------------------------- */
+  --rl-text:        #F6F3FF;
+  --rl-text-2:      #C9C1E0;   /* ~11:1 on --rl-black */
+  --rl-text-3:      #9B92B8;   /* ~6.4:1 on --rl-black */
+  --rl-text-4:      #6F6788;   /* decorative / disabled only */
+  --rl-on-ember:    #1A0B03;
+  --rl-on-violet:   #FFFFFF;
+
+  /* --- Semantic --------------------------------------------------------- */
+  --rl-live:        #4ADE80;
+
+  /* --- Atmosphere (lighting, not decoration) ---------------------------- */
+  --rl-glow-violet: rgba(124, 58, 237, 0.42);
+  --rl-glow-deep:   rgba(58, 18, 140, 0.55);
+  --rl-glow-ember:  rgba(255, 107, 44, 0.30);
+
+  /* --- Typography ------------------------------------------------------- */
+  --rl-font-display: "Schibsted Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --rl-font-body:    "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --rl-font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Fluid scale — aggressive contrast, nothing sits in the middle */
+  --rl-t-label:   0.6875rem;                              /* 11px mono eyebrow */
+  --rl-t-micro:   0.75rem;                                /* 12px */
+  --rl-t-small:   0.8125rem;                              /* 13px */
+  --rl-t-body:    clamp(0.9375rem, 0.9rem + 0.18vw, 1.0625rem);
+  --rl-t-lead:    clamp(1.0625rem, 0.98rem + 0.4vw, 1.3125rem);
+  --rl-t-h4:      clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --rl-t-h3:      clamp(1.375rem, 1.2rem + 0.75vw, 1.875rem);
+  --rl-t-h2:      clamp(2rem, 1.4rem + 2.1vw, 3.375rem);
+  --rl-t-h1:      clamp(2.5rem, 1.6rem + 3.3vw, 4.5rem);
+
+  --rl-lh-tight:  0.98;
+  --rl-lh-snug:   1.12;
+  --rl-lh-body:   1.62;
+
+  /* --- Space ------------------------------------------------------------ */
+  --rl-s-1: 0.25rem;
+  --rl-s-2: 0.5rem;
+  --rl-s-3: 0.75rem;
+  --rl-s-4: 1rem;
+  --rl-s-5: 1.5rem;
+  --rl-s-6: 2rem;
+  --rl-s-7: 3rem;
+  --rl-s-8: 4rem;
+  --rl-s-9: 6rem;
+  --rl-s-10: 8rem;
+  --rl-section-y: clamp(5rem, 3rem + 9vw, 11rem);
+  --rl-gutter:    clamp(1.25rem, 0.6rem + 2.6vw, 3rem);
+  --rl-maxw:      78rem;
+  --rl-maxw-text: 38rem;
+
+  /* --- Radii: restrained. Product chrome is crisp, not pillowy ---------- */
+  --rl-r-xs: 4px;
+  --rl-r-sm: 7px;
+  --rl-r-md: 11px;
+  --rl-r-lg: 16px;
+  --rl-r-xl: 22px;
+  --rl-r-pill: 999px;
+
+  /* --- Elevation: light, not shadow ------------------------------------- */
+  --rl-lift-1: 0 1px 0 rgba(255,255,255,0.045) inset, 0 10px 30px -12px rgba(0,0,0,0.9);
+  --rl-lift-2: 0 1px 0 rgba(255,255,255,0.06) inset, 0 28px 60px -24px rgba(0,0,0,0.95);
+  --rl-ring-violet: 0 0 0 1px rgba(162,119,255,0.28), 0 0 42px -8px rgba(124,58,237,0.55);
+  --rl-ring-ember:  0 0 0 1px rgba(255,107,44,0.42), 0 0 34px -10px rgba(255,107,44,0.7);
+
+  /* --- Motion ----------------------------------------------------------- */
+  --rl-ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  --rl-ease-in:   cubic-bezier(0.55, 0, 0.45, 1);
+  --rl-ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --rl-d-fast:    140ms;
+  --rl-d-base:    280ms;
+  --rl-d-slow:    620ms;
+  --rl-d-reveal:  900ms;
+
+  /* Set to 0 by the reduced-motion block so JS can read one source of truth */
+  --rl-motion: 1;
+
+  --rl-z-atmos: 0;
+  --rl-z-body: 1;
+  --rl-z-nav: 80;
+  --rl-z-overlay: 90;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --rl-motion: 0; }
+}

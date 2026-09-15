@@ -1,0 +1,13 @@
+{
+  "name": "RocketLift",
+  "short_name": "RocketLift",
+  "description": "The digital systems businesses use to attract, convert and serve customers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07060C",
+  "theme_color": "#07060C",
+  "icons": [
+    { "src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

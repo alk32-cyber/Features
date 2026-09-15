@@ -1,0 +1,12 @@
+{
+  "name": "rocketlift-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RocketLift — the digital systems businesses use to attract, convert and serve customers.",
+  "type": "module",
+  "scripts": {
+    "build:work": "node scripts/build-work.mjs",
+    "dev": "node --run serve",
+    "serve": "npx --yes serve . -l 5173"
+  }
+}

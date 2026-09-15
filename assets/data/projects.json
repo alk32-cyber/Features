@@ -1,0 +1,35 @@
+{
+  "$comment": "Single source of truth for the Work sections. Run `npm run build:work` (or `node scripts/build-work.mjs`) after editing to regenerate the static HTML in index.html and work.html. Entries with \"placeholder\": true render with a visible Placeholder tag — delete them once real projects are added. Never add an `outcome` that has not been verified with the client.",
+  "projects": [
+    {
+      "id": "placeholder-1",
+      "placeholder": true,
+      "title": "Project title",
+      "capabilities": ["Website", "SEO"],
+      "need": "Replace this entry in assets/data/projects.json with a real project.",
+      "built": "Describe the system that was delivered.",
+      "outcome": "",
+      "url": ""
+    },
+    {
+      "id": "placeholder-2",
+      "placeholder": true,
+      "title": "Project title",
+      "capabilities": ["Website", "Chatbot"],
+      "need": "Replace this entry in assets/data/projects.json with a real project.",
+      "built": "Describe the system that was delivered.",
+      "outcome": "",
+      "url": ""
+    },
+    {
+      "id": "placeholder-3",
+      "placeholder": true,
+      "title": "Project title",
+      "capabilities": ["Automation"],
+      "need": "Replace this entry in assets/data/projects.json with a real project.",
+      "built": "Describe the system that was delivered.",
+      "outcome": "",
+      "url": ""
+    }
+  ]
+}

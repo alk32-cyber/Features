@@ -1,0 +1,257 @@
+/* ==========================================================================
+   RocketLift — Layout, atmosphere, the Flow, reveal system
+   ========================================================================== */
+
+.rl-shell { position: relative; z-index: var(--rl-z-body); }
+
+.rl-container {
+  width: 100%;
+  max-width: var(--rl-maxw);
+  margin-inline: auto;
+  padding-inline: var(--rl-gutter);
+}
+
+.rl-container--wide { max-width: 90rem; }
+.rl-container--narrow { max-width: 62rem; }
+
+.rl-section {
+  position: relative;
+  padding-block: var(--rl-section-y);
+}
+
+.rl-section--tight { padding-block: clamp(3.5rem, 2rem + 6vw, 7rem); }
+
+/* Section headers: eyebrow / headline / lead, consistent rhythm everywhere */
+.rl-section-head { max-width: 46rem; }
+.rl-section-head > * + * { margin-top: var(--rl-s-5); }
+.rl-section-head .rl-lead { max-width: 40rem; }
+
+.rl-section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+.rl-section-head--center .rl-lead { margin-inline: auto; }
+.rl-section-head--center .rl-eyebrow::before { display: none; }
+
+/* --------------------------------------------------------------------------
+   Atmosphere — purple as lighting.
+   Pre-blurred radial gradients, animated with transform only.
+   -------------------------------------------------------------------------- */
+
+.rl-atmos {
+  position: fixed;
+  inset: 0;
+  z-index: var(--rl-z-atmos);
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+}
+
+.rl-atmos__field {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  opacity: 0.85;
+}
+
+.rl-atmos__field--a {
+  width: 82vw; height: 82vw;
+  max-width: 1100px; max-height: 1100px;
+  top: -34vw; left: -18vw;
+  background: radial-gradient(circle at 50% 50%,
+    var(--rl-glow-violet) 0%,
+    rgba(109, 59, 234, 0.20) 34%,
+    rgba(58, 18, 140, 0.08) 58%,
+    transparent 72%);
+  animation: rl-drift-a 34s var(--rl-ease-in) infinite alternate;
+}
+
+.rl-atmos__field--b {
+  width: 70vw; height: 70vw;
+  max-width: 900px; max-height: 900px;
+  top: 34vh; right: -22vw;
+  background: radial-gradient(circle at 50% 50%,
+    var(--rl-glow-deep) 0%,
+    rgba(82, 36, 196, 0.16) 38%,
+    transparent 70%);
+  animation: rl-drift-b 44s var(--rl-ease-in) infinite alternate;
+}
+
+.rl-atmos__field--ember {
+  width: 46vw; height: 46vw;
+  max-width: 560px; max-height: 560px;
+  bottom: -16vw; left: 30vw;
+  background: radial-gradient(circle at 50% 50%,
+    var(--rl-glow-ember) 0%,
+    rgba(255, 107, 44, 0.07) 40%,
+    transparent 68%);
+  opacity: 0.5;
+  animation: rl-drift-c 52s var(--rl-ease-in) infinite alternate;
+}
+
+@keyframes rl-drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(14vw, 10vh, 0) scale(1.18); }
+}
+@keyframes rl-drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1.1); }
+  to   { transform: translate3d(-16vw, -14vh, 0) scale(0.92); }
+}
+@keyframes rl-drift-c {
+  from { transform: translate3d(0, 0, 0) scale(0.9); }
+  to   { transform: translate3d(10vw, -8vh, 0) scale(1.25); }
+}
+
+/* Cursor-following violet light. JS sets --rl-cx/--rl-cy. Pointer-fine only. */
+.rl-atmos__cursor {
+  position: absolute;
+  top: 0; left: 0;
+  width: 46rem; height: 46rem;
+  margin: -23rem 0 0 -23rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(162, 119, 255, 0.11) 0%,
+    rgba(124, 58, 237, 0.05) 35%,
+    transparent 66%);
+  opacity: 0;
+  transform: translate3d(var(--rl-cx, 50vw), var(--rl-cy, 50vh), 0);
+  transition: opacity 800ms var(--rl-ease);
+  will-change: transform;
+}
+
+.rl-atmos__cursor.is-live { opacity: 1; }
+
+/* Grain — inline SVG turbulence, fixed, cheap, stops the gradients banding */
+.rl-grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* --------------------------------------------------------------------------
+   The Flow — the luminous spine threading the page together
+   -------------------------------------------------------------------------- */
+
+.rl-flow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.rl-flow svg { width: 100%; height: 100%; }
+
+.rl-flow__line {
+  fill: none;
+  stroke: url(#rl-flow-grad);
+  stroke-width: 1.25;
+  opacity: 0.4;
+}
+
+.rl-flow__pulse {
+  fill: none;
+  stroke: url(#rl-pulse-grad);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 90 2400;
+  animation: rl-pulse-travel 9s linear infinite;
+}
+
+.rl-flow__pulse--delay { animation-delay: -4.5s; opacity: 0.6; }
+
+@keyframes rl-pulse-travel {
+  from { stroke-dashoffset: 2490; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Divider used between major movements of the page */
+.rl-rule {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--rl-line-strong) 22%,
+    var(--rl-line-strong) 78%,
+    transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Reveal system — IntersectionObserver adds .is-in
+   -------------------------------------------------------------------------- */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity var(--rl-d-reveal) var(--rl-ease-out),
+    transform var(--rl-d-reveal) var(--rl-ease-out);
+  transition-delay: var(--rl-reveal-delay, 0ms);
+}
+
+[data-reveal="fade"] { transform: none; }
+[data-reveal="left"] { transform: translate3d(-24px, 0, 0); }
+[data-reveal="scale"] { transform: translate3d(0, 26px, 0) scale(0.985); }
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Grids -------------------------------------------------------------------- */
+
+.rl-grid { display: grid; gap: var(--rl-s-6); }
+.rl-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rl-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.rl-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.rl-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+
+.rl-split--reverse > :first-child { order: 2; }
+
+.rl-stack > * + * { margin-top: var(--rl-s-4); }
+.rl-stack-lg > * + * { margin-top: var(--rl-s-6); }
+
+@media (max-width: 960px) {
+  .rl-split, .rl-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rl-split { gap: var(--rl-s-7); }
+  .rl-split--reverse > :first-child { order: 0; }
+  .rl-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .rl-split,
+  .rl-grid--2, .rl-grid--3, .rl-grid--4 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion — no decorative movement anywhere
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .rl-atmos__field,
+  .rl-flow__pulse { animation: none !important; }
+
+  .rl-atmos__cursor { display: none; }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
