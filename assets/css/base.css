@@ -153,15 +153,14 @@ hr { border: 0; border-top: 1px solid var(--rl-line); }
 
 .rl-measure { max-width: var(--rl-maxw-text); }
 
-/* A single word of emphasis inside a headline. Used sparingly — never as
-   decoration on every heading. */
+/* One emphasised phrase per headline, and only where the phrase is the point.
+   This was a purple-to-orange gradient clipped to the text; across a line break
+   the gradient restarted mid-word, which looked like a rendering fault rather
+   than a decision. Solid colour with a rule beneath it says the same thing and
+   survives any wrap. */
 .rl-hl {
-  background: linear-gradient(97deg, var(--rl-violet-200) 4%, var(--rl-violet-400) 48%, var(--rl-ember-400) 96%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@supports not (background-clip: text) {
-  .rl-hl { color: var(--rl-violet-300); }
+  color: var(--rl-violet-300);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(transparent 82%, rgba(162, 119, 255, 0.28) 82%);
 }

@@ -22,7 +22,6 @@ const NEUTRAL_OUTCOME = 'Outcomes are only listed where they have been verified.
 
 function renderProject(project, index) {
   const placeholder = Boolean(project.placeholder);
-  const delay = index ? ` style="--rl-reveal-delay:${index * 90}ms"` : '';
   const caps = (project.capabilities || []).map(escape).join(' · ');
 
   const tags = [
@@ -38,7 +37,7 @@ function renderProject(project, index) {
     ? `<strong>Outcome.</strong> ${escape(project.outcome)}`
     : NEUTRAL_OUTCOME;
 
-  return `      <li class="rl-work__item${placeholder ? ' is-placeholder' : ''}" data-reveal${delay}>
+  return `      <li class="rl-work__item${placeholder ? ' is-placeholder' : ''}${index === 0 ? ' rl-work__item--lead' : ''}">
         <article class="rl-work__card">
           <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
           <div class="rl-work__body">
@@ -58,7 +57,7 @@ function renderList(projects) {
   if (!projects.length) {
     return `    <p class="rl-work-empty rl-lead rl-muted">Case studies are being written up. In the meantime, ask us what we've built.</p>`;
   }
-  return `    <ul class="rl-work" data-work>\n${projects.map(renderProject).join('\n')}\n    </ul>`;
+  return `    <ul class="rl-work" data-work data-reveal="seq">\n${projects.map(renderProject).join('\n')}\n    </ul>`;
 }
 
 async function inject(file, projects) {

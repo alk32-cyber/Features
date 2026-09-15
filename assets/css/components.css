@@ -32,7 +32,10 @@
     color var(--rl-d-base) var(--rl-ease);
 }
 
-.rl-btn:active { transform: translateY(1px); }
+.rl-btn:active {
+  transform: translateY(1px) scale(0.985);
+  transition-duration: 70ms;
+}
 
 .rl-btn__arrow {
   display: inline-block;
@@ -46,7 +49,7 @@
   --_bg: var(--rl-ember-500);
   --_fg: var(--rl-on-ember);
   font-weight: 650;
-  box-shadow: 0 0 0 1px rgba(255,138,61,0.5), 0 14px 40px -16px rgba(255,107,44,0.85);
+  box-shadow: 0 0 0 1px rgba(255,138,61,0.45), 0 10px 28px -14px rgba(255,107,44,0.7);
 }
 
 .rl-btn--primary::before {
@@ -61,7 +64,7 @@
 }
 
 .rl-btn--primary:hover {
-  box-shadow: 0 0 0 1px rgba(255,160,90,0.7), 0 18px 48px -14px rgba(255,107,44,0.95);
+  box-shadow: 0 0 0 1px rgba(255,160,90,0.65), 0 14px 34px -12px rgba(255,107,44,0.85);
 }
 
 .rl-btn--primary:hover::before { opacity: 1; }
@@ -73,8 +76,8 @@
 }
 
 .rl-btn--ghost:hover {
-  --_bg: rgba(162,119,255,0.09);
-  box-shadow: inset 0 0 0 1px rgba(162,119,255,0.4), 0 0 30px -12px rgba(124,58,237,0.7);
+  --_bg: rgba(162,119,255,0.1);
+  box-shadow: inset 0 0 0 1px rgba(162,119,255,0.45);
 }
 
 /* Tertiary — the quiet inline CTA that ends each demo section */
@@ -166,11 +169,26 @@
   transition: color var(--rl-d-fast) var(--rl-ease), background-color var(--rl-d-fast) var(--rl-ease);
 }
 
-.rl-nav__link:hover,
-.rl-nav__link[aria-expanded="true"] {
-  color: var(--rl-text);
-  background: rgba(162,119,255,0.08);
+.rl-nav__link { position: relative; }
+
+.rl-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.3rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--rl-d-base) var(--rl-ease);
 }
+
+.rl-nav__link:hover,
+.rl-nav__link[aria-expanded="true"] { color: var(--rl-text); }
+
+.rl-nav__link:hover::after,
+.rl-nav__link[aria-expanded="true"]::after { transform: scaleX(1); }
 
 .rl-nav__caret {
   width: 9px; height: 9px;
@@ -194,7 +212,7 @@
   background: linear-gradient(180deg, var(--rl-surface-2), var(--rl-surface-1));
   border: 1px solid var(--rl-line-strong);
   border-radius: var(--rl-r-lg);
-  box-shadow: var(--rl-lift-2), 0 0 70px -20px rgba(109,59,234,0.5);
+  box-shadow: var(--rl-lift-2);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -383,7 +401,7 @@
   position: relative;
   background: linear-gradient(180deg, var(--rl-surface-2), var(--rl-surface-1) 60%);
   border-radius: var(--rl-r-lg);
-  box-shadow: inset 0 0 0 1px var(--rl-line-strong), var(--rl-lift-2), 0 0 90px -34px rgba(109,59,234,0.75);
+  box-shadow: inset 0 0 0 1px var(--rl-line-strong), var(--rl-lift-2);
   overflow: hidden;
 }
 
@@ -415,6 +433,7 @@
 
 /* Live indicator — the small orange heartbeat on running demos */
 .rl-live {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -430,14 +449,30 @@
   width: 6px; height: 6px;
   border-radius: 50%;
   background: currentColor;
-  box-shadow: 0 0 0 0 rgba(255,107,44,0.6);
+}
+
+/* The pulse ring is a separate, absolutely positioned pseudo animating only
+   transform and opacity. It was a box-shadow spread animation, which repaints
+   the element on every frame for as long as it is on screen — measurably one
+   style recalculation per frame with the page completely idle. */
+.rl-live::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  width: 10px; height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0;
+  transform: scale(0.55);
   animation: rl-heartbeat 2.4s var(--rl-ease) infinite;
 }
 
 @keyframes rl-heartbeat {
-  0%   { box-shadow: 0 0 0 0 rgba(255,107,44,0.55); }
-  70%  { box-shadow: 0 0 0 7px rgba(255,107,44,0); }
-  100% { box-shadow: 0 0 0 0 rgba(255,107,44,0); }
+  0%   { transform: scale(0.55); opacity: 0.5; }
+  70%  { transform: scale(2.2);  opacity: 0; }
+  100% { transform: scale(2.2);  opacity: 0; }
 }
 
 /* --------------------------------------------------------------------------
@@ -505,14 +540,6 @@
 }
 
 .rl-badge--ember { color: var(--rl-ember-400); box-shadow: inset 0 0 0 1px rgba(255,107,44,0.32); }
-.rl-badge--violet { color: var(--rl-violet-300); box-shadow: inset 0 0 0 1px var(--rl-line-strong); }
-
-.rl-num {
-  font-family: var(--rl-font-mono);
-  font-variant-numeric: tabular-nums;
-  color: var(--rl-ember-400);
-}
-
 /* Checklist used in feature columns */
 .rl-checks { display: grid; gap: 0.7rem; }
 

@@ -92,14 +92,8 @@
   </defs>
 </svg>
 
-<!-- Atmosphere ----------------------------------------------------------- -->
-<div class="rl-atmos" aria-hidden="true">
-  <div class="rl-atmos__field rl-atmos__field--a"></div>
-  <div class="rl-atmos__field rl-atmos__field--b"></div>
-  <div class="rl-atmos__field rl-atmos__field--ember"></div>
-  <div class="rl-atmos__cursor" data-cursor-glow></div>
-</div>
-<div class="rl-grain" aria-hidden="true"></div>
+<!-- Environmental lighting ------------------------------------------------ -->
+<div class="rl-atmos" aria-hidden="true"></div>
 
 <!-- Navigation ----------------------------------------------------------- -->
 <header class="rl-nav" data-nav>
@@ -225,8 +219,8 @@
   <div class="rl-container">
     <h2 class="rl-sr-only" id="projects-title">Selected projects</h2>
     <!-- work:start · generated from assets/data/projects.json by scripts/build-work.mjs -->
-    <ul class="rl-work" data-work>
-      <li class="rl-work__item is-placeholder" data-reveal>
+    <ul class="rl-work" data-work data-reveal="seq">
+      <li class="rl-work__item is-placeholder rl-work__item--lead">
         <article class="rl-work__card">
           <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
           <div class="rl-work__body">
@@ -241,7 +235,7 @@
           </div>
         </article>
       </li>
-      <li class="rl-work__item is-placeholder" data-reveal style="--rl-reveal-delay:90ms">
+      <li class="rl-work__item is-placeholder">
         <article class="rl-work__card">
           <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
           <div class="rl-work__body">
@@ -256,7 +250,7 @@
           </div>
         </article>
       </li>
-      <li class="rl-work__item is-placeholder" data-reveal style="--rl-reveal-delay:180ms">
+      <li class="rl-work__item is-placeholder">
         <article class="rl-work__card">
           <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
           <div class="rl-work__body">

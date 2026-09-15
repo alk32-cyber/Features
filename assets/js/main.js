@@ -6,7 +6,7 @@
 import { qs } from './util.js';
 import { initReveal } from './reveal.js';
 import { initNav } from './nav.js';
-import { initAtmosphere } from './atmos.js';
+import { initAmbient } from './ambient.js';
 import { initHeroChain } from './hero-chain.js';
 import { initEcosystem } from './ecosystem.js';
 import { initReceptionist } from './receptionist.js';
@@ -15,14 +15,16 @@ import { initSeo } from './seo.js';
 import { initCraft } from './craft.js';
 import { initAutomation } from './automation.js';
 import { initFinder } from './finder.js';
+import { initPointer } from './pointer.js';
 
 const boot = () => {
   const year = qs('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());
 
   [
-    initNav, initReveal, initAtmosphere, initHeroChain, initEcosystem,
-    initReceptionist, initChatbot, initSeo, initCraft, initAutomation, initFinder
+    initNav, initReveal, initAmbient, initHeroChain, initEcosystem,
+    initReceptionist, initChatbot, initSeo, initCraft, initAutomation, initFinder,
+    initPointer
   ].forEach((init) => {
     try {
       init();

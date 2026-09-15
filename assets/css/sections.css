@@ -307,8 +307,6 @@
    Shared feature-section furniture
    -------------------------------------------------------------------------- */
 
-.rl-feature__notes { margin-top: clamp(2rem, 1rem + 3vw, 3.5rem); }
-.rl-feature__notes h3 { margin-bottom: 0.5rem; }
 .rl-feature__cta { margin-top: clamp(1.75rem, 1rem + 2vw, 2.75rem); }
 
 /* --------------------------------------------------------------------------
@@ -329,9 +327,13 @@
 }
 
 .rl-rec__transcript {
+  display: flex;
+  flex-direction: column;
   padding: var(--rl-s-5);
   border-right: 1px solid var(--rl-line);
-  min-height: 19rem;
+  /* Fixed height with internal scrolling: the transcript fills as the call runs,
+     and the page below it never moves. */
+  height: 24rem;
 }
 
 .rl-rec__side { padding: var(--rl-s-5); }
@@ -345,7 +347,20 @@
   color: var(--rl-text-4);
 }
 
-.rl-rec__lines { display: grid; gap: var(--rl-s-4); }
+.rl-rec__lines {
+  display: grid;
+  align-content: start;
+  gap: var(--rl-s-4);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rl-rec__lines { scroll-behavior: auto; }
+}
 
 .rl-rec__line {
   display: grid;
@@ -482,7 +497,7 @@
 
 @media (max-width: 860px) {
   .rl-rec__grid { grid-template-columns: minmax(0, 1fr); }
-  .rl-rec__transcript { border-right: 0; border-bottom: 1px solid var(--rl-line); min-height: 13rem; }
+  .rl-rec__transcript { border-right: 0; border-bottom: 1px solid var(--rl-line); height: 17rem; }
   .rl-rec__foot { flex-direction: column; align-items: stretch; gap: var(--rl-s-3); }
   .rl-rec__disclaimer { text-align: left; }
   .rl-rec__replay { width: 100%; }
@@ -545,7 +560,7 @@
   max-width: 24rem;
   border-radius: var(--rl-r-lg);
   background: linear-gradient(180deg, var(--rl-surface-2), var(--rl-surface-1));
-  box-shadow: inset 0 0 0 1px var(--rl-line-strong), var(--rl-lift-2), 0 0 80px -28px rgba(109,59,234,0.85);
+  box-shadow: inset 0 0 0 1px var(--rl-line-strong), var(--rl-lift-2);
   overflow: hidden;
 }
 
@@ -741,7 +756,16 @@
 .rl-seo__stack {
   display: flex;
   flex-direction: column-reverse;
+  /* flex-end is the visual top in column-reverse: the stack hangs from the top
+     of its reserved box, so an expanding layer grows downward into space that
+     is already reserved instead of pushing the layers above it. */
+  justify-content: flex-end;
   gap: 0.4rem;
+  /* Height is reserved for the tallest expanded layer. Without this the stack
+     grows and shrinks as the reader scrolls through the steps, shifting every
+     section below it — it measured as the largest single source of layout
+     shift on mobile. */
+  min-height: 19rem;
 }
 
 .rl-seo__plane {
@@ -891,6 +915,7 @@
 @media (max-width: 960px) {
   .rl-seo { grid-template-columns: minmax(0, 1fr); }
   .rl-seo__visual { position: static; margin-bottom: var(--rl-s-6); }
+  .rl-seo__stack { min-height: 17rem; }
   .rl-seo__steps { gap: var(--rl-s-6); padding-block: 0; }
 }
 
@@ -1284,6 +1309,7 @@
 }
 
 .rl-work__card {
+  position: relative;
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100%;
@@ -1296,12 +1322,16 @@
 
 .rl-work__item:hover .rl-work__card {
   transform: translateY(-3px);
-  box-shadow: inset 0 0 0 1px var(--rl-line-strong), 0 0 60px -22px rgba(109,59,234,0.9);
+  box-shadow: inset 0 0 0 1px var(--rl-line-strong);
 }
 
 .rl-work__visual {
   position: relative;
+  /* width is pinned so the max-height cap shortens the box instead of
+     narrowing it to preserve the ratio */
+  width: 100%;
   aspect-ratio: 16 / 10;
+  max-height: 14rem;
   background:
     radial-gradient(120% 90% at 20% 10%, rgba(109,59,234,0.35), transparent 60%),
     radial-gradient(90% 80% at 85% 90%, rgba(255,107,44,0.16), transparent 62%),
@@ -1312,7 +1342,10 @@
 
 .rl-work__glyph {
   position: absolute;
-  inset: 18% 18% auto 18%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: min(42%, 9rem);
   aspect-ratio: 1;
   border-radius: 50%;
   background: conic-gradient(from 210deg, rgba(162,119,255,0.5), rgba(255,107,44,0.35), rgba(162,119,255,0.5));
@@ -1514,7 +1547,7 @@
   background:
     radial-gradient(120% 130% at 50% 0%, rgba(109,59,234,0.3), transparent 62%),
     linear-gradient(180deg, var(--rl-surface-2), var(--rl-surface-1));
-  box-shadow: inset 0 0 0 1px var(--rl-line-strong), 0 0 120px -50px rgba(124,58,237,1);
+  box-shadow: inset 0 0 0 1px var(--rl-line-strong);
 }
 
 .rl-start__inner > * + * { margin-top: var(--rl-s-5); }
@@ -1632,8 +1665,234 @@
     min-height: 2.75rem;
   }
 
-  .rl-link { padding-block: 0.7rem; }
+  /* short link text ("SEO") must still be a full-size target */
+  .rl-link { padding-block: 0.7rem; min-width: 2.75rem; }
   .rl-logo { padding-block: 0.5rem; }
   .rl-eco__node { padding: 0.75rem; }
   .rl-bot__reset { width: 2.5rem; height: 2.5rem; }
+}
+
+/* ==========================================================================
+   Motion layer
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero entrance.
+
+   Plays once, on load, in reading order — eyebrow, each headline line, the
+   product card, then the supporting copy and the actions. It is deliberately
+   not a scroll reveal: the hero is already in view, and a fade-up on something
+   the reader is looking at is the single most template-like gesture on the web.
+
+   The headline wipes line by line from behind its own baseline. --e is the
+   element's place in the sequence, so the rhythm is declared in the markup
+   rather than hidden in a pile of transition-delays.
+   -------------------------------------------------------------------------- */
+
+.rl-line { display: block; overflow: hidden; padding-block: 0.06em; }
+.rl-line__in { display: block; }
+
+.rl-enter {
+  opacity: 0;
+  animation: rl-enter-rise 820ms var(--rl-ease-out) both;
+  animation-delay: calc(var(--e, 0) * 90ms + 60ms);
+}
+
+.rl-line__in.rl-enter {
+  animation-name: rl-enter-line;
+  animation-duration: 940ms;
+}
+
+.rl-enter--stage {
+  animation-name: rl-enter-stage;
+  animation-duration: 1150ms;
+}
+
+@keyframes rl-enter-rise {
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes rl-enter-line {
+  from { opacity: 0; transform: translate3d(0, 105%, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes rl-enter-stage {
+  from { opacity: 0; transform: translate3d(0, 34px, 0) scale(0.975); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* The hero card drifts a little slower than the page it sits on. Driven by the
+   view timeline, so it is compositor-side and exactly reversible — it cannot
+   drift out of sync however fast the reader scrolls. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rl-chain-window {
+      animation: rl-hero-drift linear both;
+      animation-timeline: view(block);
+      animation-range: cover 18% cover 100%;
+    }
+  }
+}
+
+@keyframes rl-hero-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, -44px, 0); }
+}
+
+/* --------------------------------------------------------------------------
+   The current.
+
+   A single line running down the left of the five capability sections, filling
+   as the reader moves through them. It is the one piece of pure decoration on
+   the page and it earns its place: the whole argument is that these five things
+   are one connected system, and this is the only element that says so
+   continuously rather than in words.
+   -------------------------------------------------------------------------- */
+
+.rl-thread { position: relative; }
+
+.rl-current {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--rl-gutter) * 0.42);
+  width: 1px;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, var(--rl-line) 6%, var(--rl-line) 94%, transparent);
+}
+
+.rl-current::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+  background: linear-gradient(180deg,
+    transparent,
+    var(--rl-violet-500) 8%,
+    var(--rl-violet-300) 55%,
+    var(--rl-ember-500) 100%);
+  box-shadow: 0 0 12px -2px rgba(162,119,255,0.7);
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rl-current::after {
+      animation: rl-current-fill linear both;
+      animation-timeline: view(block);
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+@keyframes rl-current-fill {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@media (max-width: 1180px) { .rl-current { display: none; } }
+
+/* --------------------------------------------------------------------------
+   Editorial notes row — replaces a three-up card grid.
+   Offsets are a composition, not a stagger: each column starts lower than the
+   last, so the row reads left to right the way the sentence does.
+   -------------------------------------------------------------------------- */
+
+.rl-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 1rem + 2vw, 3.5rem);
+  margin-top: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+
+.rl-notes__item {
+  display: grid;
+  gap: 0.7rem;
+  align-content: start;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rl-line-strong);
+}
+
+.rl-notes__item:nth-child(2) { margin-top: clamp(1rem, 0.5rem + 1.5vw, 2.5rem); }
+.rl-notes__item:nth-child(3) { margin-top: clamp(2rem, 1rem + 3vw, 5rem); }
+
+.rl-notes__idx {
+  font-size: var(--rl-t-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rl-ember-400);
+}
+
+.rl-notes__title {
+  font-family: var(--rl-font-display);
+  font-size: var(--rl-t-h4);
+  font-weight: 650;
+  letter-spacing: -0.022em;
+  color: var(--rl-text);
+}
+
+.rl-notes__body { font-size: var(--rl-t-small); line-height: 1.6; color: var(--rl-text-3); }
+
+@media (max-width: 760px) {
+  .rl-notes { grid-template-columns: minmax(0, 1fr); gap: var(--rl-s-5); }
+  .rl-notes__item:nth-child(2),
+  .rl-notes__item:nth-child(3) { margin-top: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   Work: the lead project is given real weight instead of three equal thirds.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 900px) {
+  .rl-work { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .rl-work__item--lead { grid-column: 1 / -1; }
+
+  .rl-work__item--lead .rl-work__card {
+    grid-template-rows: none;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .rl-work__item--lead .rl-work__visual {
+    aspect-ratio: auto;
+    height: 100%;
+    max-height: none;
+    min-height: 15rem;
+    border-bottom: 0;
+    border-right: 1px solid var(--rl-line);
+  }
+
+  .rl-work__item--lead .rl-work__body {
+    align-content: center;
+    padding: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+  }
+
+  .rl-work__item--lead .rl-work__body h3 { font-size: var(--rl-t-h3); }
+}
+
+/* --------------------------------------------------------------------------
+   Pointer response on cards. Cheap: two custom properties written on
+   pointermove, consumed by a compositor-friendly radial highlight. No layout,
+   no JS animation loop, and nothing at all on touch devices.
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .rl-work__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--rl-d-base) var(--rl-ease);
+    background: radial-gradient(
+      16rem 16rem at var(--px, 50%) var(--py, 50%),
+      rgba(162, 119, 255, 0.14),
+      transparent 70%);
+  }
+
+  .rl-work__item:hover .rl-work__card::before { opacity: 1; }
 }

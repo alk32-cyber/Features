@@ -160,14 +160,8 @@
   </defs>
 </svg>
 
-<!-- Atmosphere ----------------------------------------------------------- -->
-<div class="rl-atmos" aria-hidden="true">
-  <div class="rl-atmos__field rl-atmos__field--a"></div>
-  <div class="rl-atmos__field rl-atmos__field--b"></div>
-  <div class="rl-atmos__field rl-atmos__field--ember"></div>
-  <div class="rl-atmos__cursor" data-cursor-glow></div>
-</div>
-<div class="rl-grain" aria-hidden="true"></div>
+<!-- Environmental lighting ------------------------------------------------ -->
+<div class="rl-atmos" aria-hidden="true"></div>
 
 <!-- Navigation ----------------------------------------------------------- -->
 <header class="rl-nav" data-nav>
@@ -276,32 +270,32 @@
   <div class="rl-container rl-hero__inner">
 
     <div class="rl-hero__copy">
-      <p class="rl-eyebrow rl-eyebrow--bare" data-reveal="fade">Digital systems · Built end to end</p>
+      <p class="rl-eyebrow rl-eyebrow--bare rl-enter" style="--e:1">Digital systems · Built end to end</p>
 
-      <h1 class="rl-display rl-hero__title" id="hero-title" data-reveal style="--rl-reveal-delay:80ms">
-        Your website is the front door.<br>
-        We build <span class="rl-hl">the system</span> behind it.
+      <h1 class="rl-display rl-hero__title" id="hero-title">
+        <span class="rl-line"><span class="rl-line__in rl-enter" style="--e:2">Your website is the front door.</span></span>
+        <span class="rl-line"><span class="rl-line__in rl-enter" style="--e:3">We build <span class="rl-hl">the system</span> behind it.</span></span>
       </h1>
 
-      <p class="rl-lead rl-hero__lead" data-reveal style="--rl-reveal-delay:170ms">
+      <p class="rl-lead rl-hero__lead rl-enter" style="--e:5">
         RocketLift builds the connected system a business uses to get found, win customers,
         and handle the work that comes next — websites, SEO, AI receptionists, chatbots and
         automation, designed as one thing instead of five.
       </p>
 
-      <div class="rl-btn-row rl-hero__cta" data-reveal style="--rl-reveal-delay:250ms">
+      <div class="rl-btn-row rl-hero__cta rl-enter" style="--e:6">
         <a class="rl-btn rl-btn--primary" href="#start">
           Start a project <span class="rl-btn__arrow" aria-hidden="true">→</span>
         </a>
         <a class="rl-btn rl-btn--ghost" href="#finder">Find what you need</a>
       </div>
 
-      <p class="rl-hero__note rl-small rl-muted" data-reveal="fade" style="--rl-reveal-delay:330ms">
+      <p class="rl-hero__note rl-small rl-muted rl-enter" style="--e:7">
         Start with one part. Add the rest when it earns its place.
       </p>
     </div>
 
-    <div class="rl-hero__stage" data-reveal="scale" style="--rl-reveal-delay:220ms">
+    <div class="rl-hero__stage rl-enter rl-enter--stage" style="--e:4" data-ambient>
       <div class="rl-window rl-chain-window">
         <div class="rl-window__bar">
           <span class="rl-window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -386,10 +380,10 @@
 <section class="rl-section" id="ecosystem" aria-labelledby="eco-title">
   <div class="rl-container">
 
-    <header class="rl-section-head" data-reveal>
-      <p class="rl-eyebrow">The RocketLift system</p>
-      <h2 class="rl-h2" id="eco-title">Everything your business needs to grow online — in one place.</h2>
-      <p class="rl-lead">
+    <header class="rl-section-head">
+      <p class="rl-eyebrow" data-reveal="fade">The RocketLift system</p>
+      <h2 class="rl-h2" id="eco-title" data-reveal="mask"><span>Everything your business needs to grow online — in one place.</span></h2>
+      <p class="rl-lead" data-reveal>
         Most businesses buy these five things from five different people, and then spend
         their time being the glue. We build them to fit together from the start.
       </p>
@@ -397,7 +391,7 @@
 
     <div class="rl-eco" data-eco>
 
-      <div class="rl-eco__stage-wrap" data-reveal="scale">
+      <div class="rl-eco__stage-wrap" data-reveal="edge">
         <div class="rl-eco__stage">
           <svg class="rl-eco__wires" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
             <defs>
@@ -538,20 +532,24 @@
   </div>
 </section>
 
+<!-- The five capabilities, threaded by one continuous current ----------- -->
+<div class="rl-thread">
+  <span class="rl-current" aria-hidden="true"></span>
+
 <!-- 03 · AI RECEPTIONISTS ------------------------------------------------ -->
 <section class="rl-section rl-feature" id="receptionists" aria-labelledby="rec-title">
   <div class="rl-container">
 
-    <header class="rl-section-head" data-reveal>
-      <p class="rl-eyebrow rl-eyebrow--ember">AI receptionists</p>
-      <h2 class="rl-h2" id="rec-title">Someone answers. Every time.</h2>
-      <p class="rl-lead">
+    <header class="rl-section-head">
+      <p class="rl-eyebrow rl-eyebrow--ember" data-reveal="fade">AI receptionists</p>
+      <h2 class="rl-h2" id="rec-title" data-reveal="mask"><span>Someone answers. Every time.</span></h2>
+      <p class="rl-lead" data-reveal>
         A missed call is usually a customer who called the next business on the list.
         Here's what happens instead. Pick a situation and watch it play out.
       </p>
     </header>
 
-    <div class="rl-rec" data-rec data-reveal="scale">
+    <div class="rl-rec" data-rec data-reveal="edge" data-ambient>
 
       <div class="rl-tabs rl-rec__scenarios" role="tablist" aria-label="Call scenarios">
         <button class="rl-tab" role="tab" aria-selected="true" tabindex="0" data-rec-tab="0">After-hours booking</button>
@@ -606,20 +604,23 @@
       </div>
     </div>
 
-    <div class="rl-feature__notes rl-grid rl-grid--3" data-reveal>
-      <div>
-        <h3 class="rl-h4">It knows your business</h3>
-        <p class="rl-small rl-muted">Hours, services, coverage area, pricing approach, what you don't do — written by you, spoken in a consistent voice.</p>
-      </div>
-      <div>
-        <h3 class="rl-h4">It asks the right questions</h3>
-        <p class="rl-small rl-muted">The three or four things you'd want to know before booking a job — captured every time, in the same order.</p>
-      </div>
-      <div>
-        <h3 class="rl-h4">It knows when to stop</h3>
-        <p class="rl-small rl-muted">Anything outside what it's been set up to handle gets taken down and passed to a person rather than guessed at.</p>
-      </div>
-    </div>
+    <ul class="rl-notes" data-reveal="seq">
+      <li class="rl-notes__item">
+        <span class="rl-notes__idx rl-mono">i</span>
+        <h3 class="rl-notes__title">It knows your business</h3>
+        <p class="rl-notes__body">Hours, services, coverage area, pricing approach, what you don't do — written by you, spoken in a consistent voice.</p>
+      </li>
+      <li class="rl-notes__item">
+        <span class="rl-notes__idx rl-mono">ii</span>
+        <h3 class="rl-notes__title">It asks the right questions</h3>
+        <p class="rl-notes__body">The three or four things you'd want to know before booking a job — captured every time, in the same order.</p>
+      </li>
+      <li class="rl-notes__item">
+        <span class="rl-notes__idx rl-mono">iii</span>
+        <h3 class="rl-notes__title">It knows when to stop</h3>
+        <p class="rl-notes__body">Anything outside what it's been set up to handle gets taken down and passed to a person rather than guessed at.</p>
+      </li>
+    </ul>
 
     <p class="rl-feature__cta" data-reveal="fade">
       <a class="rl-link" href="#start">Talk through how your calls come in <span class="rl-btn__arrow" aria-hidden="true">→</span></a>
@@ -632,10 +633,10 @@
   <div class="rl-container">
 
     <div class="rl-split rl-bot__split">
-      <div class="rl-section-head" data-reveal>
-        <p class="rl-eyebrow">AI chatbots</p>
-        <h2 class="rl-h2" id="bot-title">The question they didn't want to phone about.</h2>
-        <p class="rl-lead">
+      <div class="rl-section-head">
+        <p class="rl-eyebrow" data-reveal="fade">AI chatbots</p>
+        <h2 class="rl-h2" id="bot-title" data-reveal="mask"><span>The question they didn't want to phone about.</span></h2>
+        <p class="rl-lead" data-reveal>
           "Do you cover my area?" "How long does it take?" "Do I need to be home?"
           People won't call to ask — they'll just leave. A chatbot that actually knows your
           business answers in five seconds and keeps the conversation going.
@@ -651,7 +652,7 @@
         </p>
       </div>
 
-      <div class="rl-bot__stage" data-reveal="scale">
+      <div class="rl-bot__stage" data-reveal="edge" data-ambient>
         <div class="rl-bot__backdrop" aria-hidden="true">
           <span class="rl-bot__bd-bar"></span>
           <span class="rl-bot__bd-h"></span>
@@ -697,10 +698,10 @@
 <section class="rl-section rl-feature" id="seo" aria-labelledby="seo-title">
   <div class="rl-container">
 
-    <header class="rl-section-head" data-reveal>
-      <p class="rl-eyebrow">SEO</p>
-      <h2 class="rl-h2" id="seo-title">Search engines read the parts your customers never see.</h2>
-      <p class="rl-lead">
+    <header class="rl-section-head">
+      <p class="rl-eyebrow" data-reveal="fade">SEO</p>
+      <h2 class="rl-h2" id="seo-title" data-reveal="mask"><span>Search engines read the parts your customers never see.</span></h2>
+      <p class="rl-lead" data-reveal>
         SEO isn't a keyword you sprinkle on at the end. It's four layers underneath the
         website, and they have to be built, not bolted on.
       </p>
@@ -772,8 +773,8 @@
         <p class="rl-seo__caption rl-mono rl-muted">Each layer only works if the one under it does.</p>
       </div>
 
-      <ol class="rl-seo__steps">
-        <li class="rl-seo__step" data-seo-step="0" data-reveal>
+      <ol class="rl-seo__steps" data-reveal="seq">
+        <li class="rl-seo__step" data-seo-step="0">
           <span class="rl-seo__step-n rl-mono">01</span>
           <h3 class="rl-h4">Fix the foundation</h3>
           <p class="rl-small rl-muted">
@@ -781,7 +782,7 @@
             is quietly blocking search engines from reading the site at all.
           </p>
         </li>
-        <li class="rl-seo__step" data-seo-step="1" data-reveal>
+        <li class="rl-seo__step" data-seo-step="1">
           <span class="rl-seo__step-n rl-mono">02</span>
           <h3 class="rl-h4">Give it a shape</h3>
           <p class="rl-small rl-muted">
@@ -789,7 +790,7 @@
             tell what the site is about — with internal links that lead somewhere useful.
           </p>
         </li>
-        <li class="rl-seo__step" data-seo-step="2" data-reveal>
+        <li class="rl-seo__step" data-seo-step="2">
           <span class="rl-seo__step-n rl-mono">03</span>
           <h3 class="rl-h4">Answer the real questions</h3>
           <p class="rl-small rl-muted">
@@ -797,7 +798,7 @@
             local phrasing, if you serve an area rather than the whole country.
           </p>
         </li>
-        <li class="rl-seo__step" data-seo-step="3" data-reveal>
+        <li class="rl-seo__step" data-seo-step="3">
           <span class="rl-seo__step-n rl-mono">04</span>
           <h3 class="rl-h4">Make it easier to find</h3>
           <p class="rl-small rl-muted">
@@ -819,16 +820,16 @@
 <section class="rl-section rl-feature" id="websites" aria-labelledby="web-title">
   <div class="rl-container">
 
-    <header class="rl-section-head" data-reveal>
-      <p class="rl-eyebrow">Custom websites</p>
-      <h2 class="rl-h2" id="web-title">Still the thing everything else plugs into.</h2>
-      <p class="rl-lead">
+    <header class="rl-section-head">
+      <p class="rl-eyebrow" data-reveal="fade">Custom websites</p>
+      <h2 class="rl-h2" id="web-title" data-reveal="mask"><span>Still the thing everything else plugs into.</span></h2>
+      <p class="rl-lead" data-reveal>
         Four things separate a website that works from one that just exists. Switch between
         them — the frame below changes to show what each one actually means.
       </p>
     </header>
 
-    <div class="rl-craft" data-craft data-reveal="scale">
+    <div class="rl-craft" data-craft data-reveal="edge" data-ambient>
 
       <div class="rl-craft__controls">
         <div class="rl-tabs" role="tablist" aria-label="Craft dimensions">
@@ -895,16 +896,16 @@
 <section class="rl-section rl-feature" id="automation" aria-labelledby="auto-title">
   <div class="rl-container">
 
-    <header class="rl-section-head" data-reveal>
-      <p class="rl-eyebrow rl-eyebrow--ember">Automation</p>
-      <h2 class="rl-h2" id="auto-title">The same sequence, every time, forever.</h2>
-      <p class="rl-lead">
+    <header class="rl-section-head">
+      <p class="rl-eyebrow rl-eyebrow--ember" data-reveal="fade">Automation</p>
+      <h2 class="rl-h2" id="auto-title" data-reveal="mask"><span>The same sequence, every time, forever.</span></h2>
+      <p class="rl-lead" data-reveal>
         Every business runs on a handful of sequences that never change and always need a
         human to babysit them. Those are the ones worth building.
       </p>
     </header>
 
-    <div class="rl-flowbuild" data-auto data-reveal="scale">
+    <div class="rl-flowbuild" data-auto data-reveal="edge" data-ambient>
       <div class="rl-tabs" role="tablist" aria-label="Automation examples">
         <button class="rl-tab" role="tab" aria-selected="true" tabindex="0" data-auto-tab="0">New enquiry</button>
         <button class="rl-tab" role="tab" aria-selected="false" tabindex="-1" data-auto-tab="1">Missed call</button>
@@ -968,6 +969,8 @@
   </div>
 </section>
 
+</div>
+
 <hr class="rl-rule rl-container" aria-hidden="true">
 
 <!-- 08 · PROCESS --------------------------------------------------------- -->
@@ -975,16 +978,16 @@
   <div class="rl-container">
     <div class="rl-proc">
       <header class="rl-proc__head" data-reveal>
-        <p class="rl-eyebrow">How RocketLift works</p>
-        <h2 class="rl-h2" id="proc-title">Four steps. No mystery.</h2>
+        <p class="rl-eyebrow" data-reveal="fade">How RocketLift works</p>
+        <h2 class="rl-h2" id="proc-title" data-reveal="mask"><span>Four steps. No mystery.</span></h2>
         <p class="rl-lead rl-measure">
           We don't start with a template or a package. We start by understanding how the
           business actually operates, then build the part that matters most first.
         </p>
       </header>
 
-      <ol class="rl-proc__list">
-        <li class="rl-proc__item" data-reveal>
+      <ol class="rl-proc__list" data-reveal="seq">
+        <li class="rl-proc__item">
           <span class="rl-proc__n rl-mono">01</span>
           <div>
             <h3 class="rl-h3">Understand</h3>
@@ -994,7 +997,7 @@
             </p>
           </div>
         </li>
-        <li class="rl-proc__item" data-reveal>
+        <li class="rl-proc__item">
           <span class="rl-proc__n rl-mono">02</span>
           <div>
             <h3 class="rl-h3">Build</h3>
@@ -1004,7 +1007,7 @@
             </p>
           </div>
         </li>
-        <li class="rl-proc__item" data-reveal>
+        <li class="rl-proc__item">
           <span class="rl-proc__n rl-mono">03</span>
           <div>
             <h3 class="rl-h3">Connect</h3>
@@ -1014,7 +1017,7 @@
             </p>
           </div>
         </li>
-        <li class="rl-proc__item" data-reveal>
+        <li class="rl-proc__item">
           <span class="rl-proc__n rl-mono">04</span>
           <div>
             <h3 class="rl-h3">Improve</h3>
@@ -1033,18 +1036,18 @@
 <section class="rl-section" id="work" aria-labelledby="work-title">
   <div class="rl-container">
 
-    <header class="rl-section-head" data-reveal>
-      <p class="rl-eyebrow">Real work</p>
-      <h2 class="rl-h2" id="work-title">Built, shipped, in use.</h2>
-      <p class="rl-lead">
+    <header class="rl-section-head">
+      <p class="rl-eyebrow" data-reveal="fade">Real work</p>
+      <h2 class="rl-h2" id="work-title" data-reveal="mask"><span>Built, shipped, in use.</span></h2>
+      <p class="rl-lead" data-reveal>
         What the business needed, what we built, and what it does now. We only publish
         outcomes we can actually stand behind.
       </p>
     </header>
 
     <!-- work:start · generated from assets/data/projects.json by scripts/build-work.mjs -->
-    <ul class="rl-work" data-work>
-      <li class="rl-work__item is-placeholder" data-reveal>
+    <ul class="rl-work" data-work data-reveal="seq">
+      <li class="rl-work__item is-placeholder rl-work__item--lead">
         <article class="rl-work__card">
           <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
           <div class="rl-work__body">
@@ -1059,7 +1062,7 @@
           </div>
         </article>
       </li>
-      <li class="rl-work__item is-placeholder" data-reveal style="--rl-reveal-delay:90ms">
+      <li class="rl-work__item is-placeholder">
         <article class="rl-work__card">
           <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
           <div class="rl-work__body">
@@ -1074,7 +1077,7 @@
           </div>
         </article>
       </li>
-      <li class="rl-work__item is-placeholder" data-reveal style="--rl-reveal-delay:180ms">
+      <li class="rl-work__item is-placeholder">
         <article class="rl-work__card">
           <div class="rl-work__visual" aria-hidden="true"><span class="rl-work__glyph"></span></div>
           <div class="rl-work__body">
@@ -1103,13 +1106,13 @@
   <div class="rl-container">
     <div class="rl-why__grid">
 
-      <header class="rl-why__head" data-reveal>
-        <p class="rl-eyebrow">Why RocketLift</p>
-        <h2 class="rl-h2" id="why-title">Built around the business. Not around a package.</h2>
+      <header class="rl-why__head">
+        <p class="rl-eyebrow" data-reveal="fade">Why RocketLift</p>
+        <h2 class="rl-h2" id="why-title" data-reveal="mask"><span>Built around the business. Not around a package.</span></h2>
       </header>
 
-      <div class="rl-why__items">
-        <article class="rl-why__item" data-reveal>
+      <div class="rl-why__items" data-reveal="seq">
+        <article class="rl-why__item">
           <h3 class="rl-h3">No two businesses need the same system</h3>
           <p class="rl-muted">
             A trades business losing calls after 5pm and a studio losing enquiries on a slow
@@ -1118,7 +1121,7 @@
           </p>
         </article>
 
-        <article class="rl-why__item" data-reveal>
+        <article class="rl-why__item">
           <h3 class="rl-h3">Custom, not configured</h3>
           <p class="rl-muted">
             Templates make every business in a category look and behave identically. Our work
@@ -1127,7 +1130,7 @@
           </p>
         </article>
 
-        <article class="rl-why__item" data-reveal>
+        <article class="rl-why__item">
           <h3 class="rl-h3">One team for all five parts</h3>
           <p class="rl-muted">
             The website developer, the SEO consultant and the automation contractor all
@@ -1136,7 +1139,7 @@
           </p>
         </article>
 
-        <article class="rl-why__item" data-reveal>
+        <article class="rl-why__item">
           <h3 class="rl-h3">We only claim what we've built</h3>
           <p class="rl-muted">
             No guaranteed rankings, no borrowed case studies, no integrations that exist in a
@@ -1153,16 +1156,16 @@
 <section class="rl-section rl-finder" id="finder" aria-labelledby="finder-title">
   <div class="rl-container">
 
-    <header class="rl-section-head rl-section-head--center" data-reveal>
-      <p class="rl-eyebrow rl-eyebrow--ember">Solution finder</p>
-      <h2 class="rl-h2" id="finder-title">What does your business actually need?</h2>
-      <p class="rl-lead">
+    <header class="rl-section-head rl-section-head--center">
+      <p class="rl-eyebrow rl-eyebrow--ember" data-reveal="fade">Solution finder</p>
+      <h2 class="rl-h2" id="finder-title" data-reveal="mask"><span>What does your business actually need?</span></h2>
+      <p class="rl-lead" data-reveal>
         Pick whatever sounds like your week. We'll tell you which parts are worth building
         first — and which you can leave alone.
       </p>
     </header>
 
-    <div class="rl-finder__panel rl-panel rl-panel--lit" data-finder data-reveal="scale">
+    <div class="rl-finder__panel rl-panel rl-panel--lit" data-finder data-reveal="edge">
       <div class="rl-finder__grid">
 
         <fieldset class="rl-finder__needs">
@@ -1227,7 +1230,7 @@
 <section class="rl-section rl-start" id="start" aria-labelledby="start-title">
   <div class="rl-container rl-container--narrow">
     <div class="rl-start__inner" data-reveal>
-      <p class="rl-eyebrow rl-eyebrow--bare rl-eyebrow--ember">Start here</p>
+      <p class="rl-eyebrow rl-eyebrow--bare rl-eyebrow--ember" data-reveal="fade">Start here</p>
       <h2 class="rl-display rl-start__title" id="start-title">
         Build a better digital system for your business.
       </h2>

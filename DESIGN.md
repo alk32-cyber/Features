@@ -123,26 +123,57 @@ surface decoration.
 ## 5. Motion system
 
 Every animation answers "what does this explain?" If the answer is "nothing," it is cut.
+That test removed a cursor-following glow and three drifting background orbs from an
+earlier revision of this build.
 
-| Motion | Job |
-|---|---|
-| Flow pulses | Show that the capabilities are one connected system |
-| Scroll reveals | Pace reading; stagger draws the eye down the argument |
-| Product demos | Replace explanatory paragraphs entirely |
-| Hover/active states | Confirm interactivity |
-| Section-enter orange | Mark "this is the live part" |
+### Choreography, not one reveal
 
-**Performance rules, enforced in the code:**
+There is no single fade-up applied to everything — that uniformity is the most reliable
+tell of a generated page. Four variants exist, each belonging to a kind of content:
 
-- Animate `transform` and `opacity` only. No animated `filter`, `box-shadow`, or layout properties.
-- No scroll event handlers doing layout work — `IntersectionObserver` for reveals, one shared
-  `requestAnimationFrame` loop for the two parallax/cursor effects.
-- Demos are inert until visible and pause when scrolled away (`IntersectionObserver`).
-- Cursor glow is disabled on touch devices and never runs on low-power/reduced-motion.
-- `prefers-reduced-motion: reduce` disables all decorative motion, stops all auto-playing
-  demos, and renders every reveal in its final state. Demos remain operable by click.
+| Variant | Used for | Behaviour |
+|---|---|---|
+| `mask` | Section headings | The line wipes up from behind its own baseline |
+| `rise` (default) | Body copy, supporting text | Short, quiet, quick |
+| `edge` | Product demo surfaces | Heavier, slight scale — software with mass |
+| `seq` | Ordered lists and steps | Stagger derived from the item's real index |
 
----
+Stagger for `seq` comes from each child's DOM index, written once as `--i` at init, and
+tightens automatically past six items. There are no hand-typed per-element delays anywhere.
+
+Reveals are one-shot and observer-driven, deliberately **not** scroll-scrubbed: a scrubbed
+reveal reverses when the reader scrolls back, which reads as the page fighting them.
+
+The hero does not use any of this. It plays a one-time entrance in reading order, because a
+scroll reveal on content already in view is motion for its own sake.
+
+### Scroll-linked motion
+
+Three effects are tied to scroll position rather than to a clock — the atmosphere's drift,
+the hero card's parallax, and the current that fills down the side of the capability
+sections. All three are native CSS `scroll()` / `view()` timelines: the compositor drives
+them, they cannot desynchronise from fast scrolling, and they are completely inert when the
+page is still. Browsers without scroll timelines get the static composition, which is a
+finished design on its own.
+
+### Performance rules, enforced in the code
+
+- Animate `transform` and `opacity` only. A `box-shadow` pulse on the live indicator was
+  measured costing one style recalculation per frame and was rebuilt as a scaled pseudo.
+- No scroll handlers doing layout work. The only `scroll` listener on the site toggles one
+  class on the nav, rAF-batched.
+- Pointer effects are delegated, passive, and coalesced into a single rAF; the element's box
+  is measured on enter, never during the move.
+- Decorative loops pause when their region leaves the viewport (`[data-ambient]`).
+  `animation-play-state` does not inherit into pseudo-elements, so descendants' `::before`
+  and `::after` are named explicitly — without that the workflow token kept running
+  off-screen.
+- Anything animating a container's height is a layout shift. The SEO layer stack reserves
+  its tallest state and hangs from the top of that box; the call transcript is a
+  fixed-height panel that scrolls internally rather than a box that grows.
+- `prefers-reduced-motion: reduce` disables all decorative motion and stops autoplay. The
+  hero entrance is neutralised explicitly rather than by shortening its duration, because it
+  is delay-driven and a zero duration alone would leave it invisible until the delay elapsed.
 
 ## 6. Copy strategy
 

@@ -110,6 +110,8 @@ export function initReceptionist() {
     bubble.textContent = text;
     li.append(label, bubble);
     linesEl.append(li);
+    // keep the newest line in view inside the fixed-height panel
+    linesEl.scrollTop = linesEl.scrollHeight;
   };
 
   const startClock = () => {
