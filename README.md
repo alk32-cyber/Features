@@ -62,6 +62,19 @@ These are enforced by the copy, not by the code, and they matter:
 - No guaranteed search rankings. The SEO copy is written to describe practice, not promise
   position.
 
+## Deploying
+
+The site is static with no build step, so any static host works. `vercel.json` is
+included and configures long-lived immutable caching for fonts and images, short
+`stale-while-revalidate` caching for CSS/JS, and a strict Content-Security-Policy
+(`default-src 'self'`) that the site satisfies with no exceptions — there are no
+third-party scripts, fonts or images.
+
+```bash
+vercel deploy            # preview
+vercel deploy --prod     # production
+```
+
 ## Things to set before launch
 
 - `hello@rocketlift.com` appears in the footer and both CTA buttons — swap for the real
